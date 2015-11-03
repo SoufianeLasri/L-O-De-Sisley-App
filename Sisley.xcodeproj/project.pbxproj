@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		944E81011BD9A43B002D3F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81001BD9A43B002D3F20 /* AppDelegate.swift */; };
-		944E81031BD9A43B002D3F20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81021BD9A43B002D3F20 /* ViewController.swift */; };
+		944E81031BD9A43B002D3F20 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81021BD9A43B002D3F20 /* MainController.swift */; };
 		944E81061BD9A43B002D3F20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944E81041BD9A43B002D3F20 /* Main.storyboard */; };
 		944E81091BD9A43B002D3F20 /* Sisley.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 944E81071BD9A43B002D3F20 /* Sisley.xcdatamodeld */; };
 		944E810B1BD9A43B002D3F20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944E810A1BD9A43B002D3F20 /* Assets.xcassets */; };
 		944E810E1BD9A43B002D3F20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944E810C1BD9A43B002D3F20 /* LaunchScreen.storyboard */; };
 		944E81191BD9A43B002D3F20 /* SisleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81181BD9A43B002D3F20 /* SisleyTests.swift */; };
 		944E81241BD9A43B002D3F20 /* SisleyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81231BD9A43B002D3F20 /* SisleyUITests.swift */; };
+		ADD9C6971BE8E6EB0026B529 /* Connection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADD9C6961BE8E6EB0026B529 /* Connection.storyboard */; settings = {ASSET_TAGS = (); }; };
+		ADD9C6991BE8E7050026B529 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9C6981BE8E7050026B529 /* ConnectionController.swift */; settings = {ASSET_TAGS = (); }; };
+		ADD9C69C1BE8EBD70026B529 /* Quiz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */; settings = {ASSET_TAGS = (); }; };
+		ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9C69E1BE8EC0D0026B529 /* QuizController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,7 @@
 /* Begin PBXFileReference section */
 		944E80FD1BD9A43B002D3F20 /* Sisley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sisley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944E81001BD9A43B002D3F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		944E81021BD9A43B002D3F20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		944E81021BD9A43B002D3F20 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		944E81051BD9A43B002D3F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		944E81081BD9A43B002D3F20 /* Sisley.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sisley.xcdatamodel; sourceTree = "<group>"; };
 		944E810A1BD9A43B002D3F20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		944E811F1BD9A43B002D3F20 /* SisleyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SisleyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		944E81231BD9A43B002D3F20 /* SisleyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SisleyUITests.swift; sourceTree = "<group>"; };
 		944E81251BD9A43B002D3F20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADD9C6961BE8E6EB0026B529 /* Connection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Connection.storyboard; sourceTree = "<group>"; };
+		ADD9C6981BE8E7050026B529 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
+		ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Quiz.storyboard; sourceTree = "<group>"; };
+		ADD9C69E1BE8EC0D0026B529 /* QuizController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +107,8 @@
 		944E80FF1BD9A43B002D3F20 /* Sisley */ = {
 			isa = PBXGroup;
 			children = (
+				ADD9C6931BE8E6260026B529 /* storyboard */,
 				944E81001BD9A43B002D3F20 /* AppDelegate.swift */,
-				944E81021BD9A43B002D3F20 /* ViewController.swift */,
-				944E81041BD9A43B002D3F20 /* Main.storyboard */,
 				944E810A1BD9A43B002D3F20 /* Assets.xcassets */,
 				944E810C1BD9A43B002D3F20 /* LaunchScreen.storyboard */,
 				944E810F1BD9A43B002D3F20 /* Info.plist */,
@@ -126,6 +133,43 @@
 				944E81251BD9A43B002D3F20 /* Info.plist */,
 			);
 			path = SisleyUITests;
+			sourceTree = "<group>";
+		};
+		ADD9C6931BE8E6260026B529 /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				ADD9C69A1BE8E8170026B529 /* Quiz */,
+				ADD9C6951BE8E6CF0026B529 /* Connection */,
+				ADD9C6941BE8E64F0026B529 /* Main */,
+			);
+			name = storyboard;
+			sourceTree = "<group>";
+		};
+		ADD9C6941BE8E64F0026B529 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				944E81041BD9A43B002D3F20 /* Main.storyboard */,
+				944E81021BD9A43B002D3F20 /* MainController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		ADD9C6951BE8E6CF0026B529 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				ADD9C6961BE8E6EB0026B529 /* Connection.storyboard */,
+				ADD9C6981BE8E7050026B529 /* ConnectionController.swift */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
+		ADD9C69A1BE8E8170026B529 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */,
+				ADD9C69E1BE8EC0D0026B529 /* QuizController.swift */,
+			);
+			name = Quiz;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +276,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD9C6971BE8E6EB0026B529 /* Connection.storyboard in Resources */,
 				944E810E1BD9A43B002D3F20 /* LaunchScreen.storyboard in Resources */,
+				ADD9C69C1BE8EBD70026B529 /* Quiz.storyboard in Resources */,
 				944E810B1BD9A43B002D3F20 /* Assets.xcassets in Resources */,
 				944E81061BD9A43B002D3F20 /* Main.storyboard in Resources */,
 			);
@@ -259,7 +305,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				944E81031BD9A43B002D3F20 /* ViewController.swift in Sources */,
+				944E81031BD9A43B002D3F20 /* MainController.swift in Sources */,
+				ADD9C6991BE8E7050026B529 /* ConnectionController.swift in Sources */,
+				ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */,
 				944E81091BD9A43B002D3F20 /* Sisley.xcdatamodeld in Sources */,
 				944E81011BD9A43B002D3F20 /* AppDelegate.swift in Sources */,
 			);
@@ -406,6 +454,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gobs.Sisley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -418,6 +467,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gobs.Sisley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -488,6 +538,7 @@
 				944E812A1BD9A43B002D3F20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		944E812B1BD9A43B002D3F20 /* Build configuration list for PBXNativeTarget "SisleyTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +547,7 @@
 				944E812D1BD9A43B002D3F20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		944E812E1BD9A43B002D3F20 /* Build configuration list for PBXNativeTarget "SisleyUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +556,7 @@
 				944E81301BD9A43B002D3F20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
