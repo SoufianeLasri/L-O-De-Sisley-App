@@ -9,23 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var userConnected: NSString = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let label = UILabel( frame: CGRectMake( self.view.frame.width / 2 - 60, self.view.frame.height / 2, 120, 21 ) )
-        label.text = "Hello Jeremie"
-        label.textAlignment = NSTextAlignment.Center
-        
-        self.view.addSubview( label )
-        
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // GET USERCONNECTED VALUE
+        var myDict: NSDictionary?
+        if let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist") {
+            myDict = NSDictionary(contentsOfFile: path)!
+        }
+        if let dict = myDict {
+            userConnected = dict["connectedUser"] as! NSString;
+        }
+        
+        if(userConnected == ""){
+            print("No user connected")
+            //APPELLER UNE MODAL
+            let connectionStoryboard: UIStoryboard = UIStoryboard(name: "Connection", bundle: nil)
+            let connectionPage = connectionStoryboard.instantiateViewControllerWithIdentifier("ConnectionPage") as! ConnectionController
+            presentViewController( connectionPage, animated: false, completion: nil )
+        }
+   }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
-

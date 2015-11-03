@@ -19,6 +19,7 @@
 		ADD9C6991BE8E7050026B529 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9C6981BE8E7050026B529 /* ConnectionController.swift */; settings = {ASSET_TAGS = (); }; };
 		ADD9C69C1BE8EBD70026B529 /* Quiz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */; settings = {ASSET_TAGS = (); }; };
 		ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9C69E1BE8EC0D0026B529 /* QuizController.swift */; settings = {ASSET_TAGS = (); }; };
+		ADD9C6A21BE8F3850026B529 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9C6A11BE8F3850026B529 /* UserModel.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		ADD9C6981BE8E7050026B529 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
 		ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Quiz.storyboard; sourceTree = "<group>"; };
 		ADD9C69E1BE8EC0D0026B529 /* QuizController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizController.swift; sourceTree = "<group>"; };
+		ADD9C6A11BE8F3850026B529 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +109,8 @@
 		944E80FF1BD9A43B002D3F20 /* Sisley */ = {
 			isa = PBXGroup;
 			children = (
-				ADD9C6931BE8E6260026B529 /* storyboard */,
+				ADD9C6A01BE8F30D0026B529 /* Model */,
+				ADD9C6931BE8E6260026B529 /* Storyboard */,
 				944E81001BD9A43B002D3F20 /* AppDelegate.swift */,
 				944E810A1BD9A43B002D3F20 /* Assets.xcassets */,
 				944E810C1BD9A43B002D3F20 /* LaunchScreen.storyboard */,
@@ -135,14 +138,14 @@
 			path = SisleyUITests;
 			sourceTree = "<group>";
 		};
-		ADD9C6931BE8E6260026B529 /* storyboard */ = {
+		ADD9C6931BE8E6260026B529 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				ADD9C69A1BE8E8170026B529 /* Quiz */,
 				ADD9C6951BE8E6CF0026B529 /* Connection */,
 				ADD9C6941BE8E64F0026B529 /* Main */,
 			);
-			name = storyboard;
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 		ADD9C6941BE8E64F0026B529 /* Main */ = {
@@ -170,6 +173,14 @@
 				ADD9C69E1BE8EC0D0026B529 /* QuizController.swift */,
 			);
 			name = Quiz;
+			sourceTree = "<group>";
+		};
+		ADD9C6A01BE8F30D0026B529 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ADD9C6A11BE8F3850026B529 /* UserModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +318,7 @@
 			files = (
 				944E81031BD9A43B002D3F20 /* MainController.swift in Sources */,
 				ADD9C6991BE8E7050026B529 /* ConnectionController.swift in Sources */,
+				ADD9C6A21BE8F3850026B529 /* UserModel.swift in Sources */,
 				ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */,
 				944E81091BD9A43B002D3F20 /* Sisley.xcdatamodeld in Sources */,
 				944E81011BD9A43B002D3F20 /* AppDelegate.swift in Sources */,
