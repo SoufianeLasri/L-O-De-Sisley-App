@@ -19,7 +19,9 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        // GET USERCONNECTED VALUE
+        // ##
+        // TEST CONNECTION
+        // - GET USERCONNECTED VALUE
         var myDict: NSDictionary?
         if let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist") {
             myDict = NSDictionary(contentsOfFile: path)!
@@ -27,16 +29,20 @@ class ViewController: UIViewController {
         if let dict = myDict {
             userConnected = dict["connectedUser"] as! NSString;
         }
-        
+        // - CHOOSE THE GOOD VIEW
         if(userConnected == ""){
             print("No user connected")
-            //APPELLER UNE MODAL
             let connectionStoryboard: UIStoryboard = UIStoryboard(name: "Connection", bundle: nil)
             let connectionPage = connectionStoryboard.instantiateViewControllerWithIdentifier("ConnectionPage") as! ConnectionController
             presentViewController( connectionPage, animated: false, completion: nil )
+        } else {
+            let flowerStoryboard: UIStoryboard = UIStoryboard(name: "Flower", bundle: nil)
+            let flowerPage = flowerStoryboard.instantiateViewControllerWithIdentifier("FlowerPage") as! FlowerController
+            presentViewController( flowerPage, animated: false, completion: nil )
         }
-   }
 
+   }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
