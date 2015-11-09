@@ -1,5 +1,5 @@
 //
-//  UIWebViewController.swift
+//  CustomWebViewController
 //  Sisley
 //
 //  Created by Soufiane Lasri on 09/11/2015.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UIWebViewController: UIViewController, UIWebViewDelegate {
+class CustomWebViewController: UIViewController, UIWebViewDelegate {
     
     var webView: UIWebView!
     
@@ -31,7 +31,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if request.URL?.scheme .absoluteString.rangeOfString("http") != nil {
+        if request.URL?.absoluteString.rangeOfString("http") != nil {
             UIApplication.sharedApplication().openURL(request.URL!);
             return false
         } else {
