@@ -53,9 +53,7 @@
 /* Begin PBXFileReference section */
 		942B20341BF0D60E00F62926 /* 3d_model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 3d_model; path = www/orchidGenerator/public/3d_model; sourceTree = "<group>"; };
 		942B20351BF0D60E00F62926 /* app.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = app.css; path = www/orchidGenerator/public/app.css; sourceTree = "<group>"; };
-		942B20361BF0D60E00F62926 /* app.css.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = app.css.map; path = www/orchidGenerator/public/app.css.map; sourceTree = "<group>"; };
 		942B20371BF0D60E00F62926 /* app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = app.js; path = www/orchidGenerator/public/app.js; sourceTree = "<group>"; };
-		942B20381BF0D60E00F62926 /* app.js.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = app.js.map; path = www/orchidGenerator/public/app.js.map; sourceTree = "<group>"; };
 		942B20391BF0D60E00F62926 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = www/orchidGenerator/public/index.html; sourceTree = "<group>"; };
 		944E80FD1BD9A43B002D3F20 /* Sisley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sisley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944E81001BD9A43B002D3F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,9 +113,7 @@
 			children = (
 				942B20341BF0D60E00F62926 /* 3d_model */,
 				942B20351BF0D60E00F62926 /* app.css */,
-				942B20361BF0D60E00F62926 /* app.css.map */,
 				942B20371BF0D60E00F62926 /* app.js */,
-				942B20381BF0D60E00F62926 /* app.js.map */,
 				942B20391BF0D60E00F62926 /* index.html */,
 			);
 			name = www;
