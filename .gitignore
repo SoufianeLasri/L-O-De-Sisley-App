@@ -49,3 +49,12 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
