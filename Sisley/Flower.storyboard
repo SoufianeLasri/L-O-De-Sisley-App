@@ -46,6 +46,10 @@
         <scene sceneID="46s-PO-eQA">
             <objects>
                 <viewController id="y5j-3f-h6W" customClass="CustomWebViewController" customModule="Sisley" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nDk-vY-4mM"/>
+                        <viewControllerLayoutGuide type="bottom" id="4sz-wq-eri"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jGW-0E-vHb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
