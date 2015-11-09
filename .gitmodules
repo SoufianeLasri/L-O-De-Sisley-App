@@ -1,0 +1,3 @@
+[submodule "Sisley/www/orchidGenerator"]
+	path = Sisley/www/orchidGenerator
+	url = https://github.com/Jeremboo/orchidGenerator
