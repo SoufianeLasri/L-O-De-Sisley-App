@@ -86,7 +86,7 @@
 		94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebViewController.swift; sourceTree = "<group>"; };
 		94E436211C0DD59600658C61 /* UITitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITitle.swift; sourceTree = "<group>"; };
 		94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AngleGradientLayer.h; path = ../AngleGradientLayer.h; sourceTree = "<group>"; };
-		94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sisley-Bridging-Header.h"; sourceTree = "<group>"; };
+		94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sisley-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AngleGradientLayer.m; path = ../AngleGradientLayer.m; sourceTree = "<group>"; };
 		94F196D81C0C8CA100EB5283 /* AngleGradientBorderLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AngleGradientBorderLayer.swift; path = ../AngleGradientBorderLayer.swift; sourceTree = "<group>"; };
 		94F196DA1C0C8D3000EB5283 /* AngleGradientBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AngleGradientBorderView.swift; path = ../AngleGradientBorderView.swift; sourceTree = "<group>"; };
@@ -164,7 +164,6 @@
 				944E81171BD9A43B002D3F20 /* SisleyTests */,
 				944E81221BD9A43B002D3F20 /* SisleyUITests */,
 				944E80FE1BD9A43B002D3F20 /* Products */,
-				94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,16 +211,25 @@
 			path = SisleyUITests;
 			sourceTree = "<group>";
 		};
-		94AD12F21BF0D0B300B6B1A0 /* Components */ = {
+		945468881C0F2C9500881080 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
 				94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */,
 				94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */,
+				94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */,
 				94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */,
 				94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */,
-				94E436211C0DD59600658C61 /* UITitle.swift */,
 				94F196D81C0C8CA100EB5283 /* AngleGradientBorderLayer.swift */,
 				94F196DA1C0C8D3000EB5283 /* AngleGradientBorderView.swift */,
+			);
+			name = Slider;
+			sourceTree = "<group>";
+		};
+		94AD12F21BF0D0B300B6B1A0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				945468881C0F2C9500881080 /* Slider */,
+				94E436211C0DD59600658C61 /* UITitle.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";

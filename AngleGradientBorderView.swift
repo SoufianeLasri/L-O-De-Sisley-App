@@ -17,7 +17,7 @@ class AngleGradientBorderView: UIView {
     
     // Constants
     let DefaultGradientBorderColors: [AnyObject] = [
-        UIColor(red:0.78, green:0.82, blue:0.85, alpha:1).CGColor,
+        UIColor( red: 0.78, green: 0.82, blue: 0.85, alpha: 1 ).CGColor,
         UIColor.clearColor().CGColor
     ]
     let DefaultGradientBorderWidth: CGFloat = 2
@@ -34,14 +34,14 @@ class AngleGradientBorderView: UIView {
     }
     
     // Custom initializer
-    init(frame: CGRect, borderColors gradientBorderColors: [AnyObject]? = nil, borderWidth gradientBorderWidth: CGFloat? = nil) {
-        super.init(frame: frame)
+    init( frame: CGRect, borderColors gradientBorderColors: [AnyObject]? = nil, borderWidth gradientBorderWidth: CGFloat? = nil ) {
+        super.init( frame: frame )
         self.backgroundColor = UIColor.clearColor()
-        setupGradientLayer(borderColors: gradientBorderColors, borderWidth: gradientBorderWidth)
+        setupGradientLayer( borderColors: gradientBorderColors, borderWidth: gradientBorderWidth )
     }
     
     // Setup the attributes of this view's layer
-    func setupGradientLayer(borderColors gradientBorderColors: [AnyObject]? = nil, borderWidth gradientBorderWidth: CGFloat? = nil) {
+    func setupGradientLayer( borderColors gradientBorderColors: [AnyObject]? = nil, borderWidth gradientBorderWidth: CGFloat? = nil ) {
         // Grab this UIView's layer and cast it as AngleGradientBorderLayer
         let l: AngleGradientBorderLayer = self.layer as! AngleGradientBorderLayer
         

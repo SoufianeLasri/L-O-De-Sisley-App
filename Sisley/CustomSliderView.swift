@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol CustomSliderViewDelegate: class {
+    func getValue( value: Double )
+}
+
 class CustomSliderView: UIView {
     
-    var min: Double = 27.0
-    var max: Double = 42.0
+    var min: Double = 15.0
+    var max: Double = 99.0
+    
+    weak var delegate: CustomSliderViewDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,13 +27,14 @@ class CustomSliderView: UIView {
         
         // Attach an Action and a Target to the slider
         slider.addTarget( self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged )
+        slider.transform = CGAffineTransformMakeRotation( CGFloat( -M_PI / 180.0 * Double( 90.0 ) ) )
         
         // Add the slider as subview of this view
         self.addSubview( slider )
     }
     
-    func roundToPlaces(number: Double, places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
+    func roundToPlaces( number: Double, places:Int ) -> Double {
+        let divisor = pow( 10.0, Double( places ) )
         return round( number * divisor) / divisor
     }
     
@@ -36,6 +43,7 @@ class CustomSliderView: UIView {
         
         var result: Double = Double( slider.angle ) / 360
         result = roundToPlaces( Double( result ), places: 2 ) * ( self.max - self.min ) + self.min
-        print( "Value changed \( result )" )
+        
+        self.delegate?.getValue( result )
     }
 }

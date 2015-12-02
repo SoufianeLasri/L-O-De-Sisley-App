@@ -9,10 +9,10 @@
 import UIKit
 
 struct Config {
-    static let TB_SLIDER_SIZE: CGFloat = UIScreen.mainScreen().bounds.size.width
-    static let TB_SAFEAREA_PADDING: CGFloat = 22.0
-    static let TB_LINE_WIDTH: CGFloat = 2.0
-    static let TB_FONTSIZE: CGFloat = 40.0
+    static let slideSize: CGFloat = UIScreen.mainScreen().bounds.size.width
+    static let sliderPadding: CGFloat = 22.0
+    static let sliderLineWidth: CGFloat = 2.0
+    static let sliderFontSize: CGFloat = 40.0
 }
 
 // MARK: Math Helpers
@@ -33,23 +33,12 @@ class CustomSlider: UIControl {
     
 //    var textField: UITextField?
     var radius: CGFloat = 0
-    var angle: Int = 90
+    var angle: Int = 0
     var border: UIView = UIView()
     var min: Double = 37.0
     var max: Double = 227.0
     var dragging: Bool = false
     var handleLayer: UIView = UIView()
-    
-//    var startColor = UIColor.blueColor()
-//    var endColor = UIColor.purpleColor()
-    
-    // Custom initializer
-//    convenience init(startColor:UIColor, endColor:UIColor, frame:CGRect){
-//        self.init(frame: frame)
-//        
-//        self.startColor = startColor
-//        self.endColor = endColor
-//    }
     
     // Default initializer
     override init( frame: CGRect ) {
@@ -60,15 +49,15 @@ class CustomSlider: UIControl {
         self.center = CGPointMake( self.frame.width / 2, self.frame.height / 2 )
         
         //Define the circle radius taking into account the safe area
-        self.radius = self.frame.width / 2 - Config.TB_SAFEAREA_PADDING
+        self.radius = self.frame.width / 2 - Config.sliderPadding
         
         // Set the border
-        self.border = AngleGradientBorderView(frame: CGRectMake( Config.TB_SAFEAREA_PADDING - 2, Config.TB_SAFEAREA_PADDING - 2, radius * 2 + 4, radius * 2 + 4 ), borderColors: [ UIColor( red: 0.78, green: 0.82, blue: 0.85, alpha: 1 ).CGColor, UIColor.clearColor().CGColor ], borderWidth: 2.0 )
-        self.border.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( -100 ) ) )
+        self.border = AngleGradientBorderView(frame: CGRectMake( Config.sliderPadding - 2, Config.sliderPadding - 2, radius * 2 + 4, radius * 2 + 4 ), borderColors: [ UIColor( red: 0.78, green: 0.82, blue: 0.85, alpha: 1 ).CGColor, UIColor.clearColor().CGColor ], borderWidth: 2.0 )
+        self.border.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( -10 ) ) )
         self.addSubview( self.border )
         
         // Draw the background
-        let backgroundPath = UIBezierPath( ovalInRect: CGRectMake( Config.TB_SAFEAREA_PADDING, Config.TB_SAFEAREA_PADDING, radius * 2, radius * 2 ) )
+        let backgroundPath = UIBezierPath( ovalInRect: CGRectMake( Config.sliderPadding, Config.sliderPadding, radius * 2, radius * 2 ) )
         let background = CAShapeLayer()
         background.path = backgroundPath.CGPath
         background.fillColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 ).CGColor
@@ -98,7 +87,7 @@ class CustomSlider: UIControl {
         self.addSubview( self.handleLayer )
         
         //Define the Font
-//        let font = UIFont( name: "Avenir", size: Config.TB_FONTSIZE )
+//        let font = UIFont( name: "Avenir", size: Config.sliderFontSize )
 //        //Calculate font size needed to display 3 numbers
 //        let str = "000" as NSString
 //        let fontSize: CGSize = str.sizeWithAttributes( [ NSFontAttributeName:font! ] )
@@ -166,7 +155,7 @@ class CustomSlider: UIControl {
     func pointFromAngle( angleInt: Int ) -> CGPoint {
         
         // Circle center
-        let centerPoint = CGPointMake( self.frame.size.width / 2.0 - Config.TB_LINE_WIDTH / 2.0, self.frame.size.height / 2.0 - Config.TB_LINE_WIDTH / 2.0 )
+        let centerPoint = CGPointMake( self.frame.size.width / 2.0 - Config.sliderLineWidth / 2.0, self.frame.size.height / 2.0 - Config.sliderLineWidth / 2.0 )
         
         // The point position on the circumference
         var result: CGPoint = CGPointZero
