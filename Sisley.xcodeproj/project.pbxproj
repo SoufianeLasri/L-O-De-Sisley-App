@@ -26,6 +26,7 @@
 		94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */; };
 		94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */; };
 		94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */; };
+		94E436221C0DD59600658C61 /* UITitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E436211C0DD59600658C61 /* UITitle.swift */; };
 		94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */; };
 		94F196D91C0C8CA100EB5283 /* AngleGradientBorderLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F196D81C0C8CA100EB5283 /* AngleGradientBorderLayer.swift */; };
 		94F196DB1C0C8D3000EB5283 /* AngleGradientBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F196DA1C0C8D3000EB5283 /* AngleGradientBorderView.swift */; };
@@ -83,11 +84,12 @@
 		94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderView.swift; sourceTree = "<group>"; };
 		94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebViewController.swift; sourceTree = "<group>"; };
-		94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AngleGradientLayer.h; sourceTree = "<group>"; };
+		94E436211C0DD59600658C61 /* UITitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITitle.swift; sourceTree = "<group>"; };
+		94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AngleGradientLayer.h; path = ../AngleGradientLayer.h; sourceTree = "<group>"; };
 		94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sisley-Bridging-Header.h"; sourceTree = "<group>"; };
-		94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AngleGradientLayer.m; sourceTree = "<group>"; };
-		94F196D81C0C8CA100EB5283 /* AngleGradientBorderLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleGradientBorderLayer.swift; sourceTree = "<group>"; };
-		94F196DA1C0C8D3000EB5283 /* AngleGradientBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleGradientBorderView.swift; sourceTree = "<group>"; };
+		94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AngleGradientLayer.m; path = ../AngleGradientLayer.m; sourceTree = "<group>"; };
+		94F196D81C0C8CA100EB5283 /* AngleGradientBorderLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AngleGradientBorderLayer.swift; path = ../AngleGradientBorderLayer.swift; sourceTree = "<group>"; };
+		94F196DA1C0C8D3000EB5283 /* AngleGradientBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AngleGradientBorderView.swift; path = ../AngleGradientBorderView.swift; sourceTree = "<group>"; };
 		AD95C15F1BECBD6B0015441E /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		AD95C1611BECBD7A0015441E /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		AD95C1641BECC0400015441E /* Flower.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Flower.storyboard; sourceTree = "<group>"; };
@@ -158,15 +160,11 @@
 		944E80F41BD9A43B002D3F20 = {
 			isa = PBXGroup;
 			children = (
-				94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */,
-				94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */,
 				944E80FF1BD9A43B002D3F20 /* Sisley */,
 				944E81171BD9A43B002D3F20 /* SisleyTests */,
 				944E81221BD9A43B002D3F20 /* SisleyUITests */,
 				944E80FE1BD9A43B002D3F20 /* Products */,
 				94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */,
-				94F196D81C0C8CA100EB5283 /* AngleGradientBorderLayer.swift */,
-				94F196DA1C0C8D3000EB5283 /* AngleGradientBorderView.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,8 +215,13 @@
 		94AD12F21BF0D0B300B6B1A0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */,
+				94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */,
 				94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */,
 				94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */,
+				94E436211C0DD59600658C61 /* UITitle.swift */,
+				94F196D81C0C8CA100EB5283 /* AngleGradientBorderLayer.swift */,
+				94F196DA1C0C8D3000EB5283 /* AngleGradientBorderView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */,
 				944E81091BD9A43B002D3F20 /* Sisley.xcdatamodeld in Sources */,
 				944E81011BD9A43B002D3F20 /* AppDelegate.swift in Sources */,
+				94E436221C0DD59600658C61 /* UITitle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

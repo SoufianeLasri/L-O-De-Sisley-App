@@ -34,6 +34,12 @@ class CustomSlider: UIControl {
 //    var textField: UITextField?
     var radius: CGFloat = 0
     var angle: Int = 90
+    var border: UIView = UIView()
+    var min: Double = 37.0
+    var max: Double = 227.0
+    var dragging: Bool = false
+    var handleLayer: UIView = UIView()
+    
 //    var startColor = UIColor.blueColor()
 //    var endColor = UIColor.purpleColor()
     
@@ -51,12 +57,45 @@ class CustomSlider: UIControl {
 
         self.backgroundColor = UIColor.clearColor()
         self.opaque = true
-        self.center = CGPointMake( self.frame.width / 2 , self.frame.height / 2 )
+        self.center = CGPointMake( self.frame.width / 2, self.frame.height / 2 )
         
         //Define the circle radius taking into account the safe area
-        radius = self.frame.width / 2 - Config.TB_SAFEAREA_PADDING
+        self.radius = self.frame.width / 2 - Config.TB_SAFEAREA_PADDING
         
-        print( "ViewDidLoad", self.frame )
+        // Set the border
+        self.border = AngleGradientBorderView(frame: CGRectMake( Config.TB_SAFEAREA_PADDING - 2, Config.TB_SAFEAREA_PADDING - 2, radius * 2 + 4, radius * 2 + 4 ), borderColors: [ UIColor( red: 0.78, green: 0.82, blue: 0.85, alpha: 1 ).CGColor, UIColor.clearColor().CGColor ], borderWidth: 2.0 )
+        self.border.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( -100 ) ) )
+        self.addSubview( self.border )
+        
+        // Draw the background
+        let backgroundPath = UIBezierPath( ovalInRect: CGRectMake( Config.TB_SAFEAREA_PADDING, Config.TB_SAFEAREA_PADDING, radius * 2, radius * 2 ) )
+        let background = CAShapeLayer()
+        background.path = backgroundPath.CGPath
+        background.fillColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 ).CGColor
+        self.layer.insertSublayer( background, below: self.border.layer )
+        
+        // Draw the white circle
+        let whiteCirclePath = UIBezierPath( ovalInRect: CGRectMake( 0, 0, 44.0, 44.0 ) )
+        let whiteCircle = CAShapeLayer()
+        whiteCircle.path = whiteCirclePath.CGPath
+        whiteCircle.lineWidth = 4
+        whiteCircle.strokeColor = UIColor( red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0 ).CGColor
+        whiteCircle.fillColor = UIColor( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0 ).CGColor
+        
+        // Draw the golden circle
+        let goldenCirclePath = UIBezierPath( ovalInRect: CGRectMake( 2, 2, 40.0, 40.0 ) )
+        let goldenCircle = CAShapeLayer()
+        goldenCircle.path = goldenCirclePath.CGPath
+        goldenCircle.lineWidth = 2
+        goldenCircle.strokeColor = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 ).CGColor
+        goldenCircle.fillColor = UIColor( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0 ).CGColor
+        
+        self.handleLayer.layer.addSublayer( whiteCircle )
+        self.handleLayer.layer.addSublayer( goldenCircle )
+        self.handleLayer.frame = CGRectMake( 0, 0, 44.0, 44.0 )
+        
+        self.handleLayer.center = pointFromAngle( angle )
+        self.addSubview( self.handleLayer )
         
         //Define the Font
 //        let font = UIFont( name: "Avenir", size: Config.TB_FONTSIZE )
@@ -79,185 +118,57 @@ class CustomSlider: UIControl {
         
 //        addSubview(textField!)
     }
-    
-    override func beginTrackingWithTouch( touch: UITouch, withEvent event: UIEvent? ) -> Bool {
-        super.beginTrackingWithTouch( touch, withEvent: event )
-        
-        return true
+
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch: UITouch? = touches.first {
+            let lastPoint = touch!.locationInView( self )
+            if ( CGRectContainsPoint(self.handleLayer.frame, lastPoint ) ) {
+                self.dragging = true
+            }
+        }
     }
     
-    override func continueTrackingWithTouch( touch: UITouch, withEvent event: UIEvent? ) -> Bool {
-        super.continueTrackingWithTouch( touch, withEvent: event )
-        
-        let lastPoint = touch.locationInView( self )
-        
-        self.moveHandle( lastPoint )
-        
-        self.sendActionsForControlEvents( UIControlEvents.ValueChanged )
-        
-        return true
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if self.dragging {
+            let lastPoint = touches.first!.locationInView( self )
+            moveHandle( lastPoint )
+            self.sendActionsForControlEvents( UIControlEvents.ValueChanged )
+        }
     }
     
-    override func endTrackingWithTouch( touch: UITouch?, withEvent event: UIEvent? ) {
-        super.endTrackingWithTouch( touch, withEvent: event )
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.dragging = false
     }
     
-    //Use the draw rect to draw the Background, the Circle and the Handle
-    override func drawRect( rect: CGRect ) {
-        super.drawRect( rect )
-        
-        let context = UIGraphicsGetCurrentContext()
-        
-        /** Draw the Background **/
-        UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 ).set()
-        CGContextFillEllipseInRect( context, CGRectMake( Config.TB_SAFEAREA_PADDING, Config.TB_SAFEAREA_PADDING, radius * 2, radius * 2 ) )
-        
-//        let bezierRectangle = UIBezierPath( roundedRect: rect, cornerRadius: rect.width / 2 )
-//        let rectangle = CAShapeLayer()
-//        rectangle.path = bezierRectangle.CGPath
-//        self.layer.addSublayer( rectangle )
-        
-        let gradientCircle = CAShapeLayer()
-//        gradientCircle.path = UI
-        
-        UIColor( red: 0.78, green: 0.82, blue: 0.86, alpha: 1 ).set()
-        CGContextAddArc( context, CGFloat( self.frame.size.width / 2.0 ), CGFloat( self.frame.size.height / 2.0 ), radius, 0, CGFloat( M_PI * 2 ), 0 )
-
-        CGContextSaveGState( context )
-        CGContextReplacePathWithStrokedPath( context )
-//        let path: CGPathRef = CGContextCopyPath(context)!
-
-        let bbox: CGRect = CGContextGetPathBoundingBox( context )
-        let start: CGPoint = bbox.origin
-        let end: CGPoint = CGPointMake( CGRectGetMaxX( bbox ), CGRectGetMaxY( bbox ) )
-        
-        let rgb: CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!
-        let gradient: CGGradientRef = CGGradientCreateWithColors( rgb, [ UIColor( red: 0.78, green: 0.82, blue: 0.86, alpha: 1 ).CGColor, UIColor.clearColor().CGColor ], [ 0.0, 0.8 ] )!
-
-        CGContextClip( context )
-        CGContextDrawLinearGradient( context, gradient, start, end, CGGradientDrawingOptions.DrawsBeforeStartLocation )
-
-        CGContextRestoreGState( context )
-
-        CGContextSetLineWidth( context, Config.TB_LINE_WIDTH )
-        CGContextSetLineCap( context, .Butt )
-
-        CGContextDrawPath( context, .Stroke )
-        
-//        /** Draw the circle **/
-//        
-//        /** Create THE MASK Image **/
-//        UIGraphicsBeginImageContext(CGSizeMake(self.bounds.size.width,self.bounds.size.height))
-//        let imagecontext = UIGraphicsGetCurrentContext()
-//        CGContextAddArc(imagecontext, CGFloat(self.frame.size.width/2)  , CGFloat(self.frame.size.height/2), radius, 0, CGFloat(DegreesToRadians(Double(angle))) , 0)
-//        UIColor.redColor().set()
-//        
-//        //Use shadow to create the Blur effect
-//        CGContextSetShadowWithColor(imagecontext, CGSizeMake(0, 0), CGFloat(self.angle/15), UIColor.blackColor().CGColor)
-//        
-//        //define the path
-//        CGContextSetLineWidth(imagecontext, 0)
-//        CGContextDrawPath(imagecontext, .Stroke)
-//        
-//        //save the context content into the image mask
-//        let mask:CGImageRef = CGBitmapContextCreateImage(UIGraphicsGetCurrentContext())!
-//        UIGraphicsEndImageContext()
-//        
-//        /** Clip Context to the mask **/
-//        CGContextSaveGState(context)
-//        
-//        CGContextClipToMask(context, self.bounds, mask)
-//        
-//        
-//        /** The Gradient **/
-//         
-//         // Split colors in components (rgba)
-//        let startColorComps:UnsafePointer<CGFloat> = CGColorGetComponents(startColor.CGColor)
-//        let endColorComps:UnsafePointer<CGFloat> = CGColorGetComponents(endColor.CGColor)
-//        
-//        let components : [CGFloat] = [
-//            startColorComps[0], startColorComps[1], startColorComps[2], 1.0,     // Start color
-//            endColorComps[0], endColorComps[1], endColorComps[2], 1.0      // End color
-//        ]
-//        
-//        // Setup the gradient
-//        let baseSpace = CGColorSpaceCreateDeviceRGB()
-//        let gradient = CGGradientCreateWithColorComponents(baseSpace, components, nil, 2)
-//        
-//        // Gradient direction
-//        let startPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect))
-//        let endPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect))
-//        
-//        // Draw the gradient
-//        CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, .DrawsBeforeStartLocation)
-//        CGContextRestoreGState(context)
-        
-        /* Draw the handle */
-        drawTheHandle( context! )
-    }
-    
-    
-    /** Draw a white knob over the circle **/
-    
-    func drawTheHandle( context: CGContextRef ) {
-        //Get the handle position
-        let handleCenter = pointFromAngle( angle )
-        
-        CGContextSaveGState( context )
-        
-        //I Love shadows
-//        CGContextSetShadowWithColor(context, CGSizeMake(0, 0), 3, UIColor.blackColor().CGColor)
-        
-        //Draw It!
-//        UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1 ).set()
-//        CGContextFillEllipseInRect(context, CGRectMake(handleCenter.x, handleCenter.y, Config.TB_LINE_WIDTH, Config.TB_LINE_WIDTH))
-
-        CGContextAddArc( context, handleCenter.x, handleCenter.y, 22.0, 0, CGFloat( M_PI * 2 ), 0 )
-        UIColor( red: 1.0, green: 1.0, blue: 1.0, alpha: 1 ).set()
-        
-        CGContextSetLineWidth( context, 4 )
-        CGContextSetLineCap( context, .Butt )
-        
-        CGContextDrawPath( context, .Stroke )
-        
-        CGContextAddArc( context, handleCenter.x, handleCenter.y, 20.0, 0, CGFloat( M_PI * 2 ), 0 )
-        UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1 ).set()
-        
-        CGContextSetLineWidth( context, 2 )
-        CGContextSetLineCap( context, .Butt )
-        
-        CGContextDrawPath( context, .Stroke )
-        
-        CGContextRestoreGState( context )
-    }
-    
-    /** Move the Handle **/
+    // Move the Handle
     func moveHandle( lastPoint: CGPoint ) {
         
-        //Get the center
+        // Get the center
         let centerPoint: CGPoint = CGPointMake( self.frame.width / 2, self.frame.height / 2 )
-        //Calculate the direction from a center point and a arbitrary position.
+        
+        // Calculate the direction from a center point and a arbitrary position.
         let currentAngle: Double = AngleFromNorth( centerPoint, p2: lastPoint, flipped: false )
         let angleInt = Int( floor( currentAngle ) )
         
-        //Store the new angle
-        angle = Int( 360 - angleInt )
+        // Store the new angle
+        self.angle = Int( 360 - angleInt )
         
-        //Update the textfield
+        let borderRotation = DegreesToRadians( Double( -self.angle - 10 ) )
+        self.border.transform = CGAffineTransformMakeRotation( CGFloat( borderRotation )  )
+        
+        self.handleLayer.center = pointFromAngle( self.angle )
+        
+        // Update the textfield
 //        textField!.text = "\(angle)"
-        
-        //Redraw
-        setNeedsDisplay()
-        layoutIfNeeded()
     }
     
-    /** Given the angle, get the point position on circumference **/
+    // Given the angle, get the point position on circumference
     func pointFromAngle( angleInt: Int ) -> CGPoint {
         
-        //Circle center
+        // Circle center
         let centerPoint = CGPointMake( self.frame.size.width / 2.0 - Config.TB_LINE_WIDTH / 2.0, self.frame.size.height / 2.0 - Config.TB_LINE_WIDTH / 2.0 )
         
-        //The point position on the circumference
+        // The point position on the circumference
         var result: CGPoint = CGPointZero
         let y = round( Double( radius ) * sin( DegreesToRadians( Double( -angleInt ) ) ) ) + Double( centerPoint.y )
         let x = round( Double( radius ) * cos( DegreesToRadians( Double( -angleInt ) ) ) ) + Double( centerPoint.x )
@@ -267,9 +178,19 @@ class CustomSlider: UIControl {
         return result
     }
     
+    func setRangeOfValue( min: Double, max: Double ) {
+        self.min = min
+        self.max = max
+        
+        resetSlider()
+    }
     
-    //Sourcecode from Apple example clockControl
-    //Calculate the direction in degrees from a center point to an arbitrary position.
+    func resetSlider() {
+        self.angle = 90
+    }
+    
+    // Sourcecode from Apple example clockControl
+    // Calculate the direction in degrees from a center point to an arbitrary position.
     func AngleFromNorth( p1: CGPoint , p2: CGPoint , flipped: Bool ) -> Double {
         var v: CGPoint  = CGPointMake( p2.x - p1.x, p2.y - p1.y )
         let vmag: CGFloat = Square( Square( v.x ) + Square( v.y ) )
@@ -278,7 +199,7 @@ class CustomSlider: UIControl {
         v.y /= vmag
         let radians = Double( atan2( v.y, v.x ) )
         result = RadiansToDegrees( radians )
-        return ( result >= 0  ? result : result + 360.0 )
+        return result >= 0 ? result : result + 360
     }
     
     required init( coder aDecoder: NSCoder ) {

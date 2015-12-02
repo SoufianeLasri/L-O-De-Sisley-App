@@ -9,6 +9,9 @@
 import UIKit
 
 class CustomSliderView: UIView {
+    
+    var min: Double = 27.0
+    var max: Double = 42.0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +26,16 @@ class CustomSliderView: UIView {
         self.addSubview( slider )
     }
     
+    func roundToPlaces(number: Double, places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return round( number * divisor) / divisor
+    }
+    
     func valueChanged( slider: CustomSlider ) {
         // Do something with the value...
-        print( "Value changed \( slider.angle )" )
+        
+        var result: Double = Double( slider.angle ) / 360
+        result = roundToPlaces( Double( result ), places: 2 ) * ( self.max - self.min ) + self.min
+        print( "Value changed \( result )" )
     }
 }

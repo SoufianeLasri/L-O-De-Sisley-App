@@ -17,7 +17,7 @@ class AngleGradientBorderView: UIView {
     
     // Constants
     let DefaultGradientBorderColors: [AnyObject] = [
-        UIColor( red: 0.78, green: 0.82, blue: 0.86, alpha: 1 ).CGColor,
+        UIColor(red:0.78, green:0.82, blue:0.85, alpha:1).CGColor,
         UIColor.clearColor().CGColor
     ]
     let DefaultGradientBorderWidth: CGFloat = 2
@@ -36,6 +36,7 @@ class AngleGradientBorderView: UIView {
     // Custom initializer
     init(frame: CGRect, borderColors gradientBorderColors: [AnyObject]? = nil, borderWidth gradientBorderWidth: CGFloat? = nil) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.clearColor()
         setupGradientLayer(borderColors: gradientBorderColors, borderWidth: gradientBorderWidth)
     }
     
