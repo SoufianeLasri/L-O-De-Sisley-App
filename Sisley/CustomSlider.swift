@@ -39,6 +39,9 @@ class CustomSlider: UIControl {
     var max: Double = 227.0
     var dragging: Bool = false
     var handleLayer: UIView = UIView()
+    var validateFeedback: CAShapeLayer = CAShapeLayer()
+    var fillColorAnimation: CAKeyframeAnimation = CAKeyframeAnimation()
+    var radiusAnimation: CAKeyframeAnimation = CAKeyframeAnimation()
     
     // Default initializer
     override init( frame: CGRect ) {
@@ -57,7 +60,7 @@ class CustomSlider: UIControl {
         self.addSubview( self.border )
         
         // Draw the background
-        let backgroundPath = UIBezierPath( ovalInRect: CGRectMake( Config.sliderPadding, Config.sliderPadding, radius * 2, radius * 2 ) )
+        let backgroundPath = UIBezierPath( ovalInRect: CGRectMake( Config.sliderPadding, Config.sliderPadding, self.radius * 2, self.radius * 2 ) )
         let background = CAShapeLayer()
         background.path = backgroundPath.CGPath
         background.fillColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 ).CGColor
@@ -82,30 +85,47 @@ class CustomSlider: UIControl {
         self.handleLayer.layer.addSublayer( whiteCircle )
         self.handleLayer.layer.addSublayer( goldenCircle )
         self.handleLayer.frame = CGRectMake( 0, 0, 44.0, 44.0 )
-        
         self.handleLayer.center = pointFromAngle( angle )
         self.addSubview( self.handleLayer )
         
-        //Define the Font
-//        let font = UIFont( name: "Avenir", size: Config.sliderFontSize )
-//        //Calculate font size needed to display 3 numbers
-//        let str = "000" as NSString
-//        let fontSize: CGSize = str.sizeWithAttributes( [ NSFontAttributeName:font! ] )
-//        
-//        //Using a TextField area we can easily modify the control to get user input from this field
-//        let textFieldRect = CGRectMake(
-//            ( frame.size.width  - fontSize.width ) / 2.0,
-//            ( frame.size.height - fontSize.height ) / 2.0,
-//            fontSize.width, fontSize.height )
-//        
-//        textField = UITextField( frame: textFieldRect )
-//        textField?.backgroundColor = UIColor.clearColor()
-//        textField?.textColor = UIColor( white: 1.0, alpha: 0.8 )
-//        textField?.textAlignment = .Center
-//        textField?.font = font
-//        textField?.text = "\(self.angle)"
+        // The validate button
+        let validateButton = UIButton( frame: CGRectMake( 0, 0, self.frame.width / 2, self.frame.height / 2 ) )
+        validateButton.center = self.center
+        validateButton.layer.cornerRadius = validateButton.frame.width / 2
+        validateButton.addTarget( self, action: Selector( "validateValue:" ), forControlEvents: .TouchUpInside )
+        self.addSubview( validateButton )
         
-//        addSubview(textField!)
+        // The visual feedback when tapping the validate button
+        let validateFeedbackPath = UIBezierPath( ovalInRect: CGRectMake( Config.sliderPadding, Config.sliderPadding, self.radius * 2, self.radius * 2 ) )
+        self.validateFeedback = CAShapeLayer()
+        self.validateFeedback.path = validateFeedbackPath.CGPath
+        self.validateFeedback.fillColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 0.0 ).CGColor
+        self.validateFeedback.frame = self.border.frame
+        self.layer.insertSublayer( self.validateFeedback, below: background )
+        
+        // Build animations
+        self.fillColorAnimation          = CAKeyframeAnimation( keyPath: "fillColor" )
+        self.fillColorAnimation.duration = 0.5
+        self.fillColorAnimation.keyTimes = [ 0.0, 0.5, 1.0 ]
+        self.fillColorAnimation.values   = [
+            UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 0.0 ).CGColor,
+            UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 ).CGColor,
+            UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 0.0 ).CGColor
+        ]
+        
+        self.radiusAnimation          = CAKeyframeAnimation( keyPath: "transform.scale" )
+        self.radiusAnimation.duration = 0.5
+        self.radiusAnimation.keyTimes = [ 0.0, 1.0 ]
+        self.radiusAnimation.values   = [ 1.0, 1.4 ]
+    }
+    
+    func validateValue( sender: UIButton! ) {
+        if !dragging {
+            self.validateFeedback.addAnimation( self.fillColorAnimation, forKey: "fillColor" )
+            self.validateFeedback.addAnimation( self.radiusAnimation, forKey: "transform.scale" )
+            
+            self.sendActionsForControlEvents( UIControlEvents.TouchUpInside )
+        }
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -146,9 +166,6 @@ class CustomSlider: UIControl {
         self.border.transform = CGAffineTransformMakeRotation( CGFloat( borderRotation )  )
         
         self.handleLayer.center = pointFromAngle( self.angle )
-        
-        // Update the textfield
-//        textField!.text = "\(angle)"
     }
     
     // Given the angle, get the point position on circumference

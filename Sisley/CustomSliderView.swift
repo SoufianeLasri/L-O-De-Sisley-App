@@ -10,6 +10,7 @@ import UIKit
 
 protocol CustomSliderViewDelegate: class {
     func getValue( value: Double )
+    func validateQuestion()
 }
 
 class CustomSliderView: UIView {
@@ -27,6 +28,7 @@ class CustomSliderView: UIView {
         
         // Attach an Action and a Target to the slider
         slider.addTarget( self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged )
+        slider.addTarget( self, action: "validateValue:", forControlEvents: UIControlEvents.TouchUpInside )
         slider.transform = CGAffineTransformMakeRotation( CGFloat( -M_PI / 180.0 * Double( 90.0 ) ) )
         
         // Add the slider as subview of this view
@@ -45,5 +47,10 @@ class CustomSliderView: UIView {
         result = roundToPlaces( Double( result ), places: 2 ) * ( self.max - self.min ) + self.min
         
         self.delegate?.getValue( result )
+    }
+    
+    func validateValue( sender: UIButton! ) {
+        self.delegate?.validateQuestion()
+
     }
 }
