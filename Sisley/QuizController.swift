@@ -65,7 +65,7 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
     func nextQuestion() {
         self.questionLabel.text = self.questions[ self.index ]
 
-        UIView.animateWithDuration( 0.2, delay: 0.5, options: UIViewAnimationOptions.TransitionNone, animations: {
+        UIView.animateWithDuration( 0.2, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: {
             self.questionLabel.alpha = 1.0
             self.sliderValueLabel.alpha = 1.0
         }, completion: { ( finished: Bool ) -> Void in
@@ -74,6 +74,7 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
     }
     
     func validateQuestion() {
+        // TODO Test if index can be incremented
         UIView.animateWithDuration( 0.2, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: {
             self.questionLabel.alpha = 0.0
             self.sliderValueLabel.alpha = 0.0
