@@ -125,6 +125,10 @@ class CustomSlider: UIControl {
             self.validateFeedback.addAnimation( self.radiusAnimation, forKey: "transform.scale" )
             
             self.sendActionsForControlEvents( UIControlEvents.TouchUpInside )
+            
+            UIView.animateWithDuration( 0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: {
+                
+            }, completion: nil )
         }
     }
 

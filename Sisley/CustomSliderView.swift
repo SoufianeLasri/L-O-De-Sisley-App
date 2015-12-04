@@ -15,7 +15,7 @@ protocol CustomSliderViewDelegate: class {
 
 class CustomSliderView: UIView {
     
-    var min: Double = 15.0
+    var min: Double = 12.0
     var max: Double = 99.0
     
     weak var delegate: CustomSliderViewDelegate?
@@ -51,6 +51,5 @@ class CustomSliderView: UIView {
     
     func validateValue( sender: UIButton! ) {
         self.delegate?.validateQuestion()
-
     }
 }
