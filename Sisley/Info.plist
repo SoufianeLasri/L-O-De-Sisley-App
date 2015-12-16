@@ -22,19 +22,28 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Santana-Bold.ttf</string>
+		<string>Santana.ttf</string>
+		<string>Bellota-Bold.otf</string>
+		<string>Bellota-Light.otf</string>
+		<string>Bellota-Regular.otf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>Flower</string>
+	<string>Quiz</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>connectedUser</key>
 	<string>jerem</string>
