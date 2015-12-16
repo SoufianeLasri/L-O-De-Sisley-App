@@ -196,7 +196,7 @@ class CustomSlider: UIControl {
     }
     
     func resetSlider() {
-        self.angle = 90
+        self.angle = 0
     }
     
     // Sourcecode from Apple example clockControl

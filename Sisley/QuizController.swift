@@ -14,7 +14,7 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
     
     var questionLabel = UILabel()
     var sliderValueLabel = UILabel()
-    var questions: Array< Dictionary< String, Any > > = []
+    var questions: Array<Dictionary<String, Any>> = []
     var answers = []
     var index = 0
     
