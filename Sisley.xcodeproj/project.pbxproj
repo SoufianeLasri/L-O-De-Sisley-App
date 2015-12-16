@@ -23,13 +23,13 @@
 		944E810B1BD9A43B002D3F20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944E810A1BD9A43B002D3F20 /* Assets.xcassets */; };
 		944E81191BD9A43B002D3F20 /* SisleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81181BD9A43B002D3F20 /* SisleyTests.swift */; };
 		944E81241BD9A43B002D3F20 /* SisleyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81231BD9A43B002D3F20 /* SisleyUITests.swift */; };
+		948097701C219F6A006DAC56 /* AngleGradientBorderLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480976F1C219F6A006DAC56 /* AngleGradientBorderLayer.swift */; };
+		948097721C21A055006DAC56 /* AngleGradientBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948097711C21A055006DAC56 /* AngleGradientBorderView.swift */; };
 		94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */; };
 		94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */; };
 		94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */; };
 		94E436221C0DD59600658C61 /* UITitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E436211C0DD59600658C61 /* UITitle.swift */; };
 		94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */; };
-		94F196D91C0C8CA100EB5283 /* AngleGradientBorderLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F196D81C0C8CA100EB5283 /* AngleGradientBorderLayer.swift */; };
-		94F196DB1C0C8D3000EB5283 /* AngleGradientBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F196DA1C0C8D3000EB5283 /* AngleGradientBorderView.swift */; };
 		AD95C1601BECBD6B0015441E /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95C15F1BECBD6B0015441E /* Menu.storyboard */; };
 		AD95C1621BECBD7A0015441E /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95C1611BECBD7A0015441E /* MenuController.swift */; };
 		AD95C1651BECC0400015441E /* Flower.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95C1641BECC0400015441E /* Flower.storyboard */; };
@@ -81,15 +81,15 @@
 		944E811F1BD9A43B002D3F20 /* SisleyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SisleyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		944E81231BD9A43B002D3F20 /* SisleyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SisleyUITests.swift; sourceTree = "<group>"; };
 		944E81251BD9A43B002D3F20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9480976F1C219F6A006DAC56 /* AngleGradientBorderLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleGradientBorderLayer.swift; sourceTree = "<group>"; };
+		948097711C21A055006DAC56 /* AngleGradientBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleGradientBorderView.swift; sourceTree = "<group>"; };
 		94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderView.swift; sourceTree = "<group>"; };
 		94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebViewController.swift; sourceTree = "<group>"; };
 		94E436211C0DD59600658C61 /* UITitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITitle.swift; sourceTree = "<group>"; };
-		94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AngleGradientLayer.h; path = ../AngleGradientLayer.h; sourceTree = "<group>"; };
-		94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sisley-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AngleGradientLayer.m; path = ../AngleGradientLayer.m; sourceTree = "<group>"; };
-		94F196D81C0C8CA100EB5283 /* AngleGradientBorderLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AngleGradientBorderLayer.swift; path = ../AngleGradientBorderLayer.swift; sourceTree = "<group>"; };
-		94F196DA1C0C8D3000EB5283 /* AngleGradientBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AngleGradientBorderView.swift; path = ../AngleGradientBorderView.swift; sourceTree = "<group>"; };
+		94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AngleGradientLayer.h; sourceTree = "<group>"; };
+		94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Sisley-Bridging-Header.h"; path = "Sisley/Sisley-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AngleGradientLayer.m; sourceTree = "<group>"; };
 		AD95C15F1BECBD6B0015441E /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		AD95C1611BECBD7A0015441E /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		AD95C1641BECC0400015441E /* Flower.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Flower.storyboard; sourceTree = "<group>"; };
@@ -219,8 +219,8 @@
 				94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */,
 				94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */,
 				94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */,
-				94F196D81C0C8CA100EB5283 /* AngleGradientBorderLayer.swift */,
-				94F196DA1C0C8D3000EB5283 /* AngleGradientBorderView.swift */,
+				9480976F1C219F6A006DAC56 /* AngleGradientBorderLayer.swift */,
+				948097711C21A055006DAC56 /* AngleGradientBorderView.swift */,
 			);
 			name = Slider;
 			sourceTree = "<group>";
@@ -446,14 +446,14 @@
 				944E81031BD9A43B002D3F20 /* MainController.swift in Sources */,
 				94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */,
 				94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */,
+				948097721C21A055006DAC56 /* AngleGradientBorderView.swift in Sources */,
 				AD95C1621BECBD7A0015441E /* MenuController.swift in Sources */,
 				ADD9C6991BE8E7050026B529 /* ConnectionController.swift in Sources */,
-				94F196D91C0C8CA100EB5283 /* AngleGradientBorderLayer.swift in Sources */,
 				94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */,
 				ADD9C6A21BE8F3850026B529 /* UserModel.swift in Sources */,
-				94F196DB1C0C8D3000EB5283 /* AngleGradientBorderView.swift in Sources */,
 				94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */,
 				AD95C1671BECC0540015441E /* FlowerController.swift in Sources */,
+				948097701C219F6A006DAC56 /* AngleGradientBorderLayer.swift in Sources */,
 				ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */,
 				944E81091BD9A43B002D3F20 /* Sisley.xcdatamodeld in Sources */,
 				944E81011BD9A43B002D3F20 /* AppDelegate.swift in Sources */,
@@ -598,7 +598,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gobs.Sisley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sisley-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sisley/Sisley-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -617,7 +617,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gobs.Sisley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sisley-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sisley/Sisley-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
