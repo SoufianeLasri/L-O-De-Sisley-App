@@ -17,19 +17,20 @@ class CustomSliderView: UIView {
     
     var min: Double = 12.0
     var max: Double = 99.0
+    var slider: CustomSlider! = nil
     
     weak var delegate: CustomSliderViewDelegate?
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init( frame: CGRect ) {
+        super.init( frame: frame )
         
         // Build the slider
-        let slider: CustomSlider = CustomSlider( frame: self.frame )
-        
+        self.slider = CustomSlider( frame: self.frame )
+
         // Attach an Action and a Target to the slider
-        slider.addTarget( self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged )
-        slider.addTarget( self, action: "validateValue:", forControlEvents: UIControlEvents.TouchUpInside )
-        slider.transform = CGAffineTransformMakeRotation( CGFloat( -M_PI / 180.0 * Double( 90.0 ) ) )
+        self.slider.addTarget( self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged )
+        self.slider.addTarget( self, action: "validateValue:", forControlEvents: UIControlEvents.TouchUpInside )
+        self.slider.transform = CGAffineTransformMakeRotation( CGFloat( -M_PI / 180.0 * Double( 90.0 ) ) )
         
         // Add the slider as subview of this view
         self.addSubview( slider )
@@ -51,5 +52,10 @@ class CustomSliderView: UIView {
     
     func validateValue( sender: UIButton! ) {
         self.delegate?.validateQuestion()
+        self.slider.resetSlider()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

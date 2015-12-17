@@ -15,8 +15,8 @@ class UITitle: UILabel {
         let color = color
         
         let linePath = UIBezierPath()
-        linePath.moveToPoint( CGPoint( x: self.frame.width / 2 - 30, y: self.frame.height + 10 ) )
-        linePath.addLineToPoint( CGPoint( x: self.frame.width / 2 + 30, y: self.frame.height + 10 ) )
+        linePath.moveToPoint( CGPoint( x: self.frame.width / 2 - 35, y: self.frame.height + 15 ) )
+        linePath.addLineToPoint( CGPoint( x: self.frame.width / 2 + 35, y: self.frame.height + 15 ) )
         
         let line = CAShapeLayer()
         line.path = linePath.CGPath

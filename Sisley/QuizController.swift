@@ -10,7 +10,7 @@ import UIKit
 
 class QuizController: UIViewController, CustomSliderViewDelegate {
     
-    @IBOutlet weak var customSlider: CustomSliderView!
+    var customSlider: CustomSliderView! = nil
     
     var questionLabel = UILabel()
     var sliderValueLabel = UILabel()
@@ -22,7 +22,13 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Instantiate the slider
+        self.customSlider = CustomSliderView( frame: CGRectMake( 0, 0, self.view.frame.width * 0.9, self.view.frame.width * 0.9 ) )
+        self.customSlider.center.x = self.view.center.x
+        self.customSlider.center.y = self.view.center.y + 140
+        self.view.addSubview( self.customSlider )
         self.customSlider.delegate = self
+        
         self.view.backgroundColor = UIColor( red: 1, green: 0.98, blue: 0.96, alpha: 1 )
         
         self.questions  = [
@@ -57,19 +63,19 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
     
         let title = UITitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.78, green: 0.82, blue: 0.85, alpha: 1 ) )
         title.text = "Mon questionnaire"
-        title.font = UIFont( name: "Santana", size: 20.0 )
+        title.font = UIFont( name: "Santana", size: 23.0 )
         title.textAlignment = .Center
         title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         
-        self.questionLabel = UILabel( frame: CGRect( x: 0, y: 100, width: self.view.frame.width, height: 80 ) )
+        self.questionLabel = UILabel( frame: CGRect( x: 0, y: 140, width: self.view.frame.width, height: 80 ) )
         self.questionLabel.numberOfLines = 2
-        self.questionLabel.font = UIFont( name: "Santana-Bold", size: 23.0 )
+        self.questionLabel.font = UIFont( name: "Santana-Bold", size: 28.0 )
         self.questionLabel.textAlignment = .Center
         self.questionLabel.textColor = UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1 )
         self.questionLabel.alpha = 0.0
         
-        self.sliderValueLabel = UILabel( frame: CGRect( x: 0, y: 160, width: self.view.frame.width, height: 80 ) )
-        self.sliderValueLabel.font = UIFont( name: "Bellota-Regular", size: 45.0 )
+        self.sliderValueLabel = UILabel( frame: CGRect( x: 0, y: 210, width: self.view.frame.width, height: 80 ) )
+        self.sliderValueLabel.font = UIFont( name: "Bellota-Regular", size: 55.0 )
         self.sliderValueLabel.textAlignment = .Center
         self.sliderValueLabel.textColor = UIColor( red: 0.9, green: 0.81, blue: 0.47, alpha: 1 )
         self.sliderValueLabel.alpha = 0.0
@@ -124,10 +130,12 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
         
         if self.questions[ index ][ "Type" ] as! String == "Number" {
             self.sliderValueLabel.text = String( Int( self.customSlider.min ) )
+            self.sliderValueLabel.font = UIFont( name: self.sliderValueLabel.font.fontName, size: 55 )
         } else {
             let minValue: Int = Int( self.customSlider.min )
             let answers = self.questions[ index ][ "Answers" ] as! [ String ]
             self.sliderValueLabel.text = answers[ minValue ]
+            self.sliderValueLabel.font = UIFont( name: self.sliderValueLabel.font.fontName, size: 35 )
         }
     }
     

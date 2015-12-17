@@ -30,8 +30,7 @@ func Square( value: CGFloat ) -> CGFloat {
 
 // MARK: Circular Slider
 class CustomSlider: UIControl {
-    
-//    var textField: UITextField?
+
     var radius: CGFloat = 0
     var angle: Int = 0
     var border: UIView = UIView()
@@ -49,30 +48,23 @@ class CustomSlider: UIControl {
 
         self.backgroundColor = UIColor.clearColor()
         self.opaque = true
-        self.center = CGPointMake( self.frame.width / 2, self.frame.height / 2 )
+        self.center = CGPointMake( super.frame.width / 2, super.frame.height / 2 )
         
         //Define the circle radius taking into account the safe area
         self.radius = self.frame.width / 2 - Config.sliderPadding
         
         // Set the border
         self.border = AngleGradientBorderView(frame: CGRectMake( Config.sliderPadding - 2, Config.sliderPadding - 2, radius * 2 + 4, radius * 2 + 4 ), borderColors: [ UIColor( red: 0.78, green: 0.82, blue: 0.85, alpha: 1 ).CGColor, UIColor.clearColor().CGColor ], borderWidth: 2.0 )
-        self.border.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( -10 ) ) )
+        self.border.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( -9 ) ) )
         self.addSubview( self.border )
         
         // Draw the background
-        let backgroundPath = UIBezierPath( ovalInRect: CGRectMake( Config.sliderPadding, Config.sliderPadding, self.radius * 2, self.radius * 2 ) )
+        let backgroundPath = UIBezierPath( ovalInRect: CGRectMake( Config.sliderPadding + 1, Config.sliderPadding + 1, self.radius * 2 - 2, self.radius * 2 - 2 ) )
         let background = CAShapeLayer()
         background.path = backgroundPath.CGPath
         background.fillColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 ).CGColor
+//        background.fillColor = UIColor.blackColor().CGColor
         self.layer.insertSublayer( background, below: self.border.layer )
-        
-        // Draw the white circle
-        let whiteCirclePath = UIBezierPath( ovalInRect: CGRectMake( 0, 0, 44.0, 44.0 ) )
-        let whiteCircle = CAShapeLayer()
-        whiteCircle.path = whiteCirclePath.CGPath
-        whiteCircle.lineWidth = 4
-        whiteCircle.strokeColor = UIColor( red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0 ).CGColor
-        whiteCircle.fillColor = UIColor( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0 ).CGColor
         
         // Draw the golden circle
         let goldenCirclePath = UIBezierPath( ovalInRect: CGRectMake( 2, 2, 40.0, 40.0 ) )
@@ -82,10 +74,10 @@ class CustomSlider: UIControl {
         goldenCircle.strokeColor = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 ).CGColor
         goldenCircle.fillColor = UIColor( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0 ).CGColor
         
-        self.handleLayer.layer.addSublayer( whiteCircle )
+        self.handleLayer.frame = CGRectMake( 0, 0, self.frame.width - Config.sliderPadding, self.frame.height - Config.sliderPadding )
+        goldenCircle.frame = CGRectMake( self.handleLayer.frame.width - 34, self.handleLayer.frame.height / 2 - 22, 44.0, 44.0 )
         self.handleLayer.layer.addSublayer( goldenCircle )
-        self.handleLayer.frame = CGRectMake( 0, 0, 44.0, 44.0 )
-        self.handleLayer.center = pointFromAngle( angle )
+        self.handleLayer.center = self.center
         self.addSubview( self.handleLayer )
         
         // The validate button
@@ -132,16 +124,16 @@ class CustomSlider: UIControl {
         }
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan( touches: Set<UITouch>, withEvent event: UIEvent? ) {
         if let touch: UITouch? = touches.first {
-            let lastPoint = touch!.locationInView( self )
-            if ( CGRectContainsPoint(self.handleLayer.frame, lastPoint ) ) {
+            let lastPoint = touch!.locationInView( self.handleLayer )
+            if ( CGRectContainsPoint( self.handleLayer.layer.sublayers![ 0 ].frame, lastPoint ) ) {
                 self.dragging = true
             }
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved( touches: Set<UITouch>, withEvent event: UIEvent? ) {
         if self.dragging {
             let lastPoint = touches.first!.locationInView( self )
             moveHandle( lastPoint )
@@ -149,34 +141,33 @@ class CustomSlider: UIControl {
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded( touches: Set<UITouch>, withEvent event: UIEvent? ) {
         self.dragging = false
     }
     
     // Move the Handle
     func moveHandle( lastPoint: CGPoint ) {
-        
-        // Get the center
-        let centerPoint: CGPoint = CGPointMake( self.frame.width / 2, self.frame.height / 2 )
-        
+
         // Calculate the direction from a center point and a arbitrary position.
-        let currentAngle: Double = AngleFromNorth( centerPoint, p2: lastPoint, flipped: false )
+        let currentAngle: Double = AngleFromNorth( self.center, p2: lastPoint, flipped: false )
         let angleInt = Int( floor( currentAngle ) )
         
         // Store the new angle
         self.angle = Int( 360 - angleInt )
         
-        let borderRotation = DegreesToRadians( Double( -self.angle - 10 ) )
+        let borderRotation = DegreesToRadians( Double( -self.angle - 9 ) )
         self.border.transform = CGAffineTransformMakeRotation( CGFloat( borderRotation )  )
         
-        self.handleLayer.center = pointFromAngle( self.angle )
+        self.handleLayer.layer.sublayers![ 0 ].needsDisplay()
+        let handleRotation = DegreesToRadians( Double( -self.angle ) )
+        self.handleLayer.transform = CGAffineTransformMakeRotation( CGFloat( handleRotation )  )
     }
     
     // Given the angle, get the point position on circumference
     func pointFromAngle( angleInt: Int ) -> CGPoint {
         
         // Circle center
-        let centerPoint = CGPointMake( self.frame.size.width / 2.0 - Config.sliderLineWidth / 2.0, self.frame.size.height / 2.0 - Config.sliderLineWidth / 2.0 )
+        let centerPoint = self.center
         
         // The point position on the circumference
         var result: CGPoint = CGPointZero
@@ -188,15 +179,14 @@ class CustomSlider: UIControl {
         return result
     }
     
-    func setRangeOfValue( min: Double, max: Double ) {
-        self.min = min
-        self.max = max
-        
-        resetSlider()
-    }
-    
     func resetSlider() {
-        self.angle = 0
+        
+        UIView.animateWithDuration( 0.5, animations: {
+            self.handleLayer.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( 0 ) ) )
+            self.border.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( -9 ) ) )
+        }, completion: { finished in
+            self.angle = 0
+        } )
     }
     
     // Sourcecode from Apple example clockControl
