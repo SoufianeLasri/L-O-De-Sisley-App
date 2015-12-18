@@ -6,13 +6,11 @@
 //  Copyright © 2015 Soufiane Lasri. All rights reserved.
 //
 //
+
 import UIKit
+import WebKit
 
 class CustomWebViewController: UIViewController, UIWebViewDelegate {
-    
-    @IBAction func growFlower(sender: AnyObject) {
-        self.webView.stringByEvaluatingJavaScriptFromString("flowerLoad()")
-    }
     
     var webView: UIWebView!
     
@@ -31,11 +29,12 @@ class CustomWebViewController: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-       self.webView.stringByEvaluatingJavaScriptFromString("window.mediator.publish('flowerLoad',{});")
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
+        let delay = 0.1 * Double( NSEC_PER_SEC )
+        let time = dispatch_time( DISPATCH_TIME_NOW, Int64( delay ) )
+        dispatch_after( time, dispatch_get_main_queue() ) {
+            self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerLoad' );" )
+            self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerGrow', { stress: 1.0, tiredness: 1.0, mood: 1.0 } );" )
+        }
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -57,9 +56,5 @@ class CustomWebViewController: UIViewController, UIWebViewDelegate {
             }
         }
         return results
-    }
-    
-    func test( params1: Int, params2: Int ) {
-        
     }
 }

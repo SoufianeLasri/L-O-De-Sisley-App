@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		942B203A1BF0D60E00F62926 /* 3d_model in Resources */ = {isa = PBXBuildFile; fileRef = 942B20341BF0D60E00F62926 /* 3d_model */; };
-		942B203B1BF0D60E00F62926 /* app.css in Resources */ = {isa = PBXBuildFile; fileRef = 942B20351BF0D60E00F62926 /* app.css */; };
-		942B203C1BF0D60E00F62926 /* app.js in Resources */ = {isa = PBXBuildFile; fileRef = 942B20371BF0D60E00F62926 /* app.js */; };
-		942B203D1BF0D60E00F62926 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 942B20391BF0D60E00F62926 /* index.html */; };
 		942B20551BF4D26700F62926 /* Bellota-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 942B204A1BF4D22E00F62926 /* Bellota-Bold.otf */; };
 		942B20561BF4D26700F62926 /* Bellota-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 942B204B1BF4D22E00F62926 /* Bellota-Light.otf */; };
 		942B20571BF4D26700F62926 /* Bellota-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 942B204C1BF4D22E00F62926 /* Bellota-Regular.otf */; };
@@ -25,6 +21,11 @@
 		944E81241BD9A43B002D3F20 /* SisleyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81231BD9A43B002D3F20 /* SisleyUITests.swift */; };
 		948097701C219F6A006DAC56 /* AngleGradientBorderLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480976F1C219F6A006DAC56 /* AngleGradientBorderLayer.swift */; };
 		948097721C21A055006DAC56 /* AngleGradientBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948097711C21A055006DAC56 /* AngleGradientBorderView.swift */; };
+		948097791C23066D006DAC56 /* 3d_model in Resources */ = {isa = PBXBuildFile; fileRef = 948097741C23066D006DAC56 /* 3d_model */; };
+		9480977A1C23066D006DAC56 /* app.css in Resources */ = {isa = PBXBuildFile; fileRef = 948097751C23066D006DAC56 /* app.css */; };
+		9480977B1C23066D006DAC56 /* app.js in Resources */ = {isa = PBXBuildFile; fileRef = 948097761C23066D006DAC56 /* app.js */; };
+		9480977C1C23066D006DAC56 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 948097771C23066D006DAC56 /* index.html */; };
+		9480977D1C23066D006DAC56 /* tex in Resources */ = {isa = PBXBuildFile; fileRef = 948097781C23066D006DAC56 /* tex */; };
 		94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */; };
 		94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */; };
 		94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */; };
@@ -59,10 +60,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		942B20341BF0D60E00F62926 /* 3d_model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 3d_model; path = www/orchidGenerator/public/3d_model; sourceTree = "<group>"; };
-		942B20351BF0D60E00F62926 /* app.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = app.css; path = www/orchidGenerator/public/app.css; sourceTree = "<group>"; };
-		942B20371BF0D60E00F62926 /* app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = app.js; path = www/orchidGenerator/public/app.js; sourceTree = "<group>"; };
-		942B20391BF0D60E00F62926 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = www/orchidGenerator/public/index.html; sourceTree = "<group>"; };
 		942B204A1BF4D22E00F62926 /* Bellota-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Bold.otf"; sourceTree = "<group>"; };
 		942B204B1BF4D22E00F62926 /* Bellota-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Light.otf"; sourceTree = "<group>"; };
 		942B204C1BF4D22E00F62926 /* Bellota-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Regular.otf"; sourceTree = "<group>"; };
@@ -83,6 +80,11 @@
 		944E81251BD9A43B002D3F20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9480976F1C219F6A006DAC56 /* AngleGradientBorderLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleGradientBorderLayer.swift; sourceTree = "<group>"; };
 		948097711C21A055006DAC56 /* AngleGradientBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleGradientBorderView.swift; sourceTree = "<group>"; };
+		948097741C23066D006DAC56 /* 3d_model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 3d_model; path = www/orchidGenerator/public/3d_model; sourceTree = "<group>"; };
+		948097751C23066D006DAC56 /* app.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = app.css; path = www/orchidGenerator/public/app.css; sourceTree = "<group>"; };
+		948097761C23066D006DAC56 /* app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = app.js; path = www/orchidGenerator/public/app.js; sourceTree = "<group>"; };
+		948097771C23066D006DAC56 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = www/orchidGenerator/public/index.html; sourceTree = "<group>"; };
+		948097781C23066D006DAC56 /* tex */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tex; path = www/orchidGenerator/public/tex; sourceTree = "<group>"; };
 		94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderView.swift; sourceTree = "<group>"; };
 		94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebViewController.swift; sourceTree = "<group>"; };
@@ -129,10 +131,11 @@
 		942B20331BF0D5F500F62926 /* www */ = {
 			isa = PBXGroup;
 			children = (
-				942B20341BF0D60E00F62926 /* 3d_model */,
-				942B20351BF0D60E00F62926 /* app.css */,
-				942B20371BF0D60E00F62926 /* app.js */,
-				942B20391BF0D60E00F62926 /* index.html */,
+				948097741C23066D006DAC56 /* 3d_model */,
+				948097751C23066D006DAC56 /* app.css */,
+				948097761C23066D006DAC56 /* app.js */,
+				948097771C23066D006DAC56 /* index.html */,
+				948097781C23066D006DAC56 /* tex */,
 			);
 			name = www;
 			sourceTree = "<group>";
@@ -225,6 +228,14 @@
 			name = Slider;
 			sourceTree = "<group>";
 		};
+		948097731C22EF2C006DAC56 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */,
+			);
+			name = WebView;
+			sourceTree = "<group>";
+		};
 		94AD12F21BF0D0B300B6B1A0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,11 +257,11 @@
 		AD95C1631BECC00F0015441E /* Flower */ = {
 			isa = PBXGroup;
 			children = (
+				948097731C22EF2C006DAC56 /* WebView */,
 				ADD9C69A1BE8E8170026B529 /* Quiz */,
 				AD95C15E1BECBD510015441E /* Menu */,
 				AD95C1641BECC0400015441E /* Flower.storyboard */,
 				AD95C1661BECC0540015441E /* FlowerController.swift */,
-				94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */,
 			);
 			name = Flower;
 			sourceTree = "<group>";
@@ -404,21 +415,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				942B203C1BF0D60E00F62926 /* app.js in Resources */,
-				942B203D1BF0D60E00F62926 /* index.html in Resources */,
-				942B203B1BF0D60E00F62926 /* app.css in Resources */,
+				9480977C1C23066D006DAC56 /* index.html in Resources */,
 				ADD9C6971BE8E6EB0026B529 /* Connection.storyboard in Resources */,
 				942B20551BF4D26700F62926 /* Bellota-Bold.otf in Resources */,
+				9480977B1C23066D006DAC56 /* app.js in Resources */,
+				9480977D1C23066D006DAC56 /* tex in Resources */,
 				ADD9C69C1BE8EBD70026B529 /* Quiz.storyboard in Resources */,
+				948097791C23066D006DAC56 /* 3d_model in Resources */,
 				AD95C1601BECBD6B0015441E /* Menu.storyboard in Resources */,
 				942B20561BF4D26700F62926 /* Bellota-Light.otf in Resources */,
 				942B20581BF4D26700F62926 /* Santana-Bold.ttf in Resources */,
 				944E810B1BD9A43B002D3F20 /* Assets.xcassets in Resources */,
 				942B20571BF4D26700F62926 /* Bellota-Regular.otf in Resources */,
+				9480977A1C23066D006DAC56 /* app.css in Resources */,
 				AD95C1651BECC0400015441E /* Flower.storyboard in Resources */,
 				942B20591BF4D26700F62926 /* Santana.ttf in Resources */,
 				944E81061BD9A43B002D3F20 /* Main.storyboard in Resources */,
-				942B203A1BF0D60E00F62926 /* 3d_model in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

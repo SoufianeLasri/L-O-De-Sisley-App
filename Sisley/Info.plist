@@ -31,20 +31,20 @@
 		<string>Bellota-Regular.otf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>Quiz</string>
+	<string>Flower</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>connectedUser</key>
 	<string>jerem</string>
 </dict>
