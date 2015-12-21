@@ -26,12 +26,12 @@
 		948097871C244C71006DAC56 /* app.js in Resources */ = {isa = PBXBuildFile; fileRef = 948097811C244C71006DAC56 /* app.js */; };
 		948097881C244C71006DAC56 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 948097831C244C71006DAC56 /* index.html */; };
 		948097891C244C71006DAC56 /* tex in Resources */ = {isa = PBXBuildFile; fileRef = 948097841C244C71006DAC56 /* tex */; };
-		9480978B1C2457EB006DAC56 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480978A1C2457EB006DAC56 /* NavigationButton.swift */; };
+		9480978B1C2457EB006DAC56 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480978A1C2457EB006DAC56 /* NavigationView.swift */; };
 		9480978D1C27F370006DAC56 /* ExpandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480978C1C27F370006DAC56 /* ExpandButton.swift */; };
 		94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */; };
 		94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */; };
 		94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */; };
-		94E436221C0DD59600658C61 /* UITitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E436211C0DD59600658C61 /* UITitle.swift */; };
+		94E436221C0DD59600658C61 /* CustomTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E436211C0DD59600658C61 /* CustomTitle.swift */; };
 		94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */; };
 		AD95C1601BECBD6B0015441E /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95C15F1BECBD6B0015441E /* Menu.storyboard */; };
 		AD95C1621BECBD7A0015441E /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95C1611BECBD7A0015441E /* MenuController.swift */; };
@@ -89,12 +89,12 @@
 		948097821C244C71006DAC56 /* app.js.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = app.js.map; path = www/orchidGenerator/public/app.js.map; sourceTree = "<group>"; };
 		948097831C244C71006DAC56 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = www/orchidGenerator/public/index.html; sourceTree = "<group>"; };
 		948097841C244C71006DAC56 /* tex */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tex; path = www/orchidGenerator/public/tex; sourceTree = "<group>"; };
-		9480978A1C2457EB006DAC56 /* NavigationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		9480978A1C2457EB006DAC56 /* NavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		9480978C1C27F370006DAC56 /* ExpandButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandButton.swift; sourceTree = "<group>"; };
 		94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderView.swift; sourceTree = "<group>"; };
 		94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebViewController.swift; sourceTree = "<group>"; };
-		94E436211C0DD59600658C61 /* UITitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITitle.swift; sourceTree = "<group>"; };
+		94E436211C0DD59600658C61 /* CustomTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTitle.swift; sourceTree = "<group>"; };
 		94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AngleGradientLayer.h; sourceTree = "<group>"; };
 		94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Sisley-Bridging-Header.h"; path = "Sisley/Sisley-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AngleGradientLayer.m; sourceTree = "<group>"; };
@@ -248,8 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				945468881C0F2C9500881080 /* Slider */,
-				94E436211C0DD59600658C61 /* UITitle.swift */,
-				9480978A1C2457EB006DAC56 /* NavigationButton.swift */,
+				94E436211C0DD59600658C61 /* CustomTitle.swift */,
+				9480978A1C2457EB006DAC56 /* NavigationView.swift */,
 				9480978C1C27F370006DAC56 /* ExpandButton.swift */,
 			);
 			name = Components;
@@ -479,9 +479,9 @@
 				948097701C219F6A006DAC56 /* AngleGradientBorderLayer.swift in Sources */,
 				ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */,
 				944E81091BD9A43B002D3F20 /* Sisley.xcdatamodeld in Sources */,
-				9480978B1C2457EB006DAC56 /* NavigationButton.swift in Sources */,
+				9480978B1C2457EB006DAC56 /* NavigationView.swift in Sources */,
 				944E81011BD9A43B002D3F20 /* AppDelegate.swift in Sources */,
-				94E436221C0DD59600658C61 /* UITitle.swift in Sources */,
+				94E436221C0DD59600658C61 /* CustomTitle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

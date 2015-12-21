@@ -1,5 +1,5 @@
 //
-//  UITitle.swift
+//  CustomTitle.swift
 //  Sisley
 //
 //  Created by Soufiane Lasri on 01/12/2015.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UITitle: UILabel {
+class CustomTitle: UILabel {
     init( frame: CGRect, color: UIColor) {
         super.init( frame: frame )
         

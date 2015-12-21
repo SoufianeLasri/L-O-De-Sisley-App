@@ -61,7 +61,7 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
             ]
         ]
     
-        let title = UITitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.78, green: 0.82, blue: 0.85, alpha: 1 ) )
+        let title = CustomTitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.78, green: 0.82, blue: 0.85, alpha: 1 ) )
         title.text = "Mon questionnaire"
         title.font = UIFont( name: "Santana", size: 23.0 )
         title.textAlignment = .Center

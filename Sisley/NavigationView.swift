@@ -1,5 +1,5 @@
 //
-//  NavigationButton.swift
+//  NavigationView.swift
 //  Sisley
 //
 //  Created by Soufiane Lasri on 18/12/2015.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationButtonView: UIView {
+class NavigationView: UIView {
     
     var expandButton: ExpandButton = ExpandButton()
     var openingState: Bool = false
