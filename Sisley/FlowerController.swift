@@ -16,6 +16,7 @@ class FlowerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         let title = CustomTitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1 ) )
         title.text = "Mon orchidée"
         title.font = UIFont( name: "Santana", size: 23.0 )

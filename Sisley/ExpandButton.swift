@@ -9,24 +9,25 @@
 import UIKit
 
 class ExpandButton: UIButton {
-//    var verticalLine: CAShapeLayer = CAShapeLayer()
+    
+    var strokeColorAnimation: CABasicAnimation = CABasicAnimation()
     
     override init( frame: CGRect ) {
         super.init( frame: frame )
         
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor    = UIColor.whiteColor()
         self.layer.cornerRadius = 25
-        self.layer.borderWidth = 2.0
-        self.layer.borderColor = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 ).CGColor
+        self.layer.borderWidth  = 2.0
+        self.layer.borderColor  = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 ).CGColor
         
         let horizontalLinePath = UIBezierPath()
         horizontalLinePath.moveToPoint( CGPoint( x: self.frame.width / 2 - 8, y: self.frame.height / 2 ) )
         horizontalLinePath.addLineToPoint( CGPoint( x: self.frame.width / 2 + 8, y: self.frame.height / 2 ) )
         
-        let horizontalLine = CAShapeLayer()
-        horizontalLine.path = horizontalLinePath.CGPath
-        horizontalLine.lineWidth = 2.0
-        horizontalLine.lineCap = kCALineJoinRound
+        let horizontalLine         = CAShapeLayer()
+        horizontalLine.path        = horizontalLinePath.CGPath
+        horizontalLine.lineWidth   = 2.0
+        horizontalLine.lineCap     = kCALineJoinRound
         horizontalLine.strokeColor = UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1 ).CGColor
         self.layer.addSublayer( horizontalLine )
         
@@ -34,30 +35,29 @@ class ExpandButton: UIButton {
         verticalLinePath.moveToPoint( CGPoint( x: self.frame.width / 2, y: self.frame.height / 2 - 8 ) )
         verticalLinePath.addLineToPoint( CGPoint( x: self.frame.width / 2, y: self.frame.height / 2 + 8 ) )
         
-        let verticalLine = CAShapeLayer()
-        verticalLine.path = verticalLinePath.CGPath
-        verticalLine.lineWidth = 2.0
-        verticalLine.lineCap = kCALineJoinRound
+        let verticalLine         = CAShapeLayer()
+        verticalLine.path        = verticalLinePath.CGPath
+        verticalLine.lineWidth   = 2.0
+        verticalLine.lineCap     = kCALineJoinRound
         verticalLine.strokeColor = UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1 ).CGColor
         self.layer.addSublayer( verticalLine )
         
-//        self.verticalLine = CAShapeLayer()
-//        self.verticalLine.path = linePath.CGPath
-//        self.verticalLine.anchorPoint = CGPointMake( 1.0, 1.0 )
-//        self.verticalLine.lineWidth = 2.0
-//        self.verticalLine.lineCap = kCALineJoinRound
-//        self.verticalLine.bounds = self.bounds
-//        self.verticalLine.position = CGPointMake( self.frame.width / 2, self.frame.height / 2 )
-//        self.verticalLine.anchorPoint = CGPointMake( 0.5, 0.5 )
-//        self.verticalLine.transform = CATransform3DMakeRotation( CGFloat( M_PI ) / 2, 0.0, 0.0, 1.0 )
-//        self.verticalLine.strokeColor = UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1 ).CGColor
-//        self.layer.addSublayer( self.verticalLine )
+        self.strokeColorAnimation           = CABasicAnimation(keyPath: "strokeColor")
+        self.strokeColorAnimation.fromValue = UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1 ).CGColor
+        self.strokeColorAnimation.toValue   = UIColor.whiteColor().CGColor
+        self.strokeColorAnimation.duration  = 0.3
+        self.strokeColorAnimation.removedOnCompletion = false
+        self.strokeColorAnimation.fillMode  = kCAFillModeBoth
     }
     
     func toggleButton( openingState: Bool ) {
         if openingState == true {
             self.layer.transform = CATransform3DMakeRotation( CGFloat( M_PI ) / 4, 0.0, 0.0, 1.0 )
             self.backgroundColor = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 )
+            
+            for item in self.layer.sublayers! {
+                item.addAnimation( self.strokeColorAnimation, forKey: "strokeColor" )
+            }
         } else {
             self.layer.transform = CATransform3DMakeRotation( 0.0, 0.0, 0.0, 1.0 )
             self.backgroundColor = UIColor.whiteColor()
