@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     override func viewDidAppear( animated: Bool ) {
         super.viewDidAppear( animated )
         
+        // Santana / Santana-Bold
+        // Bellota-Light / Bellota-Regular / Bellota-Bold /
         // printFonts()
         
         // ##

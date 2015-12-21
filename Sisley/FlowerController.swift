@@ -11,10 +11,24 @@ import UIKit
 class FlowerController: UIViewController {
     
     //TODO  : charger le menu ou le quizz
+    var webView: CustomWebViewController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let title = UITitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.78, green: 0.82, blue: 0.85, alpha: 1 ) )
+        title.text = "Mon orchidée"
+        title.font = UIFont( name: "Santana", size: 23.0 )
+        title.textAlignment = .Center
+        title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
+        
+        let navigationButton = NavigationButtonView( frame: self.view.frame )
+        
+        self.webView = CustomWebViewController( frame: self.view.frame )
+        
+        self.view.addSubview( self.webView! )
+        self.view.addSubview( title )
+        self.view.addSubview( navigationButton )
     }
     
     override func didReceiveMemoryWarning() {

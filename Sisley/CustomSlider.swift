@@ -63,7 +63,6 @@ class CustomSlider: UIControl {
         let background = CAShapeLayer()
         background.path = backgroundPath.CGPath
         background.fillColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 ).CGColor
-//        background.fillColor = UIColor.blackColor().CGColor
         self.layer.insertSublayer( background, below: self.border.layer )
         
         // Draw the golden circle

@@ -21,6 +21,7 @@ class UITitle: UILabel {
         let line = CAShapeLayer()
         line.path = linePath.CGPath
         line.lineWidth = 1.0
+        line.lineCap = kCALineJoinRound
         line.strokeColor = color.CGColor
         
         self.layer.addSublayer( line )
