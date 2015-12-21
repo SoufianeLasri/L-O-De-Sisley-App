@@ -36,7 +36,7 @@ class CustomWebViewController: UIView, UIWebViewDelegate {
         let time = dispatch_time( DISPATCH_TIME_NOW, Int64( delay ) )
         dispatch_after( time, dispatch_get_main_queue() ) {
             self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerLoad' );" )
-            self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerGrow', { stress: 1.0, tiredness: 1.0, mood: 1.0 } );" )
+            self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerGrow', { stress: 10.0, tiredness: 1.0, mood: 1.0 } );" )
         }
     }
     

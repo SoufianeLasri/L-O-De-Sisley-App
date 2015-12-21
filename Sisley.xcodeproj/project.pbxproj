@@ -28,6 +28,9 @@
 		948097891C244C71006DAC56 /* tex in Resources */ = {isa = PBXBuildFile; fileRef = 948097841C244C71006DAC56 /* tex */; };
 		9480978B1C2457EB006DAC56 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480978A1C2457EB006DAC56 /* NavigationView.swift */; };
 		9480978D1C27F370006DAC56 /* ExpandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480978C1C27F370006DAC56 /* ExpandButton.swift */; };
+		9480978F1C281AA5006DAC56 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480978E1C281AA5006DAC56 /* NavigationButton.swift */; };
+		948098281C285D44006DAC56 /* evolution.png in Resources */ = {isa = PBXBuildFile; fileRef = 948098261C285D44006DAC56 /* evolution.png */; };
+		948098291C285D44006DAC56 /* soins.png in Resources */ = {isa = PBXBuildFile; fileRef = 948098271C285D44006DAC56 /* soins.png */; };
 		94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */; };
 		94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */; };
 		94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */; };
@@ -91,6 +94,9 @@
 		948097841C244C71006DAC56 /* tex */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tex; path = www/orchidGenerator/public/tex; sourceTree = "<group>"; };
 		9480978A1C2457EB006DAC56 /* NavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		9480978C1C27F370006DAC56 /* ExpandButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandButton.swift; sourceTree = "<group>"; };
+		9480978E1C281AA5006DAC56 /* NavigationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		948098261C285D44006DAC56 /* evolution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = evolution.png; sourceTree = "<group>"; };
+		948098271C285D44006DAC56 /* soins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soins.png; sourceTree = "<group>"; };
 		94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderView.swift; sourceTree = "<group>"; };
 		94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 		942B20491BF4D21C00F62926 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				948098241C285D29006DAC56 /* Images */,
 				942B20501BF4D25C00F62926 /* Fonts */,
 			);
 			name = Assets;
@@ -244,6 +251,23 @@
 			name = WebView;
 			sourceTree = "<group>";
 		};
+		948098241C285D29006DAC56 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				948098251C285D31006DAC56 /* Pictos */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		948098251C285D31006DAC56 /* Pictos */ = {
+			isa = PBXGroup;
+			children = (
+				948098261C285D44006DAC56 /* evolution.png */,
+				948098271C285D44006DAC56 /* soins.png */,
+			);
+			name = Pictos;
+			sourceTree = "<group>";
+		};
 		94AD12F21BF0D0B300B6B1A0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +275,7 @@
 				94E436211C0DD59600658C61 /* CustomTitle.swift */,
 				9480978A1C2457EB006DAC56 /* NavigationView.swift */,
 				9480978C1C27F370006DAC56 /* ExpandButton.swift */,
+				9480978E1C281AA5006DAC56 /* NavigationButton.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -427,6 +452,7 @@
 			files = (
 				948097881C244C71006DAC56 /* index.html in Resources */,
 				ADD9C6971BE8E6EB0026B529 /* Connection.storyboard in Resources */,
+				948098281C285D44006DAC56 /* evolution.png in Resources */,
 				942B20551BF4D26700F62926 /* Bellota-Bold.otf in Resources */,
 				948097871C244C71006DAC56 /* app.js in Resources */,
 				948097891C244C71006DAC56 /* tex in Resources */,
@@ -434,6 +460,7 @@
 				948097851C244C71006DAC56 /* 3d_model in Resources */,
 				AD95C1601BECBD6B0015441E /* Menu.storyboard in Resources */,
 				942B20561BF4D26700F62926 /* Bellota-Light.otf in Resources */,
+				948098291C285D44006DAC56 /* soins.png in Resources */,
 				942B20581BF4D26700F62926 /* Santana-Bold.ttf in Resources */,
 				944E810B1BD9A43B002D3F20 /* Assets.xcassets in Resources */,
 				942B20571BF4D26700F62926 /* Bellota-Regular.otf in Resources */,
@@ -476,6 +503,7 @@
 				ADD9C6A21BE8F3850026B529 /* UserModel.swift in Sources */,
 				94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */,
 				AD95C1671BECC0540015441E /* FlowerController.swift in Sources */,
+				9480978F1C281AA5006DAC56 /* NavigationButton.swift in Sources */,
 				948097701C219F6A006DAC56 /* AngleGradientBorderLayer.swift in Sources */,
 				ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */,
 				944E81091BD9A43B002D3F20 /* Sisley.xcdatamodeld in Sources */,
