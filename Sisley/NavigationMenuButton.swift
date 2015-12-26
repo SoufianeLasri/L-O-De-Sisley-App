@@ -11,9 +11,12 @@ import UIKit
 class NavigationMenuButton: UIButton {
     
     var strokeColorAnimation: CABasicAnimation = CABasicAnimation()
+    var menuView: NavigationView = NavigationView()
     
-    override init( frame: CGRect ) {
+    init( frame: CGRect, menuView: NavigationView ) {
         super.init( frame: frame )
+        
+        self.menuView = menuView
         
         self.backgroundColor    = UIColor.whiteColor()
         self.layer.cornerRadius = self.frame.width / 2
@@ -48,6 +51,33 @@ class NavigationMenuButton: UIButton {
         self.strokeColorAnimation.duration  = 0.3
         self.strokeColorAnimation.removedOnCompletion = false
         self.strokeColorAnimation.fillMode  = kCAFillModeBoth
+        
+        let tapRecognizer = UITapGestureRecognizer( target: self, action: "openNavigationMenu:" )
+        self.gestureRecognizers = [ tapRecognizer ]
+    }
+    
+    func openNavigationMenu( recognizer: UITapGestureRecognizer ) {
+        if recognizer.state == .Ended {
+            self.menuView.toggleNavigationMenu()
+            
+            if self.menuView.openingState == true {
+                UIView.animateWithDuration( 0.3, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: {
+                    self.toggleButton( true )
+                }, completion: nil )
+            } else {
+                let chrono = 0.3 * Double( NSEC_PER_SEC )
+                let time = dispatch_time( DISPATCH_TIME_NOW, Int64( chrono ) )
+                dispatch_after( time, dispatch_get_main_queue() ) {
+                    for item in self.layer.sublayers! {
+                        item.removeAnimationForKey( "strokeColor" )
+                    }
+                }
+                
+                UIView.animateWithDuration( 0.3, delay: 0.3, options: UIViewAnimationOptions.TransitionNone, animations: {
+                    self.toggleButton( false )
+                }, completion: nil )
+            }
+        }
     }
     
     func toggleButton( openingState: Bool ) {

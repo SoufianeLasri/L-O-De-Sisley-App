@@ -11,7 +11,6 @@ import UIKit
 class SharingView: UIView {
     
     var label: UILabel = UILabel()
-    var sharingMenuButton: SharingMenuButton = SharingMenuButton()
     var sharingCloseButton: SharingCloseButton = SharingCloseButton()
     var openingState: Bool = false
     var buttons: [ SharingButton ] = []
@@ -58,13 +57,11 @@ class SharingView: UIView {
             
         UIView.animateWithDuration( 0.3, delay: delay, options: UIViewAnimationOptions.TransitionNone, animations: {
             self.backgroundColor = UIColor( red: 0.06, green: 0.08, blue: 0.32, alpha: 0.7 )
-            self.sharingMenuButton.toggleButton( self.openingState )
             self.label.alpha = 1
             self.label.frame.origin.y -= 5
             self.sharingCloseButton.alpha = 1
             self.sharingCloseButton.frame.origin.y -= 5
         }, completion: { finished in
-            self.sharingMenuButton.enabled = false
             self.sharingCloseButton.enabled = true
         } )
             
@@ -85,13 +82,11 @@ class SharingView: UIView {
         
             UIView.animateWithDuration( 0.3, delay: delay, options: UIViewAnimationOptions.TransitionNone, animations: {
                 self.backgroundColor = UIColor( red: 0.06, green: 0.08, blue: 0.32, alpha: 0.0 )
-                self.sharingMenuButton.toggleButton( self.openingState )
                 self.label.alpha = 0
                 self.label.frame.origin.y += 5
                 self.sharingCloseButton.alpha = 0
                 self.sharingCloseButton.frame.origin.y += 5
             }, completion: { finished in
-                self.sharingMenuButton.enabled = true
                 self.sharingCloseButton.enabled = false
                 self.hidden = true
             } )

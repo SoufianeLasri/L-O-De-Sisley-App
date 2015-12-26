@@ -10,8 +10,12 @@ import UIKit
 
 class SharingMenuButton: UIButton {
     
-    override init( frame: CGRect ) {
+    var menuView: SharingView = SharingView()
+    
+    init( frame: CGRect, menuView: SharingView ) {
         super.init( frame: frame )
+        
+        self.menuView = menuView
         
         self.backgroundColor    = UIColor.whiteColor()
         self.layer.cornerRadius = self.frame.width / 2
@@ -23,15 +27,24 @@ class SharingMenuButton: UIButton {
         imageView.layer.cornerRadius = self.frame.width / 2
         imageView.layer.masksToBounds = true
         self.addSubview( imageView )
+        
+        let openingTap = UITapGestureRecognizer( target: self, action: "openSharingMenu:" )
+        self.addGestureRecognizer( openingTap )
     }
     
-    func toggleButton( openingState: Bool ) {
-        if openingState == true {
-            self.alpha = 0.1
-        } else {
-            self.alpha = 1.0
+    func openSharingMenu( recognizer: UITapGestureRecognizer ) {
+        if recognizer.state == .Ended {
+            self.menuView.openMenu()
         }
     }
+    
+//    func toggleButton( openingState: Bool ) {
+//        if openingState == true {
+//            self.alpha = 0.1
+//        } else {
+//            self.alpha = 1.0
+//        }
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
