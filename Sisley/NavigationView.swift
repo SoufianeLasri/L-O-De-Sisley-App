@@ -10,7 +10,7 @@ import UIKit
 
 class NavigationView: UIView {
     
-    var expandButton: ExpandButton = ExpandButton()
+//    var navigationMenuButton: NavigationMenuButton = NavigationMenuButton()
     var openingState: Bool = false
     var buttons: [ NavigationButton ] = []
     var items: [ [ String: String ] ] = []
@@ -34,16 +34,19 @@ class NavigationView: UIView {
         ]
         
         self.backgroundColor = UIColor( red: 0.06, green: 0.08, blue: 0.32, alpha: 0.0 )
-        self.expandButton = ExpandButton( frame: CGRect( x: 25, y: self.frame.height - 75, width: 50, height: 50 ) )
-        let tapRecognizer = UITapGestureRecognizer( target: self, action: "detectTap:" )
-        self.expandButton.gestureRecognizers = [ tapRecognizer ]
-        self.addSubview( self.expandButton )
+        
+//        self.navigationMenuButton = NavigationMenuButton( frame: CGRect( x: 15, y: self.frame.height - 75, width: 60, height: 60 ) )
+//        let tapRecognizer = UITapGestureRecognizer( target: self, action: "detectTap:" )
+//        self.navigationMenuButton.gestureRecognizers = [ tapRecognizer ]
+//        self.addSubview( self.navigationMenuButton )
         
         for var i = 0; i < self.items.count; i++ {
-            let button = NavigationButton( frame: CGRect( x: 25, y: self.frame.height - CGFloat( 75 + 60 * ( i + 1 ) ), width: 50, height: 50 ), text: self.items[ i ][ "title" ]!, imageName: self.items[ i ][ "image" ]!  )
+            let button = NavigationButton( frame: CGRect( x: 15, y: self.frame.height - CGFloat( 75 + 70 * ( i + 1 ) ), width: 60, height: 60 ), text: self.items[ i ][ "title" ]!, imageName: self.items[ i ][ "image" ]!  )
             self.buttons.append( button )
             self.addSubview( button )
         }
+        
+        self.hidden = true
     }
 
     func detectTap( recognizer: UITapGestureRecognizer ) {
@@ -56,11 +59,13 @@ class NavigationView: UIView {
         self.openingState = !self.openingState
         
         if self.openingState == true {
+            self.hidden = false
+            
             var delay = 0.0
             
             UIView.animateWithDuration( 0.3, delay: delay, options: UIViewAnimationOptions.TransitionNone, animations: {
                 self.backgroundColor = UIColor( red: 0.06, green: 0.08, blue: 0.32, alpha: 0.7 )
-                self.expandButton.toggleButton( self.openingState )
+//                self.navigationMenuButton.toggleButton( self.openingState )
             }, completion: nil )
             
             for item in self.buttons {
@@ -76,18 +81,20 @@ class NavigationView: UIView {
             // var delay = 0.3
             var delay = Double( self.items.count ) / 10.0 - 0.1
             
-            let chrono = delay * Double( NSEC_PER_SEC )
-            let time = dispatch_time( DISPATCH_TIME_NOW, Int64( chrono ) )
-            dispatch_after( time, dispatch_get_main_queue() ) {
-                for item in self.expandButton.layer.sublayers! {
-                    item.removeAnimationForKey( "strokeColor" )
-                }
-            }
+//            let chrono = delay * Double( NSEC_PER_SEC )
+//            let time = dispatch_time( DISPATCH_TIME_NOW, Int64( chrono ) )
+//            dispatch_after( time, dispatch_get_main_queue() ) {
+//                for item in self.navigationMenuButton.layer.sublayers! {
+//                    item.removeAnimationForKey( "strokeColor" )
+//                }
+//            }
             
             UIView.animateWithDuration( 0.3, delay: delay, options: UIViewAnimationOptions.TransitionNone, animations: {
                 self.backgroundColor = UIColor( red: 0.06, green: 0.08, blue: 0.32, alpha: 0.0 )
-                self.expandButton.toggleButton( self.openingState )
-            }, completion: nil )
+//                self.navigationMenuButton.toggleButton( self.openingState )
+            }, completion: { finished in
+                self.hidden = true
+            } )
             
             for item in self.buttons {
                 UIView.animateWithDuration( 0.3, delay: delay, options: UIViewAnimationOptions.TransitionNone, animations: {

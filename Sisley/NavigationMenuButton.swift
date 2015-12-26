@@ -1,5 +1,5 @@
 //
-//  ExpandButton.swift
+//  NavigationMenuButton.swift
 //  Sisley
 //
 //  Created by Soufiane Lasri on 21/12/2015.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExpandButton: UIButton {
+class NavigationMenuButton: UIButton {
     
     var strokeColorAnimation: CABasicAnimation = CABasicAnimation()
     
@@ -16,7 +16,7 @@ class ExpandButton: UIButton {
         super.init( frame: frame )
         
         self.backgroundColor    = UIColor.whiteColor()
-        self.layer.cornerRadius = 25
+        self.layer.cornerRadius = self.frame.width / 2
         self.layer.borderWidth  = 2.0
         self.layer.borderColor  = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 ).CGColor
         
