@@ -24,6 +24,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Bellota-Italic.otf</string>
 		<string>Santana-Bold.ttf</string>
 		<string>Santana.ttf</string>
 		<string>Bellota-Bold.otf</string>
@@ -31,7 +32,7 @@
 		<string>Bellota-Regular.otf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>Flower</string>
+	<string>Tips</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
