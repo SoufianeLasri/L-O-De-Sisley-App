@@ -32,5 +32,21 @@ class TipsController: UIViewController {
         let carousel = CustomCarouselController( frame: CGRect( x: 0, y: etiquette.frame.maxY + 3, width: self.view.frame.width - 60, height: self.view.frame.height - etiquette.frame.maxY - 25 ) )
         carousel.center.x = self.view.center.x
         self.view.addSubview( carousel )
+        
+        for item in carousel.dots {
+            item.frame.origin.y = self.view.frame.height - 50
+            self.view.addSubview( item )
+        }
+        
+        let validateActivityButton = ValidateButtonButton( frame: CGRect( x: 50, y: self.view.frame.height - 92, width: 55, height: 55 ) )
+        self.view.addSubview( validateActivityButton )
+        
+        let sharingView = SharingView( frame: self.view.frame )
+        let sharingMenuButton = SharingMenuButton( frame: CGRect( x: self.view.frame.width - 100, y: self.view.frame.height - 92, width: 55, height: 55 ), menuView: sharingView )
+        self.view.addSubview( sharingMenuButton )
+        self.view.addSubview( sharingView )
+        
+        let closeButton = CloseButton(frame: CGRect( x: header.frame.width - 0, y: header.frame.origin.y + 12, width: 20, height: 20 ) )
+        self.view.addSubview( closeButton )
     }
 }
