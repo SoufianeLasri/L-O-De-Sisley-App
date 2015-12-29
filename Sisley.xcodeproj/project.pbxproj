@@ -39,11 +39,6 @@
 		9467B6281C320866000A7C08 /* packShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9467B6271C320866000A7C08 /* packShot.png */; };
 		948097701C219F6A006DAC56 /* AngleGradientBorderLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480976F1C219F6A006DAC56 /* AngleGradientBorderLayer.swift */; };
 		948097721C21A055006DAC56 /* AngleGradientBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948097711C21A055006DAC56 /* AngleGradientBorderView.swift */; };
-		948097851C244C71006DAC56 /* 3d_model in Resources */ = {isa = PBXBuildFile; fileRef = 9480977E1C244C71006DAC56 /* 3d_model */; };
-		948097861C244C71006DAC56 /* app.css in Resources */ = {isa = PBXBuildFile; fileRef = 9480977F1C244C71006DAC56 /* app.css */; };
-		948097871C244C71006DAC56 /* app.js in Resources */ = {isa = PBXBuildFile; fileRef = 948097811C244C71006DAC56 /* app.js */; };
-		948097881C244C71006DAC56 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 948097831C244C71006DAC56 /* index.html */; };
-		948097891C244C71006DAC56 /* tex in Resources */ = {isa = PBXBuildFile; fileRef = 948097841C244C71006DAC56 /* tex */; };
 		9480978B1C2457EB006DAC56 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480978A1C2457EB006DAC56 /* NavigationView.swift */; };
 		9480978D1C27F370006DAC56 /* NavigationMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480978C1C27F370006DAC56 /* NavigationMenuButton.swift */; };
 		9480978F1C281AA5006DAC56 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480978E1C281AA5006DAC56 /* NavigationButton.swift */; };
@@ -51,6 +46,17 @@
 		9480982F1C28BC4B006DAC56 /* orchidee.png in Resources */ = {isa = PBXBuildFile; fileRef = 9480982B1C28BC4B006DAC56 /* orchidee.png */; };
 		948098301C28BC4B006DAC56 /* profil.png in Resources */ = {isa = PBXBuildFile; fileRef = 9480982C1C28BC4B006DAC56 /* profil.png */; };
 		948098311C28BC4B006DAC56 /* soins.png in Resources */ = {isa = PBXBuildFile; fileRef = 9480982D1C28BC4B006DAC56 /* soins.png */; };
+		94ABE0C11C328BAD00224E16 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABE0C01C328BAD00224E16 /* CommentView.swift */; };
+		94ABE0C71C32BA0600224E16 /* 3d_model in Resources */ = {isa = PBXBuildFile; fileRef = 94ABE0C21C32BA0600224E16 /* 3d_model */; };
+		94ABE0C81C32BA0600224E16 /* app.css in Resources */ = {isa = PBXBuildFile; fileRef = 94ABE0C31C32BA0600224E16 /* app.css */; };
+		94ABE0C91C32BA0600224E16 /* app.js in Resources */ = {isa = PBXBuildFile; fileRef = 94ABE0C41C32BA0600224E16 /* app.js */; };
+		94ABE0CA1C32BA0600224E16 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 94ABE0C51C32BA0600224E16 /* index.html */; };
+		94ABE0CB1C32BA0600224E16 /* tex in Resources */ = {isa = PBXBuildFile; fileRef = 94ABE0C61C32BA0600224E16 /* tex */; };
+		94ABE0CD1C32BFE900224E16 /* ReactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABE0CC1C32BFE900224E16 /* ReactionsView.swift */; };
+		94ABE0D21C32C21A00224E16 /* comment2.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ABE0CF1C32C21A00224E16 /* comment2.png */; };
+		94ABE0D31C32C21A00224E16 /* comment3.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ABE0D01C32C21A00224E16 /* comment3.png */; };
+		94ABE0D41C32C21A00224E16 /* comment1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94ABE0D11C32C21A00224E16 /* comment1.png */; };
+		94ABE0D61C32C23C00224E16 /* ReactionEtiquetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ABE0D51C32C23C00224E16 /* ReactionEtiquetteView.swift */; };
 		94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */; };
 		94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */; };
 		94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */; };
@@ -132,13 +138,6 @@
 		9467B6271C320866000A7C08 /* packShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = packShot.png; sourceTree = "<group>"; };
 		9480976F1C219F6A006DAC56 /* AngleGradientBorderLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleGradientBorderLayer.swift; sourceTree = "<group>"; };
 		948097711C21A055006DAC56 /* AngleGradientBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngleGradientBorderView.swift; sourceTree = "<group>"; };
-		9480977E1C244C71006DAC56 /* 3d_model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 3d_model; path = www/orchidGenerator/public/3d_model; sourceTree = "<group>"; };
-		9480977F1C244C71006DAC56 /* app.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = app.css; path = www/orchidGenerator/public/app.css; sourceTree = "<group>"; };
-		948097801C244C71006DAC56 /* app.css.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = app.css.map; path = www/orchidGenerator/public/app.css.map; sourceTree = "<group>"; };
-		948097811C244C71006DAC56 /* app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = app.js; path = www/orchidGenerator/public/app.js; sourceTree = "<group>"; };
-		948097821C244C71006DAC56 /* app.js.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = app.js.map; path = www/orchidGenerator/public/app.js.map; sourceTree = "<group>"; };
-		948097831C244C71006DAC56 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = www/orchidGenerator/public/index.html; sourceTree = "<group>"; };
-		948097841C244C71006DAC56 /* tex */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tex; path = www/orchidGenerator/public/tex; sourceTree = "<group>"; };
 		9480978A1C2457EB006DAC56 /* NavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 		9480978C1C27F370006DAC56 /* NavigationMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationMenuButton.swift; sourceTree = "<group>"; };
 		9480978E1C281AA5006DAC56 /* NavigationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
@@ -146,6 +145,17 @@
 		9480982B1C28BC4B006DAC56 /* orchidee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orchidee.png; sourceTree = "<group>"; };
 		9480982C1C28BC4B006DAC56 /* profil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profil.png; sourceTree = "<group>"; };
 		9480982D1C28BC4B006DAC56 /* soins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soins.png; sourceTree = "<group>"; };
+		94ABE0C01C328BAD00224E16 /* CommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		94ABE0C21C32BA0600224E16 /* 3d_model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 3d_model; path = www/orchidGenerator/public/3d_model; sourceTree = "<group>"; };
+		94ABE0C31C32BA0600224E16 /* app.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = app.css; path = www/orchidGenerator/public/app.css; sourceTree = "<group>"; };
+		94ABE0C41C32BA0600224E16 /* app.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = app.js; path = www/orchidGenerator/public/app.js; sourceTree = "<group>"; };
+		94ABE0C51C32BA0600224E16 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = www/orchidGenerator/public/index.html; sourceTree = "<group>"; };
+		94ABE0C61C32BA0600224E16 /* tex */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tex; path = www/orchidGenerator/public/tex; sourceTree = "<group>"; };
+		94ABE0CC1C32BFE900224E16 /* ReactionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactionsView.swift; sourceTree = "<group>"; };
+		94ABE0CF1C32C21A00224E16 /* comment2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment2.png; sourceTree = "<group>"; };
+		94ABE0D01C32C21A00224E16 /* comment3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment3.png; sourceTree = "<group>"; };
+		94ABE0D11C32C21A00224E16 /* comment1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment1.png; sourceTree = "<group>"; };
+		94ABE0D51C32C23C00224E16 /* ReactionEtiquetteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactionEtiquetteView.swift; sourceTree = "<group>"; };
 		94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderView.swift; sourceTree = "<group>"; };
 		94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebViewController.swift; sourceTree = "<group>"; };
@@ -201,13 +211,11 @@
 		942B20331BF0D5F500F62926 /* www */ = {
 			isa = PBXGroup;
 			children = (
-				9480977E1C244C71006DAC56 /* 3d_model */,
-				9480977F1C244C71006DAC56 /* app.css */,
-				948097801C244C71006DAC56 /* app.css.map */,
-				948097811C244C71006DAC56 /* app.js */,
-				948097821C244C71006DAC56 /* app.js.map */,
-				948097831C244C71006DAC56 /* index.html */,
-				948097841C244C71006DAC56 /* tex */,
+				94ABE0C21C32BA0600224E16 /* 3d_model */,
+				94ABE0C31C32BA0600224E16 /* app.css */,
+				94ABE0C41C32BA0600224E16 /* app.js */,
+				94ABE0C51C32BA0600224E16 /* index.html */,
+				94ABE0C61C32BA0600224E16 /* tex */,
 			);
 			name = www;
 			sourceTree = "<group>";
@@ -336,6 +344,9 @@
 			children = (
 				9467B6231C31FA16000A7C08 /* DetailsView.swift */,
 				9467B6251C320514000A7C08 /* PackShotView.swift */,
+				94ABE0C01C328BAD00224E16 /* CommentView.swift */,
+				94ABE0CC1C32BFE900224E16 /* ReactionsView.swift */,
+				94ABE0D51C32C23C00224E16 /* ReactionEtiquetteView.swift */,
 			);
 			name = Pagging;
 			sourceTree = "<group>";
@@ -351,6 +362,7 @@
 		948098241C285D29006DAC56 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				94ABE0CE1C32C1AD00224E16 /* Comments */,
 				9467B6141C2F0D7C000A7C08 /* Products */,
 				948098251C285D31006DAC56 /* Pictos */,
 			);
@@ -379,6 +391,16 @@
 				94D29C3C1C2DCB7400484EAB /* goBack.png */,
 			);
 			name = Pictos;
+			sourceTree = "<group>";
+		};
+		94ABE0CE1C32C1AD00224E16 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				94ABE0CF1C32C21A00224E16 /* comment2.png */,
+				94ABE0D01C32C21A00224E16 /* comment3.png */,
+				94ABE0D11C32C21A00224E16 /* comment1.png */,
+			);
+			name = Comments;
 			sourceTree = "<group>";
 		};
 		94AD12F21BF0D0B300B6B1A0 /* Components */ = {
@@ -585,11 +607,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94ABE0CB1C32BA0600224E16 /* tex in Resources */,
+				94ABE0CA1C32BA0600224E16 /* index.html in Resources */,
 				9467B61B1C2F1476000A7C08 /* Bellota-Italic.otf in Resources */,
 				94D29C3F1C2DCB7400484EAB /* twitter.png in Resources */,
 				94D29C401C2DCB7400484EAB /* facebook.png in Resources */,
+				94ABE0D21C32C21A00224E16 /* comment2.png in Resources */,
 				9467B6131C2F0D5B000A7C08 /* purchase.png in Resources */,
-				948097881C244C71006DAC56 /* index.html in Resources */,
 				ADD9C6971BE8E6EB0026B529 /* Connection.storyboard in Resources */,
 				9467B6121C2F0D5B000A7C08 /* heartEmpty.png in Resources */,
 				9480982E1C28BC4B006DAC56 /* evolution.png in Resources */,
@@ -598,24 +622,25 @@
 				9467B60D1C2F0D5B000A7C08 /* tutoThird.png in Resources */,
 				948098311C28BC4B006DAC56 /* soins.png in Resources */,
 				9467B6281C320866000A7C08 /* packShot.png in Resources */,
-				948097871C244C71006DAC56 /* app.js in Resources */,
-				948097891C244C71006DAC56 /* tex in Resources */,
 				9480982F1C28BC4B006DAC56 /* orchidee.png in Resources */,
 				ADD9C69C1BE8EBD70026B529 /* Quiz.storyboard in Resources */,
 				94D29C3D1C2DCB7400484EAB /* sharingButton.png in Resources */,
+				94ABE0C71C32BA0600224E16 /* 3d_model in Resources */,
 				9467B60E1C2F0D5B000A7C08 /* goBackBlue.png in Resources */,
-				948097851C244C71006DAC56 /* 3d_model in Resources */,
 				AD95C1601BECBD6B0015441E /* Menu.storyboard in Resources */,
+				94ABE0D41C32C21A00224E16 /* comment1.png in Resources */,
 				942B20561BF4D26700F62926 /* Bellota-Light.otf in Resources */,
 				942B20581BF4D26700F62926 /* Santana-Bold.ttf in Resources */,
+				94ABE0C91C32BA0600224E16 /* app.js in Resources */,
 				944E810B1BD9A43B002D3F20 /* Assets.xcassets in Resources */,
 				948098301C28BC4B006DAC56 /* profil.png in Resources */,
 				942B20571BF4D26700F62926 /* Bellota-Regular.otf in Resources */,
 				9467B60F1C2F0D5B000A7C08 /* tutoFirst.png in Resources */,
 				9467B6031C2F09E9000A7C08 /* Tips.storyboard in Resources */,
-				948097861C244C71006DAC56 /* app.css in Resources */,
+				94ABE0D31C32C21A00224E16 /* comment3.png in Resources */,
 				94D29C411C2DCB7400484EAB /* goBack.png in Resources */,
 				AD95C1651BECC0400015441E /* Flower.storyboard in Resources */,
+				94ABE0C81C32BA0600224E16 /* app.css in Resources */,
 				9467B6101C2F0D5B000A7C08 /* heartFull.png in Resources */,
 				942B20591BF4D26700F62926 /* Santana.ttf in Resources */,
 				9467B60C1C2F0D5B000A7C08 /* tutoSecond.png in Resources */,
@@ -645,6 +670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94ABE0D61C32C23C00224E16 /* ReactionEtiquetteView.swift in Sources */,
 				9467B61D1C2F1753000A7C08 /* LikeButton.swift in Sources */,
 				9467B6191C2F11B5000A7C08 /* EtiquetteView.swift in Sources */,
 				944E81031BD9A43B002D3F20 /* MainController.swift in Sources */,
@@ -657,12 +683,14 @@
 				9467B6171C2F0E0D000A7C08 /* HeaderView.swift in Sources */,
 				94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */,
 				9467B6211C313476000A7C08 /* CarouselController.swift in Sources */,
+				94ABE0CD1C32BFE900224E16 /* ReactionsView.swift in Sources */,
 				9480978D1C27F370006DAC56 /* NavigationMenuButton.swift in Sources */,
 				ADD9C6A21BE8F3850026B529 /* UserModel.swift in Sources */,
 				94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */,
 				AD95C1671BECC0540015441E /* FlowerController.swift in Sources */,
 				9480978F1C281AA5006DAC56 /* NavigationButton.swift in Sources */,
 				94D29C351C2DBAC200484EAB /* SharingView.swift in Sources */,
+				94ABE0C11C328BAD00224E16 /* CommentView.swift in Sources */,
 				9467B6261C320514000A7C08 /* PackShotView.swift in Sources */,
 				948097701C219F6A006DAC56 /* AngleGradientBorderLayer.swift in Sources */,
 				ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */,

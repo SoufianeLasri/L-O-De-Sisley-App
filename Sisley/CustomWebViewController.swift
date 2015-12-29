@@ -32,12 +32,13 @@ class CustomWebViewController: UIView, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad( webView: UIWebView ) {
-        let delay = 0.1 * Double( NSEC_PER_SEC )
+        let delay = 2.0 * Double( NSEC_PER_SEC )
         let time = dispatch_time( DISPATCH_TIME_NOW, Int64( delay ) )
         dispatch_after( time, dispatch_get_main_queue() ) {
-            self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerLoad' );" )
-            self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerGrow', { stress: 10.0, tiredness: 1.0, mood: 1.0 } );" )
+            self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerGrow', { stress: 1.0, tiredness: 1.0, mood: 1.0 } );" )
         }
+
+    
     }
     
     func webView( webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType ) -> Bool {

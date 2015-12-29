@@ -9,6 +9,9 @@
 import UIKit
 
 class CustomCarouselController: UIScrollView {
+    
+    var views: [ UIView ]!
+    
     override init( frame: CGRect ) {
         super.init( frame: frame )
         self.backgroundColor = UIColor.whiteColor()
@@ -17,21 +20,19 @@ class CustomCarouselController: UIScrollView {
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         
-        let packShotView = PackShotView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ) )
-        self.addSubview( packShotView )
+        self.views = [
+            PackShotView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ) ),
+            DetailsView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ) ),
+            CommentView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ) ),
+            ReactionsView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ) )
+        ]
         
-        let detailsView = DetailsView( frame: CGRect( x: self.frame.width, y: 0, width: self.frame.width, height: self.frame.height ) )
-        self.addSubview( detailsView )
+        for ( index, item ) in self.views.enumerate() {
+            item.frame.origin.x = self.frame.width * CGFloat( index )
+            self.addSubview( item )
+        }
         
-        let thirdView = UIView( frame: CGRect( x: self.frame.width * 2, y: 0, width: self.frame.width, height: self.frame.height ) )
-        thirdView.backgroundColor = UIColor.yellowColor()
-        self.addSubview( thirdView )
-        
-        let fourthView = UIView( frame: CGRect( x: self.frame.width * 3, y: 0, width: self.frame.width, height: self.frame.height ) )
-        fourthView.backgroundColor = UIColor.blackColor()
-        self.addSubview( fourthView )
-        
-        self.contentSize = CGSizeMake( fourthView.frame.origin.x + fourthView.frame.width, self.frame.height )
+        self.contentSize = CGSize( width: self.frame.width * CGFloat( self.views.count ), height: self.frame.height )
     }
 
     required init?(coder aDecoder: NSCoder) {
