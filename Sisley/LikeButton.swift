@@ -11,7 +11,7 @@ import UIKit
 class LikeButton: UIButton {
     
     var liked: Bool = false
-    var heartImageView: UIImageView = UIImageView()
+    var heartImageView: UIImageView!
     
     override init( frame: CGRect ) {
         super.init( frame: frame )
@@ -28,13 +28,12 @@ class LikeButton: UIButton {
     func toggleButton() {
         self.liked = !self.liked
         
-        if liked == true {
+        if self.liked == true {
             UIView.animateWithDuration( 0.1, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: {
                 self.heartImageView.transform = CGAffineTransformMakeScale( 1.1, 1.1 )
             }, completion: { finished in
                     self.heartImageView.image = UIImage( named: "heartFull.png" )
             } )
-            
             UIView.animateWithDuration( 0.1, delay: 0.1, options: UIViewAnimationOptions.TransitionNone, animations: {
                 self.heartImageView.transform = CGAffineTransformMakeScale( 1.0, 1.0 )
             }, completion: nil )
@@ -44,7 +43,6 @@ class LikeButton: UIButton {
             }, completion: { finished in
                 self.heartImageView.image = UIImage( named: "heartEmpty.png" )
             } )
-        
             UIView.animateWithDuration( 0.1, delay: 0.1, options: UIViewAnimationOptions.TransitionNone, animations: {
                 self.heartImageView.transform = CGAffineTransformMakeScale( 1.0, 1.0 )
             }, completion: nil )
