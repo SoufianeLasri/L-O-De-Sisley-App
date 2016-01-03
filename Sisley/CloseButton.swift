@@ -27,6 +27,16 @@ class CloseButton: UIButton {
         
         self.alpha = 0.5
     }
+    
+    func toggleButton( openingState: Bool ) {
+        if openingState == true {
+            self.alpha = 0.5
+            self.enabled = true
+        } else {
+            self.alpha = 0.0
+            self.enabled = false
+        }
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -9,6 +9,9 @@
 import UIKit
 
 class CommentView: UIView, UITextViewDelegate {
+    
+    var validateButton: UIButton!
+    
     override init( frame: CGRect ) {
         super.init( frame: frame )
         
@@ -29,23 +32,8 @@ class CommentView: UIView, UITextViewDelegate {
         textView.layer.cornerRadius = 4.0
         self.addSubview( textView )
         
-        let validateButton = UIButton( frame: CGRect( x: self.frame.width - 70, y: self.frame.height - 70, width: 55, height: 55 ) )
-        validateButton.backgroundColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 )
-        validateButton.layer.cornerRadius = validateButton.frame.width / 2
-        self.addSubview( validateButton )
-        
-        let validatePath = UIBezierPath()
-        validatePath.moveToPoint( CGPoint( x: validateButton.frame.width / 2 - 10, y: validateButton.frame.height / 2 ) )
-        validatePath.addLineToPoint( CGPoint( x: validateButton.frame.width / 2 - 2, y: validateButton.frame.height / 2 + 7 ) )
-        validatePath.addLineToPoint( CGPoint( x: validateButton.frame.width / 2 + 10, y: validateButton.frame.height / 2 - 7 ) )
-        
-        let validateLayer         = CAShapeLayer()
-        validateLayer.path        = validatePath.CGPath
-        validateLayer.lineWidth   = 2.5
-        validateLayer.lineCap     = kCALineJoinRound
-        validateLayer.fillColor   = UIColor.clearColor().CGColor
-        validateLayer.strokeColor = UIColor.whiteColor().CGColor
-        validateButton.layer.addSublayer( validateLayer )
+        self.validateButton = ValidateButton( frame: CGRect( x: self.frame.width - 70, y: self.frame.height - 70, width: 55, height: 55 ) )
+        self.addSubview( self.validateButton )
     }
     
     func textViewDidBeginEditing( textView: UITextView ) {

@@ -14,6 +14,7 @@
 		942B20571BF4D26700F62926 /* Bellota-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 942B204C1BF4D22E00F62926 /* Bellota-Regular.otf */; };
 		942B20581BF4D26700F62926 /* Santana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 942B204D1BF4D22E00F62926 /* Santana-Bold.ttf */; };
 		942B20591BF4D26700F62926 /* Santana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 942B204E1BF4D22E00F62926 /* Santana.ttf */; };
+		9445C0FB1C387F9F004156A8 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445C0FA1C387F9F004156A8 /* ActivityView.swift */; };
 		944E81011BD9A43B002D3F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81001BD9A43B002D3F20 /* AppDelegate.swift */; };
 		944E81031BD9A43B002D3F20 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81021BD9A43B002D3F20 /* MainController.swift */; };
 		944E81061BD9A43B002D3F20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944E81041BD9A43B002D3F20 /* Main.storyboard */; };
@@ -110,6 +111,7 @@
 		942B204C1BF4D22E00F62926 /* Bellota-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Regular.otf"; sourceTree = "<group>"; };
 		942B204D1BF4D22E00F62926 /* Santana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Santana-Bold.ttf"; sourceTree = "<group>"; };
 		942B204E1BF4D22E00F62926 /* Santana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Santana.ttf; sourceTree = "<group>"; };
+		9445C0FA1C387F9F004156A8 /* ActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		944E80FD1BD9A43B002D3F20 /* Sisley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sisley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944E81001BD9A43B002D3F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		944E81021BD9A43B002D3F20 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				9467B6201C313476000A7C08 /* CarouselController.swift */,
 				941465F71C3345F50002BB46 /* ValidateActivityButton.swift */,
 				941465F91C334BD40002BB46 /* CloseButton.swift */,
+				9445C0FA1C387F9F004156A8 /* ActivityView.swift */,
 			);
 			name = Tips;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				9467B6191C2F11B5000A7C08 /* EtiquetteView.swift in Sources */,
 				944E81031BD9A43B002D3F20 /* MainController.swift in Sources */,
 				94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */,
+				9445C0FB1C387F9F004156A8 /* ActivityView.swift in Sources */,
 				94ABE0D81C333A2000224E16 /* DotView.swift in Sources */,
 				94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */,
 				948097721C21A055006DAC56 /* AngleGradientBorderView.swift in Sources */,

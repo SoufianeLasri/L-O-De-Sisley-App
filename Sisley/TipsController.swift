@@ -21,32 +21,47 @@ class TipsController: UIViewController {
         title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         self.view.addSubview( title )
         
-        let header = HeaderView( frame: CGRect( x: 0, y: 100, width: self.view.frame.width - 60, height: 42 ), text: "Notre sélection cocooning" )
-        header.center.x = self.view.center.x
-        self.view.addSubview( header )
+        let data = [
+            "header": [
+                "title": "Notre sélection cocooning"
+            ],
+            "etiquette": [
+                "mainText": "Crème hydratante",
+                "secondText": "un thé gourmand"
+            ],
+            "carousel": [
+                "packShotView": [
+                    "time": "20 min",
+                    "image": "packShot.png"
+                ],
+                "detailsView": [
+                    "details": "Un soin compensateur qui apaise les\npeaux agressées.",
+                    "tip": "Là où une overdose de café peut\nentrainer nervosité et état d'excitation, le\nthé détend. Quelques tasses par jour\npermettent de relâcher la pression. Après\ncinq tasses de thé, le risque de souffrir de\nstress diminue de 20%."
+                ],
+                "reactionsView": [
+                    [
+                        "name": "Joséphine",
+                        "reaction": "Ce duo de soin est parfait !",
+                        "flowerImage": "comment1.png",
+                        "heartImage": "heartFull.png"
+                    ],
+                    [
+                        "name": "Marie",
+                        "reaction": "Idéal pour se détendre\ndevant un film",
+                        "flowerImage": "comment2.png",
+                        "heartImage": "heartFull.png"
+                    ],
+                    [
+                        "name": "Béatrice",
+                        "reaction": "Je recommande ce soin,\nun vrai plus pour la peau !",
+                        "flowerImage": "comment3.png",
+                        "heartImage": "heartFull.png"
+                    ]
+                ]
+            ]
+        ]
         
-        let etiquette = EtiquetteView( frame: CGRect( x: 0, y: header.frame.maxY, width: self.view.frame.width - 60, height: 140 ), mainText: "Crème hydratante", secondText: "un thé gourmand" )
-        etiquette.center.x = self.view.center.x
-        self.view.addSubview( etiquette )
-        
-        let carousel = CustomCarouselController( frame: CGRect( x: 0, y: etiquette.frame.maxY + 3, width: self.view.frame.width - 60, height: self.view.frame.height - etiquette.frame.maxY - 25 ) )
-        carousel.center.x = self.view.center.x
-        self.view.addSubview( carousel )
-        
-        for item in carousel.dots {
-            item.frame.origin.y = self.view.frame.height - 50
-            self.view.addSubview( item )
-        }
-        
-        let validateActivityButton = ValidateButtonButton( frame: CGRect( x: 50, y: self.view.frame.height - 92, width: 55, height: 55 ) )
-        self.view.addSubview( validateActivityButton )
-        
-        let sharingView = SharingView( frame: self.view.frame )
-        let sharingMenuButton = SharingMenuButton( frame: CGRect( x: self.view.frame.width - 100, y: self.view.frame.height - 92, width: 55, height: 55 ), menuView: sharingView )
-        self.view.addSubview( sharingMenuButton )
-        self.view.addSubview( sharingView )
-        
-        let closeButton = CloseButton(frame: CGRect( x: header.frame.width - 0, y: header.frame.origin.y + 12, width: 20, height: 20 ) )
-        self.view.addSubview( closeButton )
+        let activityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: data )
+        self.view.addSubview( activityView )
     }
 }

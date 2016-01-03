@@ -111,15 +111,11 @@ class CustomSlider: UIControl {
     }
     
     func validateValue( sender: UIButton! ) {
-        if !dragging {
+        if !self.dragging {
             self.validateFeedback.addAnimation( self.fillColorAnimation, forKey: "fillColor" )
             self.validateFeedback.addAnimation( self.radiusAnimation, forKey: "transform.scale" )
             
             self.sendActionsForControlEvents( UIControlEvents.TouchUpInside )
-            
-            UIView.animateWithDuration( 0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: {
-                
-            }, completion: nil )
         }
     }
 

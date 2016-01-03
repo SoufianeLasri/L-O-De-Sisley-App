@@ -8,26 +8,28 @@
 
 import UIKit
 
-class ValidateButtonButton: UIButton {
-    
+class ValidateButton: UIButton {
     override init( frame: CGRect ) {
         super.init( frame: frame )
         
-        self.backgroundColor    = UIColor.whiteColor()
+        self.backgroundColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 )
         self.layer.cornerRadius = self.frame.width / 2
-        self.layer.borderWidth  = 2.0
-        self.layer.borderColor  = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 ).CGColor
         
-        let imageView = UIImageView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ) )
-        imageView.image = UIImage( named: "validateActivity.png" )
-        imageView.layer.cornerRadius = self.frame.width / 2
-        imageView.layer.masksToBounds = true
+        let validatePath = UIBezierPath()
+        validatePath.moveToPoint( CGPoint( x: self.frame.width / 2 - 10, y: self.frame.height / 2 ) )
+        validatePath.addLineToPoint( CGPoint( x: self.frame.width / 2 - 2, y: self.frame.height / 2 + 7 ) )
+        validatePath.addLineToPoint( CGPoint( x: self.frame.width / 2 + 10, y: self.frame.height / 2 - 7 ) )
         
-        self.addSubview( imageView )
+        let validateLayer         = CAShapeLayer()
+        validateLayer.path        = validatePath.CGPath
+        validateLayer.lineWidth   = 2.5
+        validateLayer.lineCap     = kCALineJoinRound
+        validateLayer.fillColor   = UIColor.clearColor().CGColor
+        validateLayer.strokeColor = UIColor.whiteColor().CGColor
+        self.layer.addSublayer( validateLayer )
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
