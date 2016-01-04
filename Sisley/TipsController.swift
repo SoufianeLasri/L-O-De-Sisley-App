@@ -14,11 +14,11 @@ class TipsController: UIViewController {
         
         self.view.backgroundColor = UIColor( red: 0.98, green: 0.95, blue: 0.91, alpha: 1.0 )
         
-        let title = CustomTitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1 ) )
+        let title = CustomTitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1.0 ) )
         title.text = "Mes conseils Sisley"
         title.font = UIFont( name: "Santana", size: 23.0 )
         title.textAlignment = .Center
-        title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
+        title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1.0 )
         self.view.addSubview( title )
         
         let data = [

@@ -25,7 +25,6 @@ class SharingButton: UIButton {
         imageView.image = UIImage( named: imageName )
         imageView.layer.cornerRadius = self.frame.width / 2
         imageView.layer.masksToBounds = true
-    
         self.addSubview( imageView )
     }
     

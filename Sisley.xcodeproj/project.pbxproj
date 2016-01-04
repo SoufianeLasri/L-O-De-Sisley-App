@@ -73,6 +73,11 @@
 		94D29C411C2DCB7400484EAB /* goBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D29C3C1C2DCB7400484EAB /* goBack.png */; };
 		94D29C431C2DD56800484EAB /* SharingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D29C421C2DD56800484EAB /* SharingButton.swift */; };
 		94D29C451C2DE10400484EAB /* SharingCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D29C441C2DE10400484EAB /* SharingCloseButton.swift */; };
+		94E26BE31C3A888100F096C5 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E26BE21C3A888100F096C5 /* NextButton.swift */; };
+		94E26BE51C3AA72B00F096C5 /* sisleyLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 94E26BE41C3AA72B00F096C5 /* sisleyLogo.png */; };
+		94E26BE81C3AB1F500F096C5 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E26BE71C3AB1F500F096C5 /* IntroController.swift */; };
+		94E26BEA1C3AB37600F096C5 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E26BE91C3AB37600F096C5 /* Intro.storyboard */; };
+		94E26BEC1C3AB4A100F096C5 /* ConnexionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E26BEB1C3AB4A100F096C5 /* ConnexionView.swift */; };
 		94E436221C0DD59600658C61 /* CustomTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E436211C0DD59600658C61 /* CustomTitle.swift */; };
 		94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */; };
 		AD95C1601BECBD6B0015441E /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95C15F1BECBD6B0015441E /* Menu.storyboard */; };
@@ -176,6 +181,11 @@
 		94D29C3C1C2DCB7400484EAB /* goBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goBack.png; sourceTree = "<group>"; };
 		94D29C421C2DD56800484EAB /* SharingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingButton.swift; sourceTree = "<group>"; };
 		94D29C441C2DE10400484EAB /* SharingCloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingCloseButton.swift; sourceTree = "<group>"; };
+		94E26BE21C3A888100F096C5 /* NextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		94E26BE41C3AA72B00F096C5 /* sisleyLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sisleyLogo.png; sourceTree = "<group>"; };
+		94E26BE71C3AB1F500F096C5 /* IntroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
+		94E26BE91C3AB37600F096C5 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		94E26BEB1C3AB4A100F096C5 /* ConnexionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnexionView.swift; sourceTree = "<group>"; };
 		94E436211C0DD59600658C61 /* CustomTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTitle.swift; sourceTree = "<group>"; };
 		94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AngleGradientLayer.h; sourceTree = "<group>"; };
 		94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Sisley-Bridging-Header.h"; path = "Sisley/Sisley-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
@@ -391,6 +401,7 @@
 				9467B6071C2F0D5B000A7C08 /* tutoFirst.png */,
 				9467B6081C2F0D5B000A7C08 /* heartFull.png */,
 				9467B6091C2F0D5B000A7C08 /* validateActivity.png */,
+				94E26BE41C3AA72B00F096C5 /* sisleyLogo.png */,
 				9467B60A1C2F0D5B000A7C08 /* heartEmpty.png */,
 				9467B60B1C2F0D5B000A7C08 /* purchase.png */,
 				9480982B1C28BC4B006DAC56 /* orchidee.png */,
@@ -423,6 +434,7 @@
 				94D29C461C2DE4CE00484EAB /* Sharing */,
 				945468881C0F2C9500881080 /* Slider */,
 				94E436211C0DD59600658C61 /* CustomTitle.swift */,
+				94E26BE21C3A888100F096C5 /* NextButton.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -448,6 +460,16 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		94E26BE61C3AB1DD00F096C5 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				94E26BE71C3AB1F500F096C5 /* IntroController.swift */,
+				94E26BE91C3AB37600F096C5 /* Intro.storyboard */,
+				94E26BEB1C3AB4A100F096C5 /* ConnexionView.swift */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
 		AD95C15E1BECBD510015441E /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +482,7 @@
 		AD95C1631BECC00F0015441E /* Flower */ = {
 			isa = PBXGroup;
 			children = (
+				94E26BE61C3AB1DD00F096C5 /* Intro */,
 				9467B5FF1C2EDCE0000A7C08 /* Tips */,
 				948097731C22EF2C006DAC56 /* WebView */,
 				ADD9C69A1BE8E8170026B529 /* Quiz */,
@@ -630,6 +653,7 @@
 				9467B6121C2F0D5B000A7C08 /* heartEmpty.png in Resources */,
 				9480982E1C28BC4B006DAC56 /* evolution.png in Resources */,
 				942B20551BF4D26700F62926 /* Bellota-Bold.otf in Resources */,
+				94E26BEA1C3AB37600F096C5 /* Intro.storyboard in Resources */,
 				94D29C3E1C2DCB7400484EAB /* pinterest.png in Resources */,
 				9467B60D1C2F0D5B000A7C08 /* tutoThird.png in Resources */,
 				948098311C28BC4B006DAC56 /* soins.png in Resources */,
@@ -638,6 +662,7 @@
 				ADD9C69C1BE8EBD70026B529 /* Quiz.storyboard in Resources */,
 				94D29C3D1C2DCB7400484EAB /* sharingButton.png in Resources */,
 				94ABE0C71C32BA0600224E16 /* 3d_model in Resources */,
+				94E26BE51C3AA72B00F096C5 /* sisleyLogo.png in Resources */,
 				9467B60E1C2F0D5B000A7C08 /* goBackBlue.png in Resources */,
 				AD95C1601BECBD6B0015441E /* Menu.storyboard in Resources */,
 				94ABE0D41C32C21A00224E16 /* comment1.png in Resources */,
@@ -684,8 +709,10 @@
 			files = (
 				94ABE0D61C32C23C00224E16 /* ReactionEtiquetteView.swift in Sources */,
 				9467B61D1C2F1753000A7C08 /* LikeButton.swift in Sources */,
+				94E26BE81C3AB1F500F096C5 /* IntroController.swift in Sources */,
 				9467B6191C2F11B5000A7C08 /* EtiquetteView.swift in Sources */,
 				944E81031BD9A43B002D3F20 /* MainController.swift in Sources */,
+				94E26BEC1C3AB4A100F096C5 /* ConnexionView.swift in Sources */,
 				94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */,
 				9445C0FB1C387F9F004156A8 /* ActivityView.swift in Sources */,
 				94ABE0D81C333A2000224E16 /* DotView.swift in Sources */,
@@ -698,6 +725,7 @@
 				94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */,
 				9467B6211C313476000A7C08 /* CarouselController.swift in Sources */,
 				941465F81C3345F50002BB46 /* ValidateActivityButton.swift in Sources */,
+				94E26BE31C3A888100F096C5 /* NextButton.swift in Sources */,
 				94ABE0CD1C32BFE900224E16 /* ReactionsView.swift in Sources */,
 				9480978D1C27F370006DAC56 /* NavigationMenuButton.swift in Sources */,
 				ADD9C6A21BE8F3850026B529 /* UserModel.swift in Sources */,
