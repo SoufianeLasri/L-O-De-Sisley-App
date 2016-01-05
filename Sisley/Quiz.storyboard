@@ -7,7 +7,7 @@
         <!--Quiz Controller-->
         <scene sceneID="ZJd-JS-op6">
             <objects>
-                <viewController id="lXQ-gb-crj" customClass="QuizController" customModule="Sisley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuizPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lXQ-gb-crj" customClass="QuizController" customModule="Sisley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wiw-dB-3Zm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

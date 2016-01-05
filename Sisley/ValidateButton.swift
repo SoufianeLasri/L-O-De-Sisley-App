@@ -1,5 +1,5 @@
 //
-//  ValidateActivityButton.swift
+//  ValidateButton.swift
 //  Sisley
 //
 //  Created by Soufiane Lasri on 29/12/2015.
@@ -9,10 +9,10 @@
 import UIKit
 
 class ValidateButton: UIButton {
-    override init( frame: CGRect ) {
+    init( frame: CGRect, color: UIColor ) {
         super.init( frame: frame )
         
-        self.backgroundColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 )
+        self.backgroundColor = color
         self.layer.cornerRadius = self.frame.width / 2
         
         let validatePath = UIBezierPath()

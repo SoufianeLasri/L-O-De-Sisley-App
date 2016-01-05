@@ -72,7 +72,7 @@ class ConnexionController: UIViewController {
         facebookConnectButton.center = CGPoint( x: self.view.center.x - 40, y: 475 )
         self.view.addSubview( facebookConnectButton )
         
-        let validateButton = ValidateButton( frame: CGRect( x: 0, y: 0, width: 50, height: 50 ) )
+        let validateButton = ValidateButton( frame: CGRect( x: 0, y: 0, width: 50, height: 50 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ) )
         validateButton.center = CGPoint( x: self.view.center.x + 40, y: 475 )
         let validateTap = UITapGestureRecognizer( target: self, action: "goToFlower:" )
         validateButton.addGestureRecognizer( validateTap )

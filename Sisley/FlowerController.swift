@@ -8,11 +8,14 @@
 
 import UIKit
 
-class FlowerController: UIViewController {
+class FlowerController: UIViewController, QuizDelegate {
     
+    var titleLabel: UILabel!
     var callToAction: CAShapeLayer!
     var navigationMenuButton: NavigationMenuButton!
     var sharingMenuButton: SharingMenuButton!
+    var webView: CustomWebView!
+    var launchQuizButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +23,11 @@ class FlowerController: UIViewController {
         
         self.view.backgroundColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 )
         
-        let title = CustomTitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1 ) )
-        title.text = "Mon orchidée"
-        title.font = UIFont( name: "Santana", size: 23.0 )
-        title.textAlignment = .Center
-        title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
+        self.titleLabel = CustomTitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1.0 ) )
+        self.titleLabel.text = "Mon orchidée"
+        self.titleLabel.font = UIFont( name: "Santana", size: 20.0 )
+        self.titleLabel.textAlignment = .Center
+        self.titleLabel.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1.0 )
         
         let navigationView = NavigationView( frame: self.view.frame )
         self.navigationMenuButton = NavigationMenuButton( frame: CGRect( x: 25, y: self.view.frame.height + 75, width: 50, height: 50 ), menuView: navigationView )
@@ -32,22 +35,30 @@ class FlowerController: UIViewController {
         let sharingView = SharingView( frame: self.view.frame )
         self.sharingMenuButton = SharingMenuButton( frame: CGRect( x: self.view.frame.width - 75, y: self.view.frame.height + 75, width: 50, height: 50 ), menuView: sharingView )
         
-        let webView = CustomWebView( frame: self.view.frame )
+        self.webView = CustomWebView( frame: self.view.frame )
         
         let validateFeedbackPath = UIBezierPath( ovalInRect: CGRect( x: 0, y: 0, width: 100, height: 100 ) )
         self.callToAction = CAShapeLayer()
-        self.callToAction.frame = CGRect( x: self.view.frame.width / 2 - 50, y: self.view.frame.height - 200, width: 100, height: 100 )
+        self.callToAction.frame = CGRect( x: self.view.frame.width / 2 - 50, y: self.view.frame.height - 270, width: 100, height: 100 )
         self.callToAction.path = validateFeedbackPath.CGPath
         self.callToAction.fillColor = UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 1.0 ).CGColor
         self.view.layer.addSublayer( self.callToAction )
         
-        self.view.addSubview( webView )
-        self.view.addSubview( title )
+        self.view.addSubview( self.webView )
+        self.view.addSubview( self.titleLabel )
         
         self.view.addSubview( self.sharingMenuButton )
         self.view.addSubview( navigationView )
         self.view.addSubview( self.navigationMenuButton )
         self.view.addSubview( sharingView )
+        
+        self.launchQuizButton = UIButton( frame: CGRect( x: 0, y: 0, width: 300, height: 300 ) )
+        self.launchQuizButton.center.x = self.view.center.x
+        self.launchQuizButton.frame.origin.y = self.view.frame.height - 370
+        self.launchQuizButton.layer.cornerRadius = 150
+        let updateFlowerTap = UITapGestureRecognizer( target: self, action: "updateFlower:" )
+        self.launchQuizButton.addGestureRecognizer( updateFlowerTap )
+        self.view.addSubview( self.launchQuizButton )
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -73,6 +84,48 @@ class FlowerController: UIViewController {
             self.navigationMenuButton.frame.origin.y = self.view.frame.height - 70
             self.sharingMenuButton.frame.origin.y = self.view.frame.height - 70
         } )
+    }
+    
+    func updateFlower( recognizer: UITapGestureRecognizer ) {
+        if recognizer.state == .Ended {
+            self.webView.flowerToSeed()
+            self.launchQuizButton.enabled = false
+            self.callToAction.opacity = 0.0
+            
+            UIView.animateWithDuration( 0.5, animations: {
+                self.hideUserInterface( true )
+            }, completion: { finished in
+                let storyboard: UIStoryboard = UIStoryboard( name: "Quiz", bundle: nil )
+                let vc = storyboard.instantiateViewControllerWithIdentifier( "QuizPage" ) as! QuizController
+                vc.modalPresentationStyle = .OverCurrentContext
+                vc.delegate = self
+                self.presentViewController( vc, animated: false, completion: nil )
+            } )
+        }
+    }
+    
+    func flowerProgress() {
+        self.webView.flowerProgress()
+    }
+    
+    func buildFlowerWithParams(stress: Int, tiredness: Int, mood: Int) {
+        UIView.animateWithDuration( 0.5, animations: {
+            self.hideUserInterface( false )
+        } )
+        self.webView.buildFlowerWithParams( stress, tiredness: tiredness, mood: mood )
+    }
+    
+    func hideUserInterface( state: Bool ) {
+        if state == true {
+            self.titleLabel.alpha = 0.0
+            self.navigationMenuButton.frame.origin.y = self.view.frame.height + 70
+            self.sharingMenuButton.frame.origin.y = self.view.frame.height + 70
+        } else {
+            self.titleLabel.alpha = 1.0
+            self.navigationMenuButton.frame.origin.y = self.view.frame.height - 70
+            self.sharingMenuButton.frame.origin.y = self.view.frame.height - 70
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

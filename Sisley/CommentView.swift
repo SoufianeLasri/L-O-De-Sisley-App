@@ -32,7 +32,7 @@ class CommentView: UIView, UITextViewDelegate {
         textView.layer.cornerRadius = 4.0
         self.addSubview( textView )
         
-        self.validateButton = ValidateButton( frame: CGRect( x: self.frame.width - 70, y: self.frame.height - 70, width: 55, height: 55 ) )
+        self.validateButton = ValidateButton( frame: CGRect( x: self.frame.width - 70, y: self.frame.height - 70, width: 55, height: 55 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ) )
         self.addSubview( self.validateButton )
     }
     

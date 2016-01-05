@@ -39,7 +39,7 @@ class ActivityView: UIView, CustomCarouselDelegate {
             self.addSubview( item )
         }
         
-        self.validateActivityButton = ValidateButton( frame: CGRect( x: 45, y: self.frame.height - 92, width: 55, height: 55 ) )
+        self.validateActivityButton = ValidateButton( frame: CGRect( x: 45, y: self.frame.height - 92, width: 55, height: 55 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ) )
         self.addSubview( self.validateActivityButton )
         
         self.closeButton = CloseButton(frame: CGRect( x: header.frame.width - 0, y: header.frame.origin.y + 12, width: 20, height: 20 ) )

@@ -8,15 +8,23 @@
 
 import UIKit
 
+
+protocol QuizDelegate: class {
+    func flowerProgress()
+    func buildFlowerWithParams( stress: Int, tiredness: Int, mood: Int )
+}
+
 class QuizController: UIViewController, CustomSliderViewDelegate {
     
-    var customSlider: CustomSliderView! = nil
+    var customSlider: CustomSliderView!
     
-    var questionLabel = UILabel()
-    var sliderValueLabel = UILabel()
+    var tutorialView: TutorialView!
+    var questionLabel: UILabel!
+    var sliderValueLabel: UILabel!
     var questions: Array<Dictionary<String, Any>> = []
     var answers = []
     var index = 0
+    var delegate: QuizDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +37,11 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
         self.view.addSubview( self.customSlider )
         self.customSlider.delegate = self
         
-        self.view.backgroundColor = UIColor( red: 1, green: 0.98, blue: 0.96, alpha: 1 )
+//        self.view.backgroundColor = UIColor( red: 1, green: 0.98, blue: 0.96, alpha: 1 )
+        self.view.backgroundColor = UIColor.clearColor()
+        self.view.opaque = false
         
         self.questions  = [
-            [
-                "Question": "Combien d'années\navez-vous célébrées ?",
-                "Type": "Number",
-                "Min": 12.0,
-                "Max": 99.0
-            ],
             [
                 "Question": "Quel est votre\nniveau de stress ?",
                 "Type": "String",
@@ -63,7 +67,7 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
     
         let title = CustomTitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.78, green: 0.82, blue: 0.85, alpha: 1 ) )
         title.text = "Mon questionnaire"
-        title.font = UIFont( name: "Santana", size: 23.0 )
+        title.font = UIFont( name: "Santana", size: 20.0 )
         title.textAlignment = .Center
         title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         
@@ -83,6 +87,24 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
         self.view.addSubview( title )
         self.view.addSubview( self.questionLabel )
         self.view.addSubview( self.sliderValueLabel )
+        
+        let validateButton = ValidateButton( frame: CGRect( x: 0, y: 0, width: 50, height: 50 ), color: UIColor( red: 0.88, green: 0.74, blue: 0.36, alpha: 1.0 ) )
+        validateButton.center = CGPoint( x: self.view.center.x, y: self.view.frame.height - 50 )
+        let validateTap = UITapGestureRecognizer( target: self, action: "hideView:" )
+        validateButton.addGestureRecognizer( validateTap )
+        self.tutorialView = TutorialView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ) )
+        self.tutorialView.addSubview( validateButton )
+        self.view.addSubview( self.tutorialView )
+    }
+    
+    func hideView( recognizer: UITapGestureRecognizer ) {
+        if recognizer.state == .Ended {
+            UIView.animateWithDuration( 0.5, animations: {
+                self.tutorialView.alpha = 0.0
+            }, completion: { finished in
+                self.tutorialView.hidden = true
+            } )
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -110,6 +132,8 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
         UIView.animateWithDuration( 0.5, delay: 0.0, options: UIViewAnimationOptions.AllowUserInteraction, animations: {
             self.questionLabel.alpha = 0.0
             self.questionLabel.transform = CGAffineTransformMakeScale( 0.9, 0.9 )
+
+            self.delegate?.flowerProgress()
             
             self.sliderValueLabel.alpha = 0.0
             self.sliderValueLabel.transform = CGAffineTransformMakeScale( 0.9, 0.9 )
@@ -117,9 +141,11 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
             self.index++
             if self.index > self.questions.count - 1 {
                 // TODO Display the flower
-                self.index = 0
+                self.delegate?.buildFlowerWithParams( 1, tiredness: 1, mood: 1 )
+                self.dismissViewControllerAnimated( false, completion: {} )
+            } else {
+                self.nextQuestion()
             }
-            self.nextQuestion()
         } )
     }
     

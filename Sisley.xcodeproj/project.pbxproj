@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		941465F81C3345F50002BB46 /* ValidateActivityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941465F71C3345F50002BB46 /* ValidateActivityButton.swift */; };
+		941465F81C3345F50002BB46 /* ValidateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941465F71C3345F50002BB46 /* ValidateButton.swift */; };
 		941465FA1C334BD40002BB46 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941465F91C334BD40002BB46 /* CloseButton.swift */; };
 		942B20551BF4D26700F62926 /* Bellota-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 942B204A1BF4D22E00F62926 /* Bellota-Bold.otf */; };
 		942B20561BF4D26700F62926 /* Bellota-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 942B204B1BF4D22E00F62926 /* Bellota-Light.otf */; };
@@ -25,9 +25,8 @@
 		9467B6011C2EDD08000A7C08 /* TipsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9467B6001C2EDD08000A7C08 /* TipsController.swift */; };
 		9467B6031C2F09E9000A7C08 /* Tips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9467B6021C2F09E9000A7C08 /* Tips.storyboard */; };
 		9467B60C1C2F0D5B000A7C08 /* tutoSecond.png in Resources */ = {isa = PBXBuildFile; fileRef = 9467B6041C2F0D5B000A7C08 /* tutoSecond.png */; };
-		9467B60D1C2F0D5B000A7C08 /* tutoThird.png in Resources */ = {isa = PBXBuildFile; fileRef = 9467B6051C2F0D5B000A7C08 /* tutoThird.png */; };
+		9467B60D1C2F0D5B000A7C08 /* tutoFirst.png in Resources */ = {isa = PBXBuildFile; fileRef = 9467B6051C2F0D5B000A7C08 /* tutoFirst.png */; };
 		9467B60E1C2F0D5B000A7C08 /* goBackBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9467B6061C2F0D5B000A7C08 /* goBackBlue.png */; };
-		9467B60F1C2F0D5B000A7C08 /* tutoFirst.png in Resources */ = {isa = PBXBuildFile; fileRef = 9467B6071C2F0D5B000A7C08 /* tutoFirst.png */; };
 		9467B6101C2F0D5B000A7C08 /* heartFull.png in Resources */ = {isa = PBXBuildFile; fileRef = 9467B6081C2F0D5B000A7C08 /* heartFull.png */; };
 		9467B6111C2F0D5B000A7C08 /* validateActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = 9467B6091C2F0D5B000A7C08 /* validateActivity.png */; };
 		9467B6121C2F0D5B000A7C08 /* heartEmpty.png in Resources */ = {isa = PBXBuildFile; fileRef = 9467B60A1C2F0D5B000A7C08 /* heartEmpty.png */; };
@@ -80,15 +79,11 @@
 		94E26BEE1C3ACE6C00F096C5 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E26BED1C3ACE6C00F096C5 /* Intro.storyboard */; };
 		94E436221C0DD59600658C61 /* CustomTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E436211C0DD59600658C61 /* CustomTitle.swift */; };
 		94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */; };
-		AD95C1601BECBD6B0015441E /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95C15F1BECBD6B0015441E /* Menu.storyboard */; };
-		AD95C1621BECBD7A0015441E /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95C1611BECBD7A0015441E /* MenuController.swift */; };
+		94FFF4721C3BF78300FBF2EB /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFF4711C3BF78300FBF2EB /* TutorialView.swift */; };
 		AD95C1651BECC0400015441E /* Flower.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95C1641BECC0400015441E /* Flower.storyboard */; };
 		AD95C1671BECC0540015441E /* FlowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95C1661BECC0540015441E /* FlowerController.swift */; };
-		ADD9C6971BE8E6EB0026B529 /* Connection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADD9C6961BE8E6EB0026B529 /* Connection.storyboard */; };
-		ADD9C6991BE8E7050026B529 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9C6981BE8E7050026B529 /* ConnectionController.swift */; };
 		ADD9C69C1BE8EBD70026B529 /* Quiz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */; };
 		ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9C69E1BE8EC0D0026B529 /* QuizController.swift */; };
-		ADD9C6A21BE8F3850026B529 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9C6A11BE8F3850026B529 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +104,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		941465F71C3345F50002BB46 /* ValidateActivityButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateActivityButton.swift; sourceTree = "<group>"; };
+		941465F71C3345F50002BB46 /* ValidateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateButton.swift; sourceTree = "<group>"; };
 		941465F91C334BD40002BB46 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		942B204A1BF4D22E00F62926 /* Bellota-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Bold.otf"; sourceTree = "<group>"; };
 		942B204B1BF4D22E00F62926 /* Bellota-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Light.otf"; sourceTree = "<group>"; };
@@ -133,9 +128,8 @@
 		9467B6001C2EDD08000A7C08 /* TipsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipsController.swift; sourceTree = "<group>"; };
 		9467B6021C2F09E9000A7C08 /* Tips.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tips.storyboard; sourceTree = "<group>"; };
 		9467B6041C2F0D5B000A7C08 /* tutoSecond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutoSecond.png; sourceTree = "<group>"; };
-		9467B6051C2F0D5B000A7C08 /* tutoThird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutoThird.png; sourceTree = "<group>"; };
+		9467B6051C2F0D5B000A7C08 /* tutoFirst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutoFirst.png; sourceTree = "<group>"; };
 		9467B6061C2F0D5B000A7C08 /* goBackBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goBackBlue.png; sourceTree = "<group>"; };
-		9467B6071C2F0D5B000A7C08 /* tutoFirst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutoFirst.png; sourceTree = "<group>"; };
 		9467B6081C2F0D5B000A7C08 /* heartFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartFull.png; sourceTree = "<group>"; };
 		9467B6091C2F0D5B000A7C08 /* validateActivity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = validateActivity.png; sourceTree = "<group>"; };
 		9467B60A1C2F0D5B000A7C08 /* heartEmpty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartEmpty.png; sourceTree = "<group>"; };
@@ -190,15 +184,11 @@
 		94F196D41C0C686E00EB5283 /* AngleGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AngleGradientLayer.h; sourceTree = "<group>"; };
 		94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Sisley-Bridging-Header.h"; path = "Sisley/Sisley-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AngleGradientLayer.m; sourceTree = "<group>"; };
-		AD95C15F1BECBD6B0015441E /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
-		AD95C1611BECBD7A0015441E /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		94FFF4711C3BF78300FBF2EB /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		AD95C1641BECC0400015441E /* Flower.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Flower.storyboard; sourceTree = "<group>"; };
 		AD95C1661BECC0540015441E /* FlowerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerController.swift; sourceTree = "<group>"; };
-		ADD9C6961BE8E6EB0026B529 /* Connection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Connection.storyboard; sourceTree = "<group>"; };
-		ADD9C6981BE8E7050026B529 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
 		ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Quiz.storyboard; sourceTree = "<group>"; };
 		ADD9C69E1BE8EC0D0026B529 /* QuizController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizController.swift; sourceTree = "<group>"; };
-		ADD9C6A11BE8F3850026B529 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,7 +276,6 @@
 				942B20491BF4D21C00F62926 /* Assets */,
 				942B20331BF0D5F500F62926 /* www */,
 				94AD12F21BF0D0B300B6B1A0 /* Components */,
-				ADD9C6A01BE8F30D0026B529 /* Model */,
 				ADD9C6931BE8E6260026B529 /* Storyboard */,
 				944E81001BD9A43B002D3F20 /* AppDelegate.swift */,
 				944E810A1BD9A43B002D3F20 /* Assets.xcassets */,
@@ -353,7 +342,7 @@
 				9467B6181C2F11B5000A7C08 /* EtiquetteView.swift */,
 				9467B61C1C2F1753000A7C08 /* LikeButton.swift */,
 				9467B6201C313476000A7C08 /* CarouselController.swift */,
-				941465F71C3345F50002BB46 /* ValidateActivityButton.swift */,
+				941465F71C3345F50002BB46 /* ValidateButton.swift */,
 				941465F91C334BD40002BB46 /* CloseButton.swift */,
 				9445C0FA1C387F9F004156A8 /* ActivityView.swift */,
 			);
@@ -388,9 +377,8 @@
 			children = (
 				9480982A1C28BC4B006DAC56 /* evolution.png */,
 				9467B6041C2F0D5B000A7C08 /* tutoSecond.png */,
-				9467B6051C2F0D5B000A7C08 /* tutoThird.png */,
+				9467B6051C2F0D5B000A7C08 /* tutoFirst.png */,
 				9467B6061C2F0D5B000A7C08 /* goBackBlue.png */,
-				9467B6071C2F0D5B000A7C08 /* tutoFirst.png */,
 				9467B6081C2F0D5B000A7C08 /* heartFull.png */,
 				9467B6091C2F0D5B000A7C08 /* validateActivity.png */,
 				94E26BE41C3AA72B00F096C5 /* sisleyLogo.png */,
@@ -428,6 +416,7 @@
 				94E436211C0DD59600658C61 /* CustomTitle.swift */,
 				94E26BE21C3A888100F096C5 /* NextButton.swift */,
 				94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */,
+				94FFF4711C3BF78300FBF2EB /* TutorialView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -463,22 +452,9 @@
 			name = Intro;
 			sourceTree = "<group>";
 		};
-		AD95C15E1BECBD510015441E /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				AD95C15F1BECBD6B0015441E /* Menu.storyboard */,
-				AD95C1611BECBD7A0015441E /* MenuController.swift */,
-			);
-			name = Menu;
-			sourceTree = "<group>";
-		};
 		AD95C1631BECC00F0015441E /* Flower */ = {
 			isa = PBXGroup;
 			children = (
-				94E26BE61C3AB1DD00F096C5 /* Intro */,
-				9467B5FF1C2EDCE0000A7C08 /* Tips */,
-				ADD9C69A1BE8E8170026B529 /* Quiz */,
-				AD95C15E1BECBD510015441E /* Menu */,
 				AD95C1641BECC0400015441E /* Flower.storyboard */,
 				AD95C1661BECC0540015441E /* FlowerController.swift */,
 			);
@@ -488,8 +464,10 @@
 		ADD9C6931BE8E6260026B529 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				ADD9C69A1BE8E8170026B529 /* Quiz */,
+				9467B5FF1C2EDCE0000A7C08 /* Tips */,
+				94E26BE61C3AB1DD00F096C5 /* Intro */,
 				AD95C1631BECC00F0015441E /* Flower */,
-				ADD9C6951BE8E6CF0026B529 /* Connection */,
 				ADD9C6941BE8E64F0026B529 /* Main */,
 			);
 			name = Storyboard;
@@ -504,15 +482,6 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
-		ADD9C6951BE8E6CF0026B529 /* Connection */ = {
-			isa = PBXGroup;
-			children = (
-				ADD9C6961BE8E6EB0026B529 /* Connection.storyboard */,
-				ADD9C6981BE8E7050026B529 /* ConnectionController.swift */,
-			);
-			name = Connection;
-			sourceTree = "<group>";
-		};
 		ADD9C69A1BE8E8170026B529 /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,14 +489,6 @@
 				ADD9C69E1BE8EC0D0026B529 /* QuizController.swift */,
 			);
 			name = Quiz;
-			sourceTree = "<group>";
-		};
-		ADD9C6A01BE8F30D0026B529 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				ADD9C6A11BE8F3850026B529 /* UserModel.swift */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -642,13 +603,12 @@
 				94D29C401C2DCB7400484EAB /* facebook.png in Resources */,
 				94ABE0D21C32C21A00224E16 /* comment2.png in Resources */,
 				9467B6131C2F0D5B000A7C08 /* purchase.png in Resources */,
-				ADD9C6971BE8E6EB0026B529 /* Connection.storyboard in Resources */,
 				9467B6121C2F0D5B000A7C08 /* heartEmpty.png in Resources */,
 				9480982E1C28BC4B006DAC56 /* evolution.png in Resources */,
 				942B20551BF4D26700F62926 /* Bellota-Bold.otf in Resources */,
 				94E26BEE1C3ACE6C00F096C5 /* Intro.storyboard in Resources */,
 				94D29C3E1C2DCB7400484EAB /* pinterest.png in Resources */,
-				9467B60D1C2F0D5B000A7C08 /* tutoThird.png in Resources */,
+				9467B60D1C2F0D5B000A7C08 /* tutoFirst.png in Resources */,
 				948098311C28BC4B006DAC56 /* soins.png in Resources */,
 				9467B6281C320866000A7C08 /* packShot.png in Resources */,
 				9480982F1C28BC4B006DAC56 /* orchidee.png in Resources */,
@@ -657,7 +617,6 @@
 				94ABE0C71C32BA0600224E16 /* 3d_model in Resources */,
 				94E26BE51C3AA72B00F096C5 /* sisleyLogo.png in Resources */,
 				9467B60E1C2F0D5B000A7C08 /* goBackBlue.png in Resources */,
-				AD95C1601BECBD6B0015441E /* Menu.storyboard in Resources */,
 				94ABE0D41C32C21A00224E16 /* comment1.png in Resources */,
 				942B20561BF4D26700F62926 /* Bellota-Light.otf in Resources */,
 				942B20581BF4D26700F62926 /* Santana-Bold.ttf in Resources */,
@@ -665,7 +624,6 @@
 				944E810B1BD9A43B002D3F20 /* Assets.xcassets in Resources */,
 				948098301C28BC4B006DAC56 /* profil.png in Resources */,
 				942B20571BF4D26700F62926 /* Bellota-Regular.otf in Resources */,
-				9467B60F1C2F0D5B000A7C08 /* tutoFirst.png in Resources */,
 				9467B6031C2F09E9000A7C08 /* Tips.storyboard in Resources */,
 				94ABE0D31C32C21A00224E16 /* comment3.png in Resources */,
 				94D29C411C2DCB7400484EAB /* goBack.png in Resources */,
@@ -712,16 +670,13 @@
 				94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */,
 				948097721C21A055006DAC56 /* AngleGradientBorderView.swift in Sources */,
 				9467B6011C2EDD08000A7C08 /* TipsController.swift in Sources */,
-				AD95C1621BECBD7A0015441E /* MenuController.swift in Sources */,
-				ADD9C6991BE8E7050026B529 /* ConnectionController.swift in Sources */,
 				9467B6171C2F0E0D000A7C08 /* HeaderView.swift in Sources */,
 				94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */,
 				9467B6211C313476000A7C08 /* CarouselController.swift in Sources */,
-				941465F81C3345F50002BB46 /* ValidateActivityButton.swift in Sources */,
+				941465F81C3345F50002BB46 /* ValidateButton.swift in Sources */,
 				94E26BE31C3A888100F096C5 /* NextButton.swift in Sources */,
 				94ABE0CD1C32BFE900224E16 /* ReactionsView.swift in Sources */,
 				9480978D1C27F370006DAC56 /* NavigationMenuButton.swift in Sources */,
-				ADD9C6A21BE8F3850026B529 /* UserModel.swift in Sources */,
 				94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */,
 				AD95C1671BECC0540015441E /* FlowerController.swift in Sources */,
 				9480978F1C281AA5006DAC56 /* NavigationButton.swift in Sources */,
@@ -729,6 +684,7 @@
 				94ABE0C11C328BAD00224E16 /* CommentView.swift in Sources */,
 				9467B6261C320514000A7C08 /* PackShotView.swift in Sources */,
 				948097701C219F6A006DAC56 /* AngleGradientBorderLayer.swift in Sources */,
+				94FFF4721C3BF78300FBF2EB /* TutorialView.swift in Sources */,
 				941465FA1C334BD40002BB46 /* CloseButton.swift in Sources */,
 				ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */,
 				94D29C371C2DC6B300484EAB /* SharingMenuButton.swift in Sources */,

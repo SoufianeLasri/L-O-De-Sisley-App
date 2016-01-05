@@ -60,6 +60,18 @@ class CustomWebView: UIView, UIWebViewDelegate {
         return results
     }
     
+    func flowerToSeed() {
+        self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerToSeed' );" )
+    }
+    
+    func flowerProgress() {
+        self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerProgress' );" )
+    }
+    
+    func buildFlowerWithParams( stress: Int, tiredness: Int, mood: Int ) {
+        self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerGrow', { stress: " + String( CGFloat( stress ) ) + ", tiredness: " + String( CGFloat( tiredness ) ) + ", mood: " + String( CGFloat( mood ) ) + " } );" )
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

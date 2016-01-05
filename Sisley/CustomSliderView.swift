@@ -18,8 +18,7 @@ class CustomSliderView: UIView {
     var min: Double = 12.0
     var max: Double = 99.0
     var slider: CustomSlider! = nil
-    
-    weak var delegate: CustomSliderViewDelegate?
+    var delegate: CustomSliderViewDelegate?
 
     override init( frame: CGRect ) {
         super.init( frame: frame )
