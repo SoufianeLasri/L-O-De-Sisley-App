@@ -33,7 +33,7 @@ class NavigationButton: UIButton {
         labelView.roundCorners( [ .TopRight, .BottomRight ], radius: 10.0 )
         
         let label = UILabel( frame: labelView.frame )
-        label.frame.origin.x = 45.0
+        label.frame.origin.x = 35.0
         label.text = text
         label.font = UIFont( name: "Bellota-Bold", size: 17.0 )
         label.textColor = UIColor.whiteColor()

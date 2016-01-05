@@ -26,14 +26,14 @@ class SharingView: UIView {
         self.label = UILabel( frame: CGRect( x: 0, y: self.frame.height / 2 - 200, width: self.frame.width, height: 80 ) )
         self.label.text = "Je souhaite partager\nmon orchidée"
         self.label.numberOfLines = 2
-        self.label.font = UIFont( name: "Santana-Bold", size: 30.0 )
+        self.label.font = UIFont( name: "Santana-Bold", size: 26.0 )
         self.label.textColor = UIColor.whiteColor()
         self.label.textAlignment = .Center
         self.label.alpha = 0
         self.label.frame.origin.y += 5
         self.addSubview( self.label )
         
-        self.sharingCloseButton = SharingCloseButton( frame: CGRect( x: self.frame.width / 2 - 30, y: self.frame.height - 75, width: 60, height: 60 ) )
+        self.sharingCloseButton = SharingCloseButton( frame: CGRect( x: self.frame.width / 2 - 30, y: self.frame.height - 70, width: 50, height: 50 ) )
         self.sharingCloseButton.alpha = 0
         self.sharingCloseButton.frame.origin.y += 5
         let closingTap = UITapGestureRecognizer( target: self, action: "closeMenu:" )
@@ -41,7 +41,7 @@ class SharingView: UIView {
         self.addSubview( self.sharingCloseButton )
         
         for var i = 0; i < self.items.count; i++ {
-            let button = SharingButton( frame: CGRect( x: self.frame.width / 2 - 30 + CGFloat( 100 * ( i - 1 ) ), y: self.frame.height / 2 - 80, width: 60, height: 60 ), imageName: self.items[ i ]  )
+            let button = SharingButton( frame: CGRect( x: self.frame.width / 2 - 30 + CGFloat( 80 * ( i - 1 ) ), y: self.frame.height / 2 - 80, width: 50, height: 50 ), imageName: self.items[ i ]  )
             self.buttons.append( button )
             self.addSubview( button )
         }

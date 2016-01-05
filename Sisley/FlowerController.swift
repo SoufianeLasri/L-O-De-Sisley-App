@@ -11,6 +11,8 @@ import UIKit
 class FlowerController: UIViewController {
     
     var callToAction: CAShapeLayer!
+    var navigationMenuButton: NavigationMenuButton!
+    var sharingMenuButton: SharingMenuButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +27,10 @@ class FlowerController: UIViewController {
         title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         
         let navigationView = NavigationView( frame: self.view.frame )
-        let navigationMenuButton = NavigationMenuButton( frame: CGRect( x: 15, y: self.view.frame.height - 75, width: 60, height: 60 ), menuView: navigationView )
+        self.navigationMenuButton = NavigationMenuButton( frame: CGRect( x: 25, y: self.view.frame.height + 75, width: 50, height: 50 ), menuView: navigationView )
         
         let sharingView = SharingView( frame: self.view.frame )
-        let sharingMenuButton = SharingMenuButton( frame: CGRect( x: self.view.frame.width - 75, y: self.view.frame.height - 75, width: 60, height: 60 ), menuView: sharingView )
+        self.sharingMenuButton = SharingMenuButton( frame: CGRect( x: self.view.frame.width - 75, y: self.view.frame.height + 75, width: 50, height: 50 ), menuView: sharingView )
         
         let webView = CustomWebView( frame: self.view.frame )
         
@@ -42,17 +44,17 @@ class FlowerController: UIViewController {
         self.view.addSubview( webView )
         self.view.addSubview( title )
         
-        self.view.addSubview( sharingMenuButton )
+        self.view.addSubview( self.sharingMenuButton )
         self.view.addSubview( navigationView )
-        self.view.addSubview( navigationMenuButton )
+        self.view.addSubview( self.navigationMenuButton )
         self.view.addSubview( sharingView )
     }
     
     override func viewDidAppear(animated: Bool) {
-        let radiusAnimation       = CABasicAnimation( keyPath: "transform.scale" )
-        radiusAnimation.duration  = 1.5
-        radiusAnimation.fromValue = 1.0
-        radiusAnimation.toValue   = 3.3
+        let radiusAnimation         = CABasicAnimation( keyPath: "transform.scale" )
+        radiusAnimation.duration    = 1.5
+        radiusAnimation.fromValue   = 1.0
+        radiusAnimation.toValue     = 3.3
         radiusAnimation.repeatCount = .infinity
         self.callToAction.addAnimation( radiusAnimation, forKey: "transform.scale" )
         
@@ -66,6 +68,11 @@ class FlowerController: UIViewController {
         ]
         fillColorAnimation.repeatCount = .infinity
         self.callToAction.addAnimation( fillColorAnimation, forKey: "fillColor" )
+        
+        UIView.animateWithDuration( 0.5, animations: {
+            self.navigationMenuButton.frame.origin.y = self.view.frame.height - 70
+            self.sharingMenuButton.frame.origin.y = self.view.frame.height - 70
+        } )
     }
     
     override func didReceiveMemoryWarning() {
