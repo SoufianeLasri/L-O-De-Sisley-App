@@ -28,7 +28,7 @@ class IntroController: UIViewController {
         
         let appName = UILabel( frame: CGRect( x: 0, y: 285, width: self.view.frame.width, height: 40 ) )
         appName.text = "L'O de Sisley"
-        appName.font = UIFont( name: "Bellota", size: 27.0 )
+        appName.font = UIFont( name: "Bellota", size: 25.0 )
         appName.textAlignment = .Center
         appName.textColor = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 )
         self.view.addSubview( appName )
@@ -56,7 +56,7 @@ class IntroController: UIViewController {
         line.lineWidth = 1.0
         line.lineCap = kCALineJoinRound
         line.strokeColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ).CGColor
-//        self.view.layer.addSublayer( line )
+        self.view.layer.addSublayer( line )
         
         let tipDetails = UILabel( frame: CGRect( x: 0, y: 440, width: self.view.frame.width, height: 200 ) )
         tipDetails.text = "L’O de Sisley est une expérience inédite\nqui vous accompagnera jour après jour afin de\nvous apporter des conseils personnalisés pour\naméliorer votre bien-être."
@@ -68,16 +68,16 @@ class IntroController: UIViewController {
         
         let nextButton = NextButton( frame: CGRect( x: 0, y: 630, width: 50, height: 50 ) )
         nextButton.center.x = self.view.center.x
+        let nextTap = UITapGestureRecognizer( target: self, action: "goToConnexion:" )
+        nextButton.addGestureRecognizer( nextTap )
         self.view.addSubview( nextButton )
         
-        title.alpha = 0.0
-        welcomeText.alpha = 0.0
-        subtitleText.alpha = 0.0
-        tipDetails.alpha = 0.0
-        nextButton.alpha = 0.0
-        
-        // ---------------------------------------------------------------
-        let connexionView = ConnexionView( frame: self.view.frame )
-        self.view.addSubview( connexionView )
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    func goToConnexion( recognizer: UITapGestureRecognizer ) {
+        if recognizer.state == .Ended {
+            performSegueWithIdentifier( "goToConnexion", sender: nil )
+        }
     }
 }

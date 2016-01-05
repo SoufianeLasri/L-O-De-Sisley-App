@@ -10,10 +10,13 @@ import UIKit
 
 class FlowerController: UIViewController {
     
-    //TODO  : charger le menu ou le quizz
+    var callToAction: CAShapeLayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.view.backgroundColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 )
         
         let title = CustomTitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1 ) )
         title.text = "Mon orchidée"
@@ -27,7 +30,14 @@ class FlowerController: UIViewController {
         let sharingView = SharingView( frame: self.view.frame )
         let sharingMenuButton = SharingMenuButton( frame: CGRect( x: self.view.frame.width - 75, y: self.view.frame.height - 75, width: 60, height: 60 ), menuView: sharingView )
         
-        let webView = CustomWebViewController( frame: self.view.frame )
+        let webView = CustomWebView( frame: self.view.frame )
+        
+        let validateFeedbackPath = UIBezierPath( ovalInRect: CGRect( x: 0, y: 0, width: 100, height: 100 ) )
+        self.callToAction = CAShapeLayer()
+        self.callToAction.frame = CGRect( x: self.view.frame.width / 2 - 50, y: self.view.frame.height - 200, width: 100, height: 100 )
+        self.callToAction.path = validateFeedbackPath.CGPath
+        self.callToAction.fillColor = UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 1.0 ).CGColor
+        self.view.layer.addSublayer( self.callToAction )
         
         self.view.addSubview( webView )
         self.view.addSubview( title )
@@ -36,6 +46,26 @@ class FlowerController: UIViewController {
         self.view.addSubview( navigationView )
         self.view.addSubview( navigationMenuButton )
         self.view.addSubview( sharingView )
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let radiusAnimation       = CABasicAnimation( keyPath: "transform.scale" )
+        radiusAnimation.duration  = 1.5
+        radiusAnimation.fromValue = 1.0
+        radiusAnimation.toValue   = 3.3
+        radiusAnimation.repeatCount = .infinity
+        self.callToAction.addAnimation( radiusAnimation, forKey: "transform.scale" )
+        
+        let fillColorAnimation         = CAKeyframeAnimation( keyPath: "fillColor" )
+        fillColorAnimation.duration    = 1.5
+        fillColorAnimation.keyTimes    = [ 0.0, 0.5, 1.0 ]
+        fillColorAnimation.values      = [
+            UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 0.0 ).CGColor,
+            UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 1.0 ).CGColor,
+            UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 0.0 ).CGColor
+        ]
+        fillColorAnimation.repeatCount = .infinity
+        self.callToAction.addAnimation( fillColorAnimation, forKey: "fillColor" )
     }
     
     override func didReceiveMemoryWarning() {

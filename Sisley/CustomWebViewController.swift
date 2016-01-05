@@ -10,7 +10,7 @@
 import UIKit
 import WebKit
 
-class CustomWebViewController: UIView, UIWebViewDelegate {
+class CustomWebView: UIView, UIWebViewDelegate {
     
     var webView: UIWebView!
     
@@ -21,8 +21,8 @@ class CustomWebViewController: UIView, UIWebViewDelegate {
         self.webView.delegate = self
         self.webView.scrollView.scrollEnabled = true
         self.webView.scrollView.bounces = false
-        self.webView.backgroundColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 )
-        self.backgroundColor = UIColor.yellowColor()
+        self.webView.backgroundColor = UIColor.clearColor()
+        self.webView.opaque = false
         
         let localfilePath = NSBundle.mainBundle().URLForResource( "index", withExtension: "html" )
         let myRequest = NSURLRequest( URL: localfilePath! )
@@ -36,9 +36,7 @@ class CustomWebViewController: UIView, UIWebViewDelegate {
         let time = dispatch_time( DISPATCH_TIME_NOW, Int64( delay ) )
         dispatch_after( time, dispatch_get_main_queue() ) {
             self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerGrow', { stress: 1.0, tiredness: 1.0, mood: 1.0 } );" )
-        }
-
-    
+        }    
     }
     
     func webView( webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType ) -> Bool {

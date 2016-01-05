@@ -38,16 +38,7 @@ class SharingMenuButton: UIButton {
         }
     }
     
-//    func toggleButton( openingState: Bool ) {
-//        if openingState == true {
-//            self.alpha = 0.1
-//        } else {
-//            self.alpha = 1.0
-//        }
-//    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

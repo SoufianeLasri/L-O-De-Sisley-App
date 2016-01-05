@@ -7,7 +7,7 @@
         <!--Flower Controller-->
         <scene sceneID="NHi-8U-B1o">
             <objects>
-                <viewController storyboardIdentifier="FlowerPage" id="ysg-SF-vWu" customClass="FlowerController" customModule="Sisley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlowerPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ysg-SF-vWu" customClass="FlowerController" customModule="Sisley" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="alo-nK-brZ"/>
                         <viewControllerLayoutGuide type="bottom" id="cXR-iR-6ia"/>
