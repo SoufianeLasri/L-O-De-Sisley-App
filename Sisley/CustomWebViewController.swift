@@ -8,11 +8,15 @@
 //
 
 import UIKit
-import WebKit
+
+protocol CustomWebViewDelegate: class {
+    func listenTransitionState( data: [ String : String ] )
+}
 
 class CustomWebView: UIView, UIWebViewDelegate {
     
     var webView: UIWebView!
+    var customWebViewDelegate: CustomWebViewDelegate?
     
     override init( frame: CGRect ) {
         super.init( frame: frame )
@@ -40,16 +44,17 @@ class CustomWebView: UIView, UIWebViewDelegate {
     }
     
     func webView( webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType ) -> Bool {
-        if request.URL?.scheme == "test" {
-            print( getParams( ( request.URL?.query )! as String ) )
+        if request.URL?.scheme == "flower" {
+            let params = getParams( ( request.URL?.query )! as String )
+            self.customWebViewDelegate?.listenTransitionState( params )
             return false
         } else {
             return true
         }
     }
     
-    func getParams( URLString: String? ) -> NSDictionary {
-        var results = [ String: String ]()
+    func getParams( URLString: String? ) -> [ String : String ] {
+        var results: [ String : String ] = [:]
         if let pairs = URLString?.componentsSeparatedByString( "&" ) where pairs.count > 0 {
             for pair: String in pairs {
                 if let keyValue = pair.componentsSeparatedByString( "=" ) as [ String ]? {

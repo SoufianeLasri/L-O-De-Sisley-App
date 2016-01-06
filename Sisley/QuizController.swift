@@ -39,7 +39,6 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
         self.view.addSubview( self.customSlider )
         self.customSlider.delegate = self
         
-//        self.view.backgroundColor = UIColor( red: 1, green: 0.98, blue: 0.96, alpha: 1 )
         self.view.backgroundColor = UIColor.clearColor()
         self.view.opaque = false
         
@@ -145,7 +144,6 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
         }, completion: { ( finished: Bool ) -> Void in
             self.index++
             if self.index > self.questions.count - 1 {
-                // TODO Display the flower
                 self.delegate?.buildFlowerWithParams( self.answers, text: self.selectedAnswersText )
                 self.dismissViewControllerAnimated( false, completion: {} )
             } else {
