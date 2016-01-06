@@ -15,11 +15,11 @@ class ReactionsView: UIView {
         self.backgroundColor = UIColor( red: 0.98, green: 0.95, blue: 0.91, alpha: 1.0 )
         
         for ( index, item ) in data.enumerate() {
-            let etiquetteView = ReactionEtiquetteView( frame: CGRect( x: 0, y: CGFloat( 113 * index ), width: self.frame.width, height: 110 ), flowerImage: item[ "flowerImage" ]!, heartImage: item[ "heartImage" ]!, name: item[ "name" ]!, reaction: item[ "reaction" ]! )
+            let etiquetteView = ReactionEtiquetteView( frame: CGRect( x: 0, y: CGFloat( 103 * index ), width: self.frame.width, height: 100 ), flowerImage: item[ "flowerImage" ]!, heartImage: item[ "heartImage" ]!, name: item[ "name" ]!, reaction: item[ "reaction" ]! )
             self.addSubview( etiquetteView )
         }
         
-        let bottomView = UIView( frame: CGRect( x: 0, y: CGFloat( 113 * data.count ), width: self.frame.width, height: self.frame.height - 113 * CGFloat( data.count ) ) )
+        let bottomView = UIView( frame: CGRect( x: 0, y: CGFloat( 103 * data.count ), width: self.frame.width, height: self.frame.height - 103 * CGFloat( data.count ) ) )
         bottomView.backgroundColor = UIColor.whiteColor()
         self.addSubview( bottomView )
     }

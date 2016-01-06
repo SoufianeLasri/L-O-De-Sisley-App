@@ -16,7 +16,7 @@ class CustomCarouselController: UIScrollView, UIScrollViewDelegate {
     
     var views: [ UIView ]!
     var dots: [ DotView ] = []
-    weak var customDelegate: CustomCarouselDelegate?
+    var customDelegate: CustomCarouselDelegate?
     
     init( frame: CGRect, data: [ String : AnyObject ] ) {
         super.init( frame: frame )

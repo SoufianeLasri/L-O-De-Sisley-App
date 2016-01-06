@@ -19,19 +19,19 @@ class EtiquetteView: UIView {
         
         let title = UILabel( frame: CGRect( x: 0, y: self.frame.height / 2 - 40, width: self.frame.width, height: 50 ) )
         title.text = data[ "mainText" ]
-        title.font = UIFont( name: "Santana-Bold", size: 28.0 )
+        title.font = UIFont( name: "Santana-Bold", size: 26.0 )
         title.textAlignment = .Center
         title.textColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 )
         self.addSubview( title )
         
-        let subtitle = UILabel( frame: CGRect( x: 0, y: self.frame.height / 2 - 10, width: self.frame.width, height: 50 ) )
+        let subtitle = UILabel( frame: CGRect( x: 0, y: self.frame.height / 2 - 12, width: self.frame.width, height: 50 ) )
         subtitle.text = "+ " + data[ "secondText" ]!
-        subtitle.font = UIFont( name: "Bellota-Italic", size: 20.0 )
+        subtitle.font = UIFont( name: "Bellota-Italic", size: 17.0 )
         subtitle.textAlignment = .Center
         subtitle.textColor = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 )
         self.addSubview( subtitle )
         
-        self.likeButton = LikeButton( frame: CGRect( x: self.frame.width - 40, y: 15, width: 25, height: 25 ) )
+        self.likeButton = LikeButton( frame: CGRect( x: self.frame.width - 35, y: 15, width: 22, height: 22 ) )
         let tapRecognizer = UITapGestureRecognizer( target: self, action: "toggleLike:" )
         self.likeButton.gestureRecognizers = [ tapRecognizer ]
         self.addSubview( self.likeButton )

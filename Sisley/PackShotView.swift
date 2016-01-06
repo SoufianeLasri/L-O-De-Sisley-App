@@ -17,12 +17,12 @@ class PackShotView: UIView {
         imageView.image = UIImage( named: data[ "image" ]! )
         self.addSubview( imageView )
         
-        let timeTitle = UILabel( frame: CGRect( x: 0, y: 10, width: self.frame.width, height: 40 ) )
+        let timeTitle = UILabel( frame: CGRect( x: 0, y: 15, width: self.frame.width, height: 20 ) )
         timeTitle.textAlignment = .Center
         timeTitle.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         
-        let experienceString = NSMutableAttributedString( string: "Durée de l'expérience : ", attributes: [ NSFontAttributeName: UIFont( name: "Bellota-Bold", size: 14.0 )! ] )
-        let timeString = NSMutableAttributedString( string: data[ "time" ]!, attributes: [ NSFontAttributeName: UIFont( name: "Bellota-Regular", size: 14.0 )! ] )
+        let experienceString = NSMutableAttributedString( string: "Durée de l'expérience : ", attributes: [ NSFontAttributeName: UIFont( name: "Bellota-Bold", size: 13.0 )! ] )
+        let timeString = NSMutableAttributedString( string: data[ "time" ]!, attributes: [ NSFontAttributeName: UIFont( name: "Bellota-Regular", size: 13.0 )! ] )
         experienceString.appendAttributedString( timeString )
         timeTitle.attributedText = experienceString
         self.addSubview( timeTitle )

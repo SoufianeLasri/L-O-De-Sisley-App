@@ -124,7 +124,6 @@ class CustomSlider: UIControl {
     
     // Move the Handle
     func moveHandle( lastPoint: CGPoint ) {
-
         // Calculate the direction from a center point and a arbitrary position.
         let currentAngle: Double = AngleFromNorth( self.center, p2: lastPoint, flipped: false )
         let angleInt = Int( floor( currentAngle ) )
@@ -142,7 +141,6 @@ class CustomSlider: UIControl {
     
     // Given the angle, get the point position on circumference
     func pointFromAngle( angleInt: Int ) -> CGPoint {
-        
         // Circle center
         let centerPoint = self.center
         
@@ -157,7 +155,6 @@ class CustomSlider: UIControl {
     }
     
     func resetSlider() {
-        
         UIView.animateWithDuration( 0.5, animations: {
             self.handleLayer.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( 0 ) ) )
             self.border.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( -9 ) ) )

@@ -18,7 +18,7 @@ class HeaderView: UIView {
         
         let title = UILabel( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ) )
         title.text = data[ "title" ]
-        title.font = UIFont( name: "Bellota-Regular", size: 17.0 )
+        title.font = UIFont( name: "Bellota-Regular", size: 16.0 )
         title.textAlignment = .Center
         title.textColor = UIColor.whiteColor()
         

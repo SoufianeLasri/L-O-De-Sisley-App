@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol RecapViewDelegate : class {
+    func hideRecapView()
+}
+
 class RecapView: UIView {
+
+    var delegate: RecapViewDelegate?
+    
     init( frame: CGRect, text: [ String ] ) {
         super.init( frame: frame )
         
@@ -29,12 +36,12 @@ class RecapView: UIView {
             ]
         ]
         
-        let stressEtiquette = RecapEtiquetteView( frame: CGRect( x: 25, y: 95, width: 190, height: 95 ), data: data[ 0 ] )
+        let stressEtiquette = RecapEtiquetteView( frame: CGRect( x: 25, y: 255, width: 190, height: 95 ), data: data[ 0 ] )
         stressEtiquette.alpha = 0.0
         items.append( stressEtiquette )
         self.addSubview( stressEtiquette )
         
-        let tirednessEtiquette = RecapEtiquetteView( frame: CGRect( x: self.frame.width - 215, y: 175, width: 190, height: 95 ), data: data[ 1 ] )
+        let tirednessEtiquette = RecapEtiquetteView( frame: CGRect( x: self.frame.width - 215, y: 255, width: 190, height: 95 ), data: data[ 1 ] )
         tirednessEtiquette.alpha = 0.0
         items.append( tirednessEtiquette )
         self.addSubview( tirednessEtiquette )
@@ -46,21 +53,27 @@ class RecapView: UIView {
         
         var delay = 1.5
         for item in items {
-            UIView.animateWithDuration( 0.5, delay: delay, options: .TransitionNone, animations: {
+            item.alpha = 0.0
+            
+            UIView.animateWithDuration( 3.0, delay: delay, options: .CurveLinear, animations: {
+                item.frame.origin.y -= 160
+            }, completion: nil )
+            
+            UIView.animateWithDuration( 0.5, delay: delay + 0.5, options: .TransitionNone, animations: {
                 item.alpha = 1.0
-                item.frame.origin.y -= 5
             }, completion: { finished in
-                UIView.animateWithDuration( 0.5, delay: 1.0, options: .TransitionNone, animations: {
+                UIView.animateWithDuration( 0.5, delay: 1.5, options: .TransitionNone, animations: {
                     item.alpha = 0.0
-                    item.frame.origin.y -= 5
                 }, completion: nil )
             } )
-            delay += 1.25
+            
+            delay += 2.0
         }
         
-        let chrono = 5.5 * Double( NSEC_PER_SEC )
+        let chrono = 9.0 * Double( NSEC_PER_SEC )
         let time = dispatch_time( DISPATCH_TIME_NOW, Int64( chrono ) )
         dispatch_after( time, dispatch_get_main_queue() ) {
+            self.delegate?.hideRecapView()
             self.hidden = true
         }
     }

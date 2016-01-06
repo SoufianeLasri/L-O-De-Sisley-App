@@ -7,7 +7,7 @@
         <!--Tips Controller-->
         <scene sceneID="oZA-rR-gMx">
             <objects>
-                <viewController id="Ela-aY-UF0" customClass="TipsController" customModule="Sisley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TipsPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ela-aY-UF0" customClass="TipsController" customModule="Sisley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YUd-sX-7wi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

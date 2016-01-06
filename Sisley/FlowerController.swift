@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlowerController: UIViewController, QuizDelegate, CustomWebViewDelegate {
+class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebViewDelegate, RecapViewDelegate {
     
     var titleLabel: UILabel!
     var callToAction: CAShapeLayer!
@@ -16,6 +16,7 @@ class FlowerController: UIViewController, QuizDelegate, CustomWebViewDelegate {
     var sharingMenuButton: SharingMenuButton!
     var webView: CustomWebView!
     var launchQuizButton: UIButton!
+    var testFinished: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +49,6 @@ class FlowerController: UIViewController, QuizDelegate, CustomWebViewDelegate {
         self.view.addSubview( self.webView )
         self.view.addSubview( self.titleLabel )
         
-        self.view.addSubview( self.sharingMenuButton )
-        self.view.addSubview( navigationView )
-        self.view.addSubview( self.navigationMenuButton )
-        self.view.addSubview( sharingView )
-        
         self.launchQuizButton = UIButton( frame: CGRect( x: 0, y: 0, width: 300, height: 300 ) )
         self.launchQuizButton.center.x = self.view.center.x
         self.launchQuizButton.frame.origin.y = self.view.frame.height - 370
@@ -61,6 +57,11 @@ class FlowerController: UIViewController, QuizDelegate, CustomWebViewDelegate {
         self.launchQuizButton.addGestureRecognizer( updateFlowerTap )
         self.launchQuizButton.enabled = false
         self.view.addSubview( self.launchQuizButton )
+        
+        self.view.addSubview( self.sharingMenuButton )
+        self.view.addSubview( navigationView )
+        self.view.addSubview( self.navigationMenuButton )
+        self.view.addSubview( sharingView )
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -93,6 +94,8 @@ class FlowerController: UIViewController, QuizDelegate, CustomWebViewDelegate {
     }
     
     func buildFlowerWithParams( data: [ CGFloat ], text: [ String ] ) {
+        self.testFinished = true
+        
         UIView.animateWithDuration( 0.5, animations: {
             self.hideUserInterface( false )
         } )
@@ -100,7 +103,16 @@ class FlowerController: UIViewController, QuizDelegate, CustomWebViewDelegate {
         self.webView.buildFlowerWithParams( data[ 0 ], tiredness: data[ 1 ], mood: data[ 2 ] )
         
         let recapView = RecapView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), text: text )
+        recapView.delegate = self
         self.view.addSubview( recapView )
+    }
+    
+    func hideRecapView() {
+        let storyboard: UIStoryboard = UIStoryboard( name: "Tips", bundle: nil )
+        let vc = storyboard.instantiateViewControllerWithIdentifier( "TipsPage" ) as! TipsController
+        vc.modalPresentationStyle = .OverCurrentContext
+        vc.delegate = self
+        self.presentViewController( vc, animated: false, completion: nil )
     }
     
     func hideUserInterface( state: Bool ) {
@@ -118,25 +130,27 @@ class FlowerController: UIViewController, QuizDelegate, CustomWebViewDelegate {
     
     func listenTransitionState( params: [ String: String ] ) {
         if params[ "type" ] == "grow" {
-            let radiusAnimation         = CABasicAnimation( keyPath: "transform.scale" )
-            radiusAnimation.duration    = 1.5
-            radiusAnimation.fromValue   = 1.0
-            radiusAnimation.toValue     = 3.3
-            radiusAnimation.repeatCount = .infinity
-            self.callToAction.addAnimation( radiusAnimation, forKey: "transform.scale" )
+            if self.testFinished == false {
+                let radiusAnimation         = CABasicAnimation( keyPath: "transform.scale" )
+                radiusAnimation.duration    = 1.5
+                radiusAnimation.fromValue   = 1.0
+                radiusAnimation.toValue     = 3.3
+                radiusAnimation.repeatCount = .infinity
+                self.callToAction.addAnimation( radiusAnimation, forKey: "transform.scale" )
             
-            let fillColorAnimation         = CAKeyframeAnimation( keyPath: "fillColor" )
-            fillColorAnimation.duration    = 1.5
-            fillColorAnimation.keyTimes    = [ 0.0, 0.5, 1.0 ]
-            fillColorAnimation.values      = [
-                UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 0.0 ).CGColor,
-                UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 1.0 ).CGColor,
-                UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 0.0 ).CGColor
-            ]
-            fillColorAnimation.repeatCount = .infinity
-            self.callToAction.addAnimation( fillColorAnimation, forKey: "fillColor" )
+                let fillColorAnimation         = CAKeyframeAnimation( keyPath: "fillColor" )
+                fillColorAnimation.duration    = 1.5
+                fillColorAnimation.keyTimes    = [ 0.0, 0.5, 1.0 ]
+                fillColorAnimation.values      = [
+                    UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 0.0 ).CGColor,
+                    UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 1.0 ).CGColor,
+                    UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 0.0 ).CGColor
+                ]
+                fillColorAnimation.repeatCount = .infinity
+                self.callToAction.addAnimation( fillColorAnimation, forKey: "fillColor" )
             
-            self.launchQuizButton.enabled = true
+                self.launchQuizButton.enabled = true
+            }
         }
     }
     

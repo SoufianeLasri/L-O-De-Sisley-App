@@ -16,8 +16,6 @@
 		942B20591BF4D26700F62926 /* Santana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 942B204E1BF4D22E00F62926 /* Santana.ttf */; };
 		9445C0FB1C387F9F004156A8 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445C0FA1C387F9F004156A8 /* ActivityView.swift */; };
 		944E81011BD9A43B002D3F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81001BD9A43B002D3F20 /* AppDelegate.swift */; };
-		944E81031BD9A43B002D3F20 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81021BD9A43B002D3F20 /* MainController.swift */; };
-		944E81061BD9A43B002D3F20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944E81041BD9A43B002D3F20 /* Main.storyboard */; };
 		944E81091BD9A43B002D3F20 /* Sisley.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 944E81071BD9A43B002D3F20 /* Sisley.xcdatamodeld */; };
 		944E810B1BD9A43B002D3F20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944E810A1BD9A43B002D3F20 /* Assets.xcassets */; };
 		944E81191BD9A43B002D3F20 /* SisleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944E81181BD9A43B002D3F20 /* SisleyTests.swift */; };
@@ -63,6 +61,8 @@
 		94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */; };
 		94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */; };
 		94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */; };
+		94CD5C401C3DC79300BE9751 /* SliderTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C3F1C3DC79300BE9751 /* SliderTipsView.swift */; };
+		94CD5C421C3DCCFC00BE9751 /* SliderTipsDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C411C3DCCFC00BE9751 /* SliderTipsDotsView.swift */; };
 		94D29C351C2DBAC200484EAB /* SharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D29C341C2DBAC200484EAB /* SharingView.swift */; };
 		94D29C371C2DC6B300484EAB /* SharingMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D29C361C2DC6B300484EAB /* SharingMenuButton.swift */; };
 		94D29C3D1C2DCB7400484EAB /* sharingButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D29C381C2DCB7400484EAB /* sharingButton.png */; };
@@ -118,8 +118,6 @@
 		9445C0FA1C387F9F004156A8 /* ActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		944E80FD1BD9A43B002D3F20 /* Sisley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sisley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944E81001BD9A43B002D3F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		944E81021BD9A43B002D3F20 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		944E81051BD9A43B002D3F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		944E81081BD9A43B002D3F20 /* Sisley.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sisley.xcdatamodel; sourceTree = "<group>"; };
 		944E810A1BD9A43B002D3F20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		944E810F1BD9A43B002D3F20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,6 +168,8 @@
 		94AD12F31BF0D0D600B6B1A0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		94AD12F51BF0D0E600B6B1A0 /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderView.swift; sourceTree = "<group>"; };
 		94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebViewController.swift; sourceTree = "<group>"; };
+		94CD5C3F1C3DC79300BE9751 /* SliderTipsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderTipsView.swift; sourceTree = "<group>"; };
+		94CD5C411C3DCCFC00BE9751 /* SliderTipsDotsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderTipsDotsView.swift; sourceTree = "<group>"; };
 		94D29C341C2DBAC200484EAB /* SharingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingView.swift; sourceTree = "<group>"; };
 		94D29C361C2DC6B300484EAB /* SharingMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingMenuButton.swift; sourceTree = "<group>"; };
 		94D29C381C2DCB7400484EAB /* sharingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharingButton.png; sourceTree = "<group>"; };
@@ -311,7 +311,7 @@
 			path = SisleyUITests;
 			sourceTree = "<group>";
 		};
-		945468881C0F2C9500881080 /* Slider */ = {
+		945468881C0F2C9500881080 /* SliderQuiz */ = {
 			isa = PBXGroup;
 			children = (
 				94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */,
@@ -322,7 +322,7 @@
 				9480976F1C219F6A006DAC56 /* AngleGradientBorderLayer.swift */,
 				948097711C21A055006DAC56 /* AngleGradientBorderView.swift */,
 			);
-			name = Slider;
+			name = SliderQuiz;
 			sourceTree = "<group>";
 		};
 		9467B5FF1C2EDCE0000A7C08 /* Tips */ = {
@@ -417,16 +417,26 @@
 		94AD12F21BF0D0B300B6B1A0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				94CD5C3E1C3D515900BE9751 /* SliderTIps */,
 				94FFF4741C3C839800FBF2EB /* Quiz */,
 				94FFF4731C3C838F00FBF2EB /* Flower */,
 				9467B6151C2F0DF4000A7C08 /* Tips */,
 				94D29C471C2DE4D400484EAB /* Menu */,
 				94D29C461C2DE4CE00484EAB /* Sharing */,
-				945468881C0F2C9500881080 /* Slider */,
+				945468881C0F2C9500881080 /* SliderQuiz */,
 				94E436211C0DD59600658C61 /* CustomTitle.swift */,
 				94E26BE21C3A888100F096C5 /* NextButton.swift */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		94CD5C3E1C3D515900BE9751 /* SliderTIps */ = {
+			isa = PBXGroup;
+			children = (
+				94CD5C3F1C3DC79300BE9751 /* SliderTipsView.swift */,
+				94CD5C411C3DCCFC00BE9751 /* SliderTipsDotsView.swift */,
+			);
+			name = SliderTIps;
 			sourceTree = "<group>";
 		};
 		94D29C461C2DE4CE00484EAB /* Sharing */ = {
@@ -496,18 +506,8 @@
 				9467B5FF1C2EDCE0000A7C08 /* Tips */,
 				94E26BE61C3AB1DD00F096C5 /* Intro */,
 				AD95C1631BECC00F0015441E /* Flower */,
-				ADD9C6941BE8E64F0026B529 /* Main */,
 			);
 			name = Storyboard;
-			sourceTree = "<group>";
-		};
-		ADD9C6941BE8E64F0026B529 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				944E81041BD9A43B002D3F20 /* Main.storyboard */,
-				944E81021BD9A43B002D3F20 /* MainController.swift */,
-			);
-			name = Main;
 			sourceTree = "<group>";
 		};
 		ADD9C69A1BE8E8170026B529 /* Quiz */ = {
@@ -661,7 +661,6 @@
 				942B20591BF4D26700F62926 /* Santana.ttf in Resources */,
 				9467B60C1C2F0D5B000A7C08 /* tutoSecond.png in Resources */,
 				9467B6111C2F0D5B000A7C08 /* validateActivity.png in Resources */,
-				944E81061BD9A43B002D3F20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,7 +689,7 @@
 				9467B61D1C2F1753000A7C08 /* LikeButton.swift in Sources */,
 				94E26BE81C3AB1F500F096C5 /* IntroController.swift in Sources */,
 				9467B6191C2F11B5000A7C08 /* EtiquetteView.swift in Sources */,
-				944E81031BD9A43B002D3F20 /* MainController.swift in Sources */,
+				94CD5C401C3DC79300BE9751 /* SliderTipsView.swift in Sources */,
 				94E26BEC1C3AB4A100F096C5 /* ConnexionView.swift in Sources */,
 				94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */,
 				9445C0FB1C387F9F004156A8 /* ActivityView.swift in Sources */,
@@ -725,6 +724,7 @@
 				9480978B1C2457EB006DAC56 /* NavigationView.swift in Sources */,
 				94D29C431C2DD56800484EAB /* SharingButton.swift in Sources */,
 				94D29C451C2DE10400484EAB /* SharingCloseButton.swift in Sources */,
+				94CD5C421C3DCCFC00BE9751 /* SliderTipsDotsView.swift in Sources */,
 				944E81011BD9A43B002D3F20 /* AppDelegate.swift in Sources */,
 				94E436221C0DD59600658C61 /* CustomTitle.swift in Sources */,
 			);
@@ -760,17 +760,6 @@
 			targetProxy = 944E81201BD9A43B002D3F20 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		944E81041BD9A43B002D3F20 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				944E81051BD9A43B002D3F20 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		944E81261BD9A43B002D3F20 /* Debug */ = {

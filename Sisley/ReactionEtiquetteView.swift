@@ -16,13 +16,13 @@ class ReactionEtiquetteView: UIView {
         
         let nameLabel = UILabel( frame: CGRect( x: 100, y: 15, width: self.frame.width, height: 20 ) )
         nameLabel.text = name
-        nameLabel.font = UIFont( name: "Bellota-Bold", size: 19.0 )
+        nameLabel.font = UIFont( name: "Bellota-Bold", size: 17.0 )
         nameLabel.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1.0 )
         self.addSubview( nameLabel )
         
-        let reactionLabel = UITextView( frame: CGRect( x: 95, y: 35, width: self.frame.width, height: self.frame.height - 35 ) )
+        let reactionLabel = UITextView( frame: CGRect( x: 95, y: 32, width: self.frame.width, height: self.frame.height - 35 ) )
         reactionLabel.text = reaction
-        reactionLabel.font = UIFont( name: "Bellota-Regular", size: 16.0 )
+        reactionLabel.font = UIFont( name: "Bellota-Regular", size: 14.0 )
         reactionLabel.editable = false
         reactionLabel.selectable = false
         reactionLabel.scrollEnabled = true

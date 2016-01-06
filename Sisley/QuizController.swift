@@ -17,7 +17,6 @@ protocol QuizDelegate: class {
 class QuizController: UIViewController, CustomSliderViewDelegate {
     
     var customSlider: CustomSliderView!
-    
     var tutorialView: TutorialView!
     var questionLabel: UILabel!
     var sliderValueLabel: UILabel!
@@ -30,17 +29,32 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.view.backgroundColor = UIColor.clearColor()
+        self.view.opaque = false
+        
+        let backgroundView = UIView( frame: self.view.frame )
+        backgroundView.backgroundColor = UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 1.0 )
+        self.view.addSubview( backgroundView )
+        
+        let viewPath = UIBezierPath( rect: self.view.frame )
+        let circlePath = UIBezierPath( ovalInRect: CGRect( x: 40, y: self.view.frame.height / 2 - 27, width: self.view.frame.width - 80, height: self.view.frame.width - 80 ) )
+        viewPath.usesEvenOddFillRule = true
+        viewPath.appendPath( circlePath )
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = viewPath.CGPath
+        maskLayer.fillRule = kCAFillRuleEvenOdd
+        maskLayer.fillColor = UIColor.whiteColor().CGColor
+        
+        backgroundView.layer.mask = maskLayer
         
         // Instantiate the slider
-        self.customSlider = CustomSliderView( frame: CGRectMake( 0, 0, self.view.frame.width * 0.9, self.view.frame.width * 0.9 ) )
+        self.customSlider = CustomSliderView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width * 0.9, height: self.view.frame.width * 0.9 ) )
         self.customSlider.center.x = self.view.center.x
         self.customSlider.center.y = self.view.center.y + 120
         self.view.addSubview( self.customSlider )
         self.customSlider.delegate = self
-        
-        self.view.backgroundColor = UIColor.clearColor()
-        self.view.opaque = false
         
         self.questions  = [
             [
@@ -48,21 +62,21 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "Très stressée", "Très stressée", "Très stressée", "Stressée", "Stressée", "Stressée", "Peu stressée", "Peu stressée", "Alacool", "Alacool", "Alacool" ]
+                "Answers": [ "Alacool", "Alacool", "Alacool", "Peu stressée", "Peu stressée", "Peu stressée", "Stressée", "Stressée", "Très stressée", "Très stressée", "Très stressée" ]
             ],
             [
                 "Question": "Quel est votre\nniveau de fatigue ?",
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "Très fatiguée", "Très fatiguée", "Très fatiguée", "Fatiguée", "Fatiguée", "Fatiguée", "Peu fatiguée", "Peu fatiguée", "La patate", "La patate", "La patate" ]
+                "Answers": [ "La patate", "La patate", "La patate", "Peu fatiguée", "Peu fatiguée", "Peu fatiguée", "Fatiguée", "Fatiguée", "Très fatiguée", "Très fatiguée", "Très fatiguée" ]
             ],
             [
                 "Question": "Comment vous\nsentez vous ?",
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "Mouais", "Mouais", "Mouais", "Vite teuf", "Vite teuf", "Vite teuf", "Ça va", "Ça va", "Très bien", "Très bien", "Très bien" ]
+                "Answers": [ "Très bien", "Très bien", "Très bien", "Ça va", "Ça va", "Ça va", "Vite teuf", "Vite teuf", "Vite teuf", "Mouais", "Mouais", "Mouais" ]
             ]
         ]
     

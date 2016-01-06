@@ -14,21 +14,21 @@ class DetailsView: UIView {
         
         let cureTitle = UILabel( frame: CGRect( x: 20, y: 10, width: self.frame.width, height: 40 ) )
         cureTitle.text = "Le soin"
-        cureTitle.font = UIFont( name: "Bellota-Bold", size: 20.0 )
+        cureTitle.font = UIFont( name: "Bellota-Bold", size: 18.0 )
         cureTitle.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         self.addSubview( cureTitle )
         
         let cureDetails = UILabel( frame: CGRect( x: 20, y: 30, width: self.frame.width, height: 80 ) )
         cureDetails.text = data[ "details" ]
         cureDetails.numberOfLines = 2
-        cureDetails.font = UIFont( name: "Bellota-Regular", size: 17.0 )
+        cureDetails.font = UIFont( name: "Bellota-Regular", size: 15.0 )
         cureDetails.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         self.addSubview( cureDetails )
 
         let knowMore = UILabel( frame: CGRect( x: 20, y: 65, width: self.frame.width, height: 80 ) )
         knowMore.text = "En savoir plus"
         knowMore.numberOfLines = 2
-        knowMore.font = UIFont( name: "Bellota-Bold", size: 17.0 )
+        knowMore.font = UIFont( name: "Bellota-Bold", size: 15.0 )
         knowMore.textColor = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 )
         let underlineAttribute = [ NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle.rawValue ]
         let underlineAttributedString = NSAttributedString( string: knowMore.text!, attributes: underlineAttribute )
@@ -37,14 +37,14 @@ class DetailsView: UIView {
         
         let tipTitle = UILabel( frame: CGRect( x: 20, y: 140, width: self.frame.width, height: 40 ) )
         tipTitle.text = "Le conseil Sisley"
-        tipTitle.font = UIFont( name: "Bellota-Bold", size: 20.0 )
+        tipTitle.font = UIFont( name: "Bellota-Bold", size: 18.0 )
         tipTitle.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         self.addSubview( tipTitle )
         
-        let tipDetails = UILabel( frame: CGRect( x: 20, y: 160, width: self.frame.width, height: 200 ) )
+        let tipDetails = UILabel( frame: CGRect( x: 20, y: 160, width: self.frame.width, height: 160 ) )
         tipDetails.text = data[ "tip" ]
         tipDetails.numberOfLines = 6
-        tipDetails.font = UIFont( name: "Bellota-Regular", size: 17.0 )
+        tipDetails.font = UIFont( name: "Bellota-Regular", size: 15.0 )
         tipDetails.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         self.addSubview( tipDetails )
     }

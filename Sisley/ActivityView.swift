@@ -14,16 +14,16 @@ class ActivityView: UIView, CustomCarouselDelegate {
     var sharingMenuButton: SharingMenuButton!
     var validateActivityButton: ValidateButton!
     var closeButton: CloseButton!
-    var openingState: Bool = true
+    var openingState: Bool = false
     
     init( frame: CGRect, data: [ String : Dictionary<String, NSObject> ] ) {
         super.init( frame: frame )
         
-        let header = HeaderView( frame: CGRect( x: 0, y: 100, width: self.frame.width - 60, height: 42 ), data: data[ "header" ] as! [ String : String ] )
+        let header = HeaderView( frame: CGRect( x: 0, y: 95, width: self.frame.width - 60, height: 40 ), data: data[ "header" ] as! [ String : String ] )
         header.center.x = self.center.x
         self.addSubview( header )
         
-        let etiquette = EtiquetteView( frame: CGRect( x: 0, y: header.frame.maxY, width: self.frame.width - 60, height: 140 ), data: data[ "etiquette" ] as! [ String : String ] )
+        let etiquette = EtiquetteView( frame: CGRect( x: 0, y: header.frame.maxY, width: self.frame.width - 60, height: 120 ), data: data[ "etiquette" ] as! [ String : String ] )
         etiquette.center.x = self.center.x
         let tapEtiquetteRecognizer = UITapGestureRecognizer( target: self, action: "openEtiquette:" )
         etiquette.addGestureRecognizer( tapEtiquetteRecognizer )
@@ -39,7 +39,7 @@ class ActivityView: UIView, CustomCarouselDelegate {
             self.addSubview( item )
         }
         
-        self.validateActivityButton = ValidateButton( frame: CGRect( x: 45, y: self.frame.height - 92, width: 55, height: 55 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ) )
+        self.validateActivityButton = ValidateButton( frame: CGRect( x: 50, y: self.carousel.frame.maxY - 65, width: 50, height: 50 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ) )
         self.addSubview( self.validateActivityButton )
         
         self.closeButton = CloseButton(frame: CGRect( x: header.frame.width - 0, y: header.frame.origin.y + 12, width: 20, height: 20 ) )
@@ -48,9 +48,11 @@ class ActivityView: UIView, CustomCarouselDelegate {
         self.addSubview( self.closeButton )
         
         let sharingView = SharingView( frame: self.frame )
-        self.sharingMenuButton = SharingMenuButton( frame: CGRect( x: self.frame.width - 100, y: self.frame.height - 92, width: 55, height: 55 ), menuView: sharingView )
+        self.sharingMenuButton = SharingMenuButton( frame: CGRect( x: self.frame.width - 100, y: self.carousel.frame.maxY - 65, width: 50, height: 50 ), menuView: sharingView )
         self.addSubview( self.sharingMenuButton )
         self.addSubview( sharingView )
+        
+        self.toggleEtiquette( self.openingState )
     }
     
     func toggleButtons( index: Int ) {
@@ -67,45 +69,52 @@ class ActivityView: UIView, CustomCarouselDelegate {
         }
     }
     
+    func toggleEtiquette( openingState: Bool ) {
+        if openingState == true {
+            self.carousel.hidden = false
+            self.frame.size.height = UIScreen.mainScreen().bounds.height
+            
+            UIView.animateWithDuration( 0.3, animations: {
+                self.closeButton.toggleButton( self.openingState )
+                self.carousel.alpha = 1.0
+                self.sharingMenuButton.alpha = 1.0
+                self.validateActivityButton.alpha = 1.0
+                
+                for item in self.carousel.dots {
+                    item.alpha = 1.0
+                }
+            } )
+        } else {
+            UIView.animateWithDuration( 0.3, animations: {
+                self.closeButton.toggleButton( self.openingState )
+                self.carousel.alpha = 0.0
+                self.sharingMenuButton.alpha = 0.0
+                self.validateActivityButton.alpha = 0.0
+                
+                for item in self.carousel.dots {
+                    item.alpha = 0.0
+                }
+            }, completion: { finished in
+                self.carousel.hidden = true
+                self.frame.size.height = 260
+            } )
+        }
+    }
+    
     func openEtiquette( recognizer: UITapGestureRecognizer ) {
         if recognizer.state == .Ended {
             self.openingState = true
-            
-            if self.openingState == true {
-                UIView.animateWithDuration( 0.3, animations: {
-                    self.closeButton.toggleButton( self.openingState )
-                    self.carousel.alpha = 1.0
-                    self.sharingMenuButton.alpha = 1.0
-                    self.validateActivityButton.alpha = 1.0
-                    
-                    for item in self.carousel.dots {
-                        item.alpha = 1.0
-                    }
-                } )
-            }
+            self.toggleEtiquette( self.openingState )
         }
     }
     
     func closeEtiquette( recognizer: UITapGestureRecognizer ) {
         if recognizer.state == .Ended {
             self.openingState = false
-            
-            if self.openingState == false {
-                UIView.animateWithDuration( 0.3, animations: {
-                    self.closeButton.toggleButton( self.openingState )
-                    self.carousel.alpha = 0.0
-                    self.sharingMenuButton.alpha = 0.0
-                    self.validateActivityButton.alpha = 0.0
-                    
-                    for item in self.carousel.dots {
-                        item.alpha = 0.0
-                    }
-                } )
-            }
+            self.toggleEtiquette( self.openingState )
         }
     }
-
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
