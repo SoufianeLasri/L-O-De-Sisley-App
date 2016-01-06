@@ -68,8 +68,8 @@ class CustomWebView: UIView, UIWebViewDelegate {
         self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerProgress' );" )
     }
     
-    func buildFlowerWithParams( stress: Int, tiredness: Int, mood: Int ) {
-        self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerGrow', { stress: " + String( CGFloat( stress ) ) + ", tiredness: " + String( CGFloat( tiredness ) ) + ", mood: " + String( CGFloat( mood ) ) + " } );" )
+    func buildFlowerWithParams( stress: CGFloat, tiredness: CGFloat, mood: CGFloat ) {
+        self.webView.stringByEvaluatingJavaScriptFromString( "window.mediator.publish( 'flowerGrow', { stress: " + String( stress  ) + ", tiredness: " + String( tiredness ) + ", mood: " + String( mood ) + " } );" )
     }
     
     required init?(coder aDecoder: NSCoder) {

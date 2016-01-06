@@ -11,7 +11,7 @@ import UIKit
 
 protocol QuizDelegate: class {
     func flowerProgress()
-    func buildFlowerWithParams( stress: Int, tiredness: Int, mood: Int )
+    func buildFlowerWithParams( data: [ CGFloat ], text: [ String ] )
 }
 
 class QuizController: UIViewController, CustomSliderViewDelegate {
@@ -21,8 +21,10 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
     var tutorialView: TutorialView!
     var questionLabel: UILabel!
     var sliderValueLabel: UILabel!
+    var sliderValueDouble: CGFloat!
     var questions: Array<Dictionary<String, Any>> = []
-    var answers = []
+    var answers: [ CGFloat ] = []
+    var selectedAnswersText: [ String ] = []
     var index = 0
     var delegate: QuizDelegate?
     
@@ -33,7 +35,7 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
         // Instantiate the slider
         self.customSlider = CustomSliderView( frame: CGRectMake( 0, 0, self.view.frame.width * 0.9, self.view.frame.width * 0.9 ) )
         self.customSlider.center.x = self.view.center.x
-        self.customSlider.center.y = self.view.center.y + 140
+        self.customSlider.center.y = self.view.center.y + 120
         self.view.addSubview( self.customSlider )
         self.customSlider.delegate = self
         
@@ -46,22 +48,22 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
                 "Question": "Quel est votre\nniveau de stress ?",
                 "Type": "String",
                 "Min": 0.0,
-                "Max": 4.0,
-                "Answers": [ "Très stressée", "Stressée", "Peu stressée", "Alacool", "Alacool" ]
+                "Max": 10.0,
+                "Answers": [ "Très stressée", "Très stressée", "Très stressée", "Stressée", "Stressée", "Stressée", "Peu stressée", "Peu stressée", "Alacool", "Alacool", "Alacool" ]
             ],
             [
                 "Question": "Quel est votre\nniveau de fatigue ?",
                 "Type": "String",
                 "Min": 0.0,
-                "Max": 4.0,
-                "Answers": [ "Très fatiguée", "Fatiguée", "Peu fatiguée", "La patate", "La patate" ]
+                "Max": 10.0,
+                "Answers": [ "Très fatiguée", "Très fatiguée", "Très fatiguée", "Fatiguée", "Fatiguée", "Fatiguée", "Peu fatiguée", "Peu fatiguée", "La patate", "La patate", "La patate" ]
             ],
             [
                 "Question": "Comment vous\nsentez vous ?",
                 "Type": "String",
                 "Min": 0.0,
-                "Max": 4.0,
-                "Answers": [ "Mouais", "Vite teuf", "Ça va", "Très bien", "Très bien" ]
+                "Max": 10.0,
+                "Answers": [ "Mouais", "Mouais", "Mouais", "Vite teuf", "Vite teuf", "Vite teuf", "Ça va", "Ça va", "Très bien", "Très bien", "Très bien" ]
             ]
         ]
     
@@ -71,14 +73,14 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
         title.textAlignment = .Center
         title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         
-        self.questionLabel = UILabel( frame: CGRect( x: 0, y: 140, width: self.view.frame.width, height: 80 ) )
+        self.questionLabel = UILabel( frame: CGRect( x: 0, y: 120, width: self.view.frame.width, height: 80 ) )
         self.questionLabel.numberOfLines = 2
         self.questionLabel.font = UIFont( name: "Santana-Bold", size: 28.0 )
         self.questionLabel.textAlignment = .Center
         self.questionLabel.textColor = UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1 )
         self.questionLabel.alpha = 0.0
         
-        self.sliderValueLabel = UILabel( frame: CGRect( x: 0, y: 210, width: self.view.frame.width, height: 80 ) )
+        self.sliderValueLabel = UILabel( frame: CGRect( x: 0, y: 190, width: self.view.frame.width, height: 80 ) )
         self.sliderValueLabel.font = UIFont( name: "Bellota-Regular", size: 55.0 )
         self.sliderValueLabel.textAlignment = .Center
         self.sliderValueLabel.textColor = UIColor( red: 0.9, green: 0.81, blue: 0.47, alpha: 1 )
@@ -108,11 +110,13 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        nextQuestion()
+        self.nextQuestion()
     }
     
     func nextQuestion() {
-        buildQuestion( self.index )
+        self.buildQuestion( self.index )
+        
+        self.getValue( 0.0 )
         
         self.questionLabel.transform = CGAffineTransformMakeScale( 1.1, 1.1 )
         self.sliderValueLabel.transform = CGAffineTransformMakeScale( 1.1, 1.1 )
@@ -123,9 +127,7 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
             
             self.sliderValueLabel.alpha = 1.0
             self.sliderValueLabel.transform = CGAffineTransformMakeScale( 1.0, 1.0 )
-        }, completion: { ( finished: Bool ) -> Void in
-           // TODO Allow user to drag the slider
-        } )
+        }, completion: nil )
     }
     
     func validateQuestion() {
@@ -135,13 +137,16 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
 
             self.delegate?.flowerProgress()
             
+            self.answers.append( self.sliderValueDouble )
+            self.selectedAnswersText.append( self.sliderValueLabel.text! )
+            
             self.sliderValueLabel.alpha = 0.0
             self.sliderValueLabel.transform = CGAffineTransformMakeScale( 0.9, 0.9 )
         }, completion: { ( finished: Bool ) -> Void in
             self.index++
             if self.index > self.questions.count - 1 {
                 // TODO Display the flower
-                self.delegate?.buildFlowerWithParams( 1, tiredness: 1, mood: 1 )
+                self.delegate?.buildFlowerWithParams( self.answers, text: self.selectedAnswersText )
                 self.dismissViewControllerAnimated( false, completion: {} )
             } else {
                 self.nextQuestion()
@@ -166,6 +171,8 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
     }
     
     func getValue( value: Double ) {
+        self.sliderValueDouble = CGFloat( value )
+        
         if self.questions[ index ][ "Type" ] as! String == "Number" {
             self.sliderValueLabel.text = String( Int( value ) )
         } else {

@@ -108,11 +108,15 @@ class FlowerController: UIViewController, QuizDelegate {
         self.webView.flowerProgress()
     }
     
-    func buildFlowerWithParams(stress: Int, tiredness: Int, mood: Int) {
+    func buildFlowerWithParams( data: [ CGFloat ], text: [ String ] ) {
         UIView.animateWithDuration( 0.5, animations: {
             self.hideUserInterface( false )
         } )
-        self.webView.buildFlowerWithParams( stress, tiredness: tiredness, mood: mood )
+        
+        self.webView.buildFlowerWithParams( data[ 0 ], tiredness: data[ 1 ], mood: data[ 2 ] )
+        
+        let recapView = RecapView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), text: text )
+        self.view.addSubview( recapView )
     }
     
     func hideUserInterface( state: Bool ) {

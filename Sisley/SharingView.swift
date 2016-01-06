@@ -10,8 +10,8 @@ import UIKit
 
 class SharingView: UIView {
     
-    var label: UILabel = UILabel()
-    var sharingCloseButton: SharingCloseButton = SharingCloseButton()
+    var label: UILabel!
+    var sharingCloseButton: SharingCloseButton!
     var openingState: Bool = false
     var buttons: [ SharingButton ] = []
     var items: [ String ] = []

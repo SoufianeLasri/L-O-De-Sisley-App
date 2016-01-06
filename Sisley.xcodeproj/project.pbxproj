@@ -80,6 +80,10 @@
 		94E436221C0DD59600658C61 /* CustomTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E436211C0DD59600658C61 /* CustomTitle.swift */; };
 		94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */; };
 		94FFF4721C3BF78300FBF2EB /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFF4711C3BF78300FBF2EB /* TutorialView.swift */; };
+		94FFF4771C3C842F00FBF2EB /* RecapEtiquetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFF4761C3C842F00FBF2EB /* RecapEtiquetteView.swift */; };
+		94FFF4791C3C843800FBF2EB /* RecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFF4781C3C843800FBF2EB /* RecapView.swift */; };
+		94FFF47B1C3C867B00FBF2EB /* RecapHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFF47A1C3C867B00FBF2EB /* RecapHeaderView.swift */; };
+		94FFF47D1C3C872C00FBF2EB /* RecapEtiquetteBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFF47C1C3C872C00FBF2EB /* RecapEtiquetteBodyView.swift */; };
 		AD95C1651BECC0400015441E /* Flower.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD95C1641BECC0400015441E /* Flower.storyboard */; };
 		AD95C1671BECC0540015441E /* FlowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95C1661BECC0540015441E /* FlowerController.swift */; };
 		ADD9C69C1BE8EBD70026B529 /* Quiz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */; };
@@ -185,6 +189,10 @@
 		94F196D51C0C689B00EB5283 /* Sisley-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Sisley-Bridging-Header.h"; path = "Sisley/Sisley-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		94F196D61C0C689C00EB5283 /* AngleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AngleGradientLayer.m; sourceTree = "<group>"; };
 		94FFF4711C3BF78300FBF2EB /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		94FFF4761C3C842F00FBF2EB /* RecapEtiquetteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapEtiquetteView.swift; sourceTree = "<group>"; };
+		94FFF4781C3C843800FBF2EB /* RecapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapView.swift; sourceTree = "<group>"; };
+		94FFF47A1C3C867B00FBF2EB /* RecapHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapHeaderView.swift; sourceTree = "<group>"; };
+		94FFF47C1C3C872C00FBF2EB /* RecapEtiquetteBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecapEtiquetteBodyView.swift; sourceTree = "<group>"; };
 		AD95C1641BECC0400015441E /* Flower.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Flower.storyboard; sourceTree = "<group>"; };
 		AD95C1661BECC0540015441E /* FlowerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowerController.swift; sourceTree = "<group>"; };
 		ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Quiz.storyboard; sourceTree = "<group>"; };
@@ -409,14 +417,14 @@
 		94AD12F21BF0D0B300B6B1A0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				94FFF4741C3C839800FBF2EB /* Quiz */,
+				94FFF4731C3C838F00FBF2EB /* Flower */,
 				9467B6151C2F0DF4000A7C08 /* Tips */,
 				94D29C471C2DE4D400484EAB /* Menu */,
 				94D29C461C2DE4CE00484EAB /* Sharing */,
 				945468881C0F2C9500881080 /* Slider */,
 				94E436211C0DD59600658C61 /* CustomTitle.swift */,
 				94E26BE21C3A888100F096C5 /* NextButton.swift */,
-				94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */,
-				94FFF4711C3BF78300FBF2EB /* TutorialView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -450,6 +458,26 @@
 				94E26BED1C3ACE6C00F096C5 /* Intro.storyboard */,
 			);
 			name = Intro;
+			sourceTree = "<group>";
+		};
+		94FFF4731C3C838F00FBF2EB /* Flower */ = {
+			isa = PBXGroup;
+			children = (
+				94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */,
+				94FFF4761C3C842F00FBF2EB /* RecapEtiquetteView.swift */,
+				94FFF4781C3C843800FBF2EB /* RecapView.swift */,
+				94FFF47A1C3C867B00FBF2EB /* RecapHeaderView.swift */,
+				94FFF47C1C3C872C00FBF2EB /* RecapEtiquetteBodyView.swift */,
+			);
+			name = Flower;
+			sourceTree = "<group>";
+		};
+		94FFF4741C3C839800FBF2EB /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				94FFF4711C3BF78300FBF2EB /* TutorialView.swift */,
+			);
+			name = Quiz;
 			sourceTree = "<group>";
 		};
 		AD95C1631BECC00F0015441E /* Flower */ = {
@@ -674,7 +702,10 @@
 				94AD12F61BF0D0E600B6B1A0 /* CustomSliderView.swift in Sources */,
 				9467B6211C313476000A7C08 /* CarouselController.swift in Sources */,
 				941465F81C3345F50002BB46 /* ValidateButton.swift in Sources */,
+				94FFF4791C3C843800FBF2EB /* RecapView.swift in Sources */,
+				94FFF47D1C3C872C00FBF2EB /* RecapEtiquetteBodyView.swift in Sources */,
 				94E26BE31C3A888100F096C5 /* NextButton.swift in Sources */,
+				94FFF4771C3C842F00FBF2EB /* RecapEtiquetteView.swift in Sources */,
 				94ABE0CD1C32BFE900224E16 /* ReactionsView.swift in Sources */,
 				9480978D1C27F370006DAC56 /* NavigationMenuButton.swift in Sources */,
 				94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */,
@@ -687,6 +718,7 @@
 				94FFF4721C3BF78300FBF2EB /* TutorialView.swift in Sources */,
 				941465FA1C334BD40002BB46 /* CloseButton.swift in Sources */,
 				ADD9C69F1BE8EC0D0026B529 /* QuizController.swift in Sources */,
+				94FFF47B1C3C867B00FBF2EB /* RecapHeaderView.swift in Sources */,
 				94D29C371C2DC6B300484EAB /* SharingMenuButton.swift in Sources */,
 				9467B6241C31FA16000A7C08 /* DetailsView.swift in Sources */,
 				944E81091BD9A43B002D3F20 /* Sisley.xcdatamodeld in Sources */,

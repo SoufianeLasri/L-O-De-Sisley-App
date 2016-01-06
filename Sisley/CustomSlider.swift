@@ -58,13 +58,6 @@ class CustomSlider: UIControl {
         self.border.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( -9 ) ) )
         self.addSubview( self.border )
         
-        // Draw the background
-//        let backgroundPath = UIBezierPath( ovalInRect: CGRectMake( Config.sliderPadding + 1, Config.sliderPadding + 1, self.radius * 2 - 2, self.radius * 2 - 2 ) )
-//        let background = CAShapeLayer()
-//        background.path = backgroundPath.CGPath
-//        background.fillColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 ).CGColor
-//        self.layer.insertSublayer( background, below: self.border.layer )
-        
         // Draw the golden circle
         let goldenCirclePath = UIBezierPath( ovalInRect: CGRectMake( 2, 2, 40.0, 40.0 ) )
         let goldenCircle = CAShapeLayer()
@@ -86,14 +79,6 @@ class CustomSlider: UIControl {
         validateButton.addTarget( self, action: Selector( "validateValue:" ), forControlEvents: .TouchUpInside )
         self.addSubview( validateButton )
         
-        // The visual feedback when tapping the validate button
-//        let validateFeedbackPath = UIBezierPath( ovalInRect: CGRectMake( Config.sliderPadding, Config.sliderPadding, self.radius * 2, self.radius * 2 ) )
-//        self.validateFeedback = CAShapeLayer()
-//        self.validateFeedback.path = validateFeedbackPath.CGPath
-//        self.validateFeedback.fillColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 0.0 ).CGColor
-//        self.validateFeedback.frame = self.border.frame
-//        self.layer.insertSublayer( self.validateFeedback, below: self.border.layer )
-        
         // Build animations
         self.fillColorAnimation          = CAKeyframeAnimation( keyPath: "fillColor" )
         self.fillColorAnimation.duration = 0.5
@@ -112,9 +97,6 @@ class CustomSlider: UIControl {
     
     func validateValue( sender: UIButton! ) {
         if !self.dragging {
-//            self.validateFeedback.addAnimation( self.fillColorAnimation, forKey: "fillColor" )
-//            self.validateFeedback.addAnimation( self.radiusAnimation, forKey: "transform.scale" )
-            
             self.sendActionsForControlEvents( UIControlEvents.TouchUpInside )
         }
     }

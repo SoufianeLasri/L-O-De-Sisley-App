@@ -10,7 +10,7 @@ import UIKit
 
 class SharingMenuButton: UIButton {
     
-    var menuView: SharingView = SharingView()
+    var menuView: SharingView!
     
     init( frame: CGRect, menuView: SharingView ) {
         super.init( frame: frame )

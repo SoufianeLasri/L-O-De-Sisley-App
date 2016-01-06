@@ -18,7 +18,6 @@ extension UIView {
 }
 
 class NavigationButton: UIButton {
-    
     init( frame: CGRect, text: String, imageName: String ) {
         super.init( frame: frame )
         

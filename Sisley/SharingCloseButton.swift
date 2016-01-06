@@ -9,7 +9,6 @@
 import UIKit
 
 class SharingCloseButton: UIButton {
-    
     override init( frame: CGRect ) {
         super.init( frame: frame )
         

@@ -10,8 +10,8 @@ import UIKit
 
 class NavigationMenuButton: UIButton {
     
-    var strokeColorAnimation: CABasicAnimation = CABasicAnimation()
-    var menuView: NavigationView = NavigationView()
+    var strokeColorAnimation: CABasicAnimation!
+    var menuView: NavigationView!
     
     init( frame: CGRect, menuView: NavigationView ) {
         super.init( frame: frame )

@@ -17,7 +17,7 @@ class CustomSliderView: UIView {
     
     var min: Double = 12.0
     var max: Double = 99.0
-    var slider: CustomSlider! = nil
+    var slider: CustomSlider!
     var delegate: CustomSliderViewDelegate?
 
     override init( frame: CGRect ) {
@@ -35,14 +35,12 @@ class CustomSliderView: UIView {
         self.addSubview( slider )
     }
     
-    func roundToPlaces( number: Double, places:Int ) -> Double {
+    func roundToPlaces( number: Double, places: Int ) -> Double {
         let divisor = pow( 10.0, Double( places ) )
-        return round( number * divisor) / divisor
+        return round( number * divisor ) / divisor
     }
     
     func valueChanged( slider: CustomSlider ) {
-        // Do something with the value...
-        
         var result: Double = Double( slider.angle ) / 360
         result = roundToPlaces( Double( result ), places: 2 ) * ( self.max - self.min ) + self.min
         

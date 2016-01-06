@@ -9,7 +9,6 @@
 import UIKit
 
 class SharingButton: UIButton {
-    
     init( frame: CGRect, imageName: String ) {
         super.init( frame: frame )
         
