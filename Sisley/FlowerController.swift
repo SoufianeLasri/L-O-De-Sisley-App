@@ -20,7 +20,6 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         self.view.backgroundColor = UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 )
         
@@ -128,7 +127,16 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
     }
     
     func launchRegeneration() {
-        print("yo")
+        let goToShopLabel = UILabel( frame: CGRect( x: 0, y: self.view.frame.height / 2 + 15, width: self.view.frame.width, height: 60 ) )
+        goToShopLabel.text = "Régénération en cours"
+        goToShopLabel.numberOfLines = 2
+        goToShopLabel.font = UIFont( name: "Bellota-Bold", size: 17.0 )
+        goToShopLabel.textAlignment = .Center
+        goToShopLabel.textColor = UIColor.whiteColor()
+        self.view.addSubview( goToShopLabel )
+        
+        let blurEffectView = BluryView( frame: CGRect( x: 40, y: self.view.frame.height / 2 - 27, width: self.view.frame.width - 80, height: self.view.frame.width - 80 ) )
+        self.view.insertSubview(blurEffectView, aboveSubview: self.webView)
     }
     
     func listenTransitionState( params: [ String: String ] ) {
