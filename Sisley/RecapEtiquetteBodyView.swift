@@ -30,7 +30,7 @@ class RecapEtiquetteBodyView: UIView {
         triangleShape.path        = trianglePath.CGPath
         triangleShape.lineCap     = kCALineJoinRound
         triangleShape.fillColor   = UIColor.whiteColor().CGColor
-        triangleShape.frame.origin = CGPoint( x: self.frame.width / 2 - 15, y: self.frame.height )
+        triangleShape.frame.origin = CGPoint( x: self.frame.width / 2 - 15, y: self.frame.height - 1 )
         self.layer.addSublayer( triangleShape )
         
         self.layer.shadowColor = UIColor.blackColor().CGColor

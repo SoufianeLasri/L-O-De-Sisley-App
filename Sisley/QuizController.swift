@@ -62,21 +62,21 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "Alacool", "Alacool", "Alacool", "Peu stressée", "Peu stressée", "Peu stressée", "Stressée", "Stressée", "Très stressée", "Très stressée", "Très stressée" ]
+                "Answers": [ "Paisible", "Zen", "Calme", "Décontractée", "Sereine", "Anxieuse", "Agitée", "Inquiète", "Susceptible", "Irritée", "Sur les nerfs" ]
             ],
             [
-                "Question": "Quel est votre\nniveau de fatigue ?",
+                "Question": "Quel est votre\nétat d'esprit ?",
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "La patate", "La patate", "La patate", "Peu fatiguée", "Peu fatiguée", "Peu fatiguée", "Fatiguée", "Fatiguée", "Très fatiguée", "Très fatiguée", "Très fatiguée" ]
+                "Answers": [ "Béat", "Enthousiaste", "Optimiste", "Joyeuse", "Confiante", "Ravie", "Inquiète", "Triste", "Tourmentée", "Perplexe", "Déprimée" ]
             ],
             [
                 "Question": "Comment vous\nsentez vous ?",
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "Très bien", "Très bien", "Très bien", "Ça va", "Ça va", "Ça va", "Vite teuf", "Vite teuf", "Vite teuf", "Mouais", "Mouais", "Mouais" ]
+                "Answers": [ "Hyper-active", "Excitée", "Dynamique", "Vive", "Reposée", "Éveillée", "Endormie", "Absente", "Abattue", "Épuisée", "Éteint" ]
             ]
         ]
     

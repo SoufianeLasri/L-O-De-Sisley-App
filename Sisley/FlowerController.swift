@@ -125,7 +125,10 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
             self.navigationMenuButton.frame.origin.y = self.view.frame.height - 70
             self.sharingMenuButton.frame.origin.y = self.view.frame.height - 70
         }
-        
+    }
+    
+    func launchRegeneration() {
+        print("yo")
     }
     
     func listenTransitionState( params: [ String: String ] ) {

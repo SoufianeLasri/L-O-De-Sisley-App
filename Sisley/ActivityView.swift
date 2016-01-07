@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ActivityViewDelegate: class {
+    func validateActivity()
+}
+
 class ActivityView: UIView, CustomCarouselDelegate {
     
     var carousel: CustomCarouselController!
@@ -15,6 +19,7 @@ class ActivityView: UIView, CustomCarouselDelegate {
     var validateActivityButton: ValidateButton!
     var closeButton: CloseButton!
     var openingState: Bool = false
+    var delegate: ActivityViewDelegate?
     
     init( frame: CGRect, data: [ String : Dictionary<String, NSObject> ] ) {
         super.init( frame: frame )
@@ -40,6 +45,8 @@ class ActivityView: UIView, CustomCarouselDelegate {
         }
         
         self.validateActivityButton = ValidateButton( frame: CGRect( x: 50, y: self.carousel.frame.maxY - 65, width: 50, height: 50 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ) )
+        let validateTap = UITapGestureRecognizer( target: self, action: "validateActivity:" )
+        self.validateActivityButton.addGestureRecognizer( validateTap )
         self.addSubview( self.validateActivityButton )
         
         self.closeButton = CloseButton(frame: CGRect( x: header.frame.width - 0, y: header.frame.origin.y + 12, width: 20, height: 20 ) )
@@ -122,6 +129,13 @@ class ActivityView: UIView, CustomCarouselDelegate {
         if recognizer.state == .Ended {
             self.openingState = false
             self.toggleEtiquette( self.openingState )
+        }
+    }
+    
+    func validateActivity( recognizer: UITapGestureRecognizer ) {
+        if recognizer.state == .Ended {
+            self.openingState = true
+            self.delegate?.validateActivity()
         }
     }
     

@@ -496,8 +496,8 @@
 		AD95C1631BECC00F0015441E /* Flower */ = {
 			isa = PBXGroup;
 			children = (
-				AD95C1641BECC0400015441E /* Flower.storyboard */,
 				AD95C1661BECC0540015441E /* FlowerController.swift */,
+				AD95C1641BECC0400015441E /* Flower.storyboard */,
 			);
 			name = Flower;
 			sourceTree = "<group>";
@@ -516,8 +516,8 @@
 		ADD9C69A1BE8E8170026B529 /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */,
 				ADD9C69E1BE8EC0D0026B529 /* QuizController.swift */,
+				ADD9C69B1BE8EBD70026B529 /* Quiz.storyboard */,
 			);
 			name = Quiz;
 			sourceTree = "<group>";

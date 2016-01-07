@@ -20,7 +20,7 @@ class TutorialView: UIView {
         self.addSubview( panToChangeImageView )
         
         let panToChangeLabel = UILabel( frame: CGRect( x: 0, y: 205, width: self.frame.width, height: 60 ) )
-        panToChangeLabel.text = "Sélectionnez ta réponse en\ndéplaçant le pointeur"
+        panToChangeLabel.text = "Sélectionnez votre réponse en\ndéplaçant le pointeur"
         panToChangeLabel.numberOfLines = 2
         panToChangeLabel.font = UIFont( name: "Bellota-Bold", size: 15.0 )
         panToChangeLabel.textAlignment = .Center

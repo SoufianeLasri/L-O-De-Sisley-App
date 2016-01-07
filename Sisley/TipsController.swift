@@ -9,10 +9,10 @@
 import UIKit
 
 protocol TipsDelegate : class {
-
+    func launchRegeneration()
 }
 
-class TipsController: UIViewController, SliderTipsViewDelegate {
+class TipsController: UIViewController, SliderTipsViewDelegate, ActivityViewDelegate {
     
     var firstActivityView: ActivityView!
     var secondActivityView: ActivityView!
@@ -49,7 +49,7 @@ class TipsController: UIViewController, SliderTipsViewDelegate {
         title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1.0 )
         self.view.addSubview( title )
         
-        let data = [
+        let firstData = [
             "header": [
                 "title": "Notre sélection cocooning"
             ],
@@ -89,20 +89,108 @@ class TipsController: UIViewController, SliderTipsViewDelegate {
             ]
         ]
         
+        let secondData = [
+            "header": [
+                "title": "Notre sélection cocooning"
+            ],
+            "etiquette": [
+                "mainText": "Crème hydratante",
+                "secondText": "des fruits secs"
+            ],
+            "carousel": [
+                "packShotView": [
+                    "time": "10 min",
+                    "image": "packShot.png"
+                ],
+                "detailsView": [
+                    "details": "Un soin compensateur qui apaise les\npeaux agressées.",
+                    "tip": "Le magnésium est indispensable pour le bon fonctionnement de nos muscles et influence notre état de fatigue. Une bonne raison d'en faire le plein au quotidien, grâce à ces sources naturelles. Tous les fruits secs oléagineux sont riches en magnésium."
+                ],
+                "reactionsView": [
+                    [
+                        "name": "Julie",
+                        "reaction": "Ce duo de soin est parfait !",
+                        "flowerImage": "comment1.png",
+                        "heartImage": "heartFull.png"
+                    ],
+                    [
+                        "name": "Annabelle",
+                        "reaction": "Idéal pour grignoter à ma pause café",
+                        "flowerImage": "comment2.png",
+                        "heartImage": "heartFull.png"
+                    ],
+                    [
+                        "name": "Véronique",
+                        "reaction": "Je recommande ce soin,\nun vrai plus pour la peau !",
+                        "flowerImage": "comment3.png",
+                        "heartImage": "heartFull.png"
+                    ]
+                ]
+            ]
+        ]
+        
+        let thirdData = [
+            "header": [
+                "title": "Notre sélection à partager"
+            ],
+            "etiquette": [
+                "mainText": "Crème hydratante",
+                "secondText": "un sourire à un inconnu"
+            ],
+            "carousel": [
+                "packShotView": [
+                    "time": "5 min",
+                    "image": "packShot.png"
+                ],
+                "detailsView": [
+                    "details": "Un soin compensateur qui apaise les\npeaux agressées.",
+                    "tip": "Dites bonjour et en souriez à des inconnus que vous croisez. Les gens que vous croisez sont exactement comme vous, ils n’aspirent qu’à une chose, être heureux. Sourire à un inconnu vous offre un instant de bonheur."
+                ],
+                "reactionsView": [
+                    [
+                        "name": "Gaëlle",
+                        "reaction": "Ce duo de soin est parfait !",
+                        "flowerImage": "comment1.png",
+                        "heartImage": "heartFull.png"
+                    ],
+                    [
+                        "name": "Sophie",
+                        "reaction": "En souriant à des inconnus que je croise, je m’offre un instant de bonheur.",
+                        "flowerImage": "comment2.png",
+                        "heartImage": "heartFull.png"
+                    ],
+                    [
+                        "name": "Emma",
+                        "reaction": "Je recommande ce soin,\nun vrai plus pour la peau !",
+                        "flowerImage": "comment3.png",
+                        "heartImage": "heartFull.png"
+                    ]
+                ]
+            ]
+        ]
+        
         self.customSlider = SliderTipsView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width * 0.9, height: self.view.frame.width * 0.9 ) )
         self.customSlider.center.x = self.view.center.x
         self.customSlider.center.y = self.view.center.y + 120
         self.view.addSubview( self.customSlider )
         self.customSlider.delegate = self
 
-        self.firstActivityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: data )
+        self.firstActivityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: firstData )
+        self.firstActivityView.delegate = self
         self.view.addSubview( self.firstActivityView )
         
-        self.secondActivityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: data )
+        self.secondActivityView = ActivityView( frame: CGRect( x: -self.view.frame.width, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: secondData )
+        self.secondActivityView.delegate = self
         self.view.addSubview( self.secondActivityView )
         
-        self.thirdActivityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: data )
+        self.thirdActivityView = ActivityView( frame: CGRect( x: self.view.frame.width, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: thirdData )
+        self.thirdActivityView.delegate = self
         self.view.addSubview( self.thirdActivityView )
+    }
+    
+    func validateActivity() {
+        self.delegate?.launchRegeneration()
+        self.dismissViewControllerAnimated( false, completion: {} )
     }
     
     func getValue( value: Double ) {
