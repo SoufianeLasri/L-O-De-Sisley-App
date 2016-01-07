@@ -62,21 +62,21 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "Paisible", "Zen", "Calme", "Décontractée", "Sereine", "Anxieuse", "Agitée", "Inquiète", "Susceptible", "Irritée", "Sur les nerfs" ]
+                "Answers": [ "Paisible", "Zen", "Calme", "Décontractée", "Anxieuse", "Agitée", "Inquiète", "Susceptible", "Irritée", "Sur les nerfs", "Sur les nerfs" ]
             ],
             [
                 "Question": "Quel est votre\nétat d'esprit ?",
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "Béat", "Enthousiaste", "Optimiste", "Joyeuse", "Confiante", "Ravie", "Inquiète", "Triste", "Tourmentée", "Perplexe", "Déprimée" ]
+                "Answers": [ "Béat", "Enthousiaste", "Optimiste", "Joyeuse", "Ravie", "Inquiète", "Triste", "Tourmentée", "Perplexe", "Déprimée", "Déprimée" ]
             ],
             [
                 "Question": "Comment vous\nsentez vous ?",
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "Hyper-active", "Excitée", "Dynamique", "Vive", "Reposée", "Éveillée", "Endormie", "Absente", "Abattue", "Épuisée", "Éteint" ]
+                "Answers": [ "Hyper-active", "Excitée", "Dynamique", "Vive", "Éveillée", "Endormie", "Absente", "Abattue", "Épuisée", "Éteint", "Éteint" ]
             ]
         ]
     

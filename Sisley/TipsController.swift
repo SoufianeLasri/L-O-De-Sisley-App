@@ -104,7 +104,7 @@ class TipsController: UIViewController, SliderTipsViewDelegate, ActivityViewDele
                 ],
                 "detailsView": [
                     "details": "Un soin compensateur qui apaise les\npeaux agressées.",
-                    "tip": "Le magnésium est indispensable pour le bon fonctionnement de nos muscles et influence notre état de fatigue. Une bonne raison d'en faire le plein au quotidien, grâce à ces sources naturelles. Tous les fruits secs oléagineux sont riches en magnésium."
+                    "tip": "Le magnésium est indispensable pour le\nbon fonctionnement de nos muscles\net influence notre état de fatigue. Une\nbonne raison d'en faire le plein au\nquotidien, grâce à ces sources naturelles.\nTous les fruits secs oléagineux sont\nriches en magnésium."
                 ],
                 "reactionsView": [
                     [
@@ -115,7 +115,7 @@ class TipsController: UIViewController, SliderTipsViewDelegate, ActivityViewDele
                     ],
                     [
                         "name": "Annabelle",
-                        "reaction": "Idéal pour grignoter à ma pause café",
+                        "reaction": "Idéal pour grignoter\nà ma pause café",
                         "flowerImage": "comment2.png",
                         "heartImage": "heartFull.png"
                     ],
@@ -144,7 +144,7 @@ class TipsController: UIViewController, SliderTipsViewDelegate, ActivityViewDele
                 ],
                 "detailsView": [
                     "details": "Un soin compensateur qui apaise les\npeaux agressées.",
-                    "tip": "Dites bonjour et en souriez à des inconnus que vous croisez. Les gens que vous croisez sont exactement comme vous, ils n’aspirent qu’à une chose, être heureux. Sourire à un inconnu vous offre un instant de bonheur."
+                    "tip": "Dites bonjour et en souriez à des\ninconnus que vous croisez. Les gens que\nvous croisez sont exactement comme\nvous, ils n’aspirent qu’à une chose,\nêtre heureux. Sourire à un inconnu\nvous offre un instant de bonheur."
                 ],
                 "reactionsView": [
                     [
@@ -155,7 +155,7 @@ class TipsController: UIViewController, SliderTipsViewDelegate, ActivityViewDele
                     ],
                     [
                         "name": "Sophie",
-                        "reaction": "En souriant à des inconnus que je croise, je m’offre un instant de bonheur.",
+                        "reaction": "En souriant à des inconnus\nque je croise, je m’offre\nun instant de bonheur.",
                         "flowerImage": "comment2.png",
                         "heartImage": "heartFull.png"
                     ],
@@ -177,15 +177,16 @@ class TipsController: UIViewController, SliderTipsViewDelegate, ActivityViewDele
 
         self.firstActivityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: firstData )
         self.firstActivityView.delegate = self
-        self.view.addSubview( self.firstActivityView )
         
-        self.secondActivityView = ActivityView( frame: CGRect( x: -self.view.frame.width, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: secondData )
+        self.secondActivityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: secondData )
         self.secondActivityView.delegate = self
-        self.view.addSubview( self.secondActivityView )
         
-        self.thirdActivityView = ActivityView( frame: CGRect( x: self.view.frame.width, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: thirdData )
+        self.thirdActivityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: thirdData )
         self.thirdActivityView.delegate = self
+        
         self.view.addSubview( self.thirdActivityView )
+        self.view.addSubview( self.secondActivityView )
+        self.view.addSubview( self.firstActivityView )
     }
     
     func validateActivity() {

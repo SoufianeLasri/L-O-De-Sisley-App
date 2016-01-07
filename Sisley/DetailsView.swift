@@ -35,15 +35,15 @@ class DetailsView: UIView {
         knowMore.attributedText = underlineAttributedString
         self.addSubview( knowMore )
         
-        let tipTitle = UILabel( frame: CGRect( x: 20, y: 140, width: self.frame.width, height: 40 ) )
+        let tipTitle = UILabel( frame: CGRect( x: 20, y: 120, width: self.frame.width, height: 40 ) )
         tipTitle.text = "Le conseil Sisley"
         tipTitle.font = UIFont( name: "Bellota-Bold", size: 18.0 )
         tipTitle.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         self.addSubview( tipTitle )
         
-        let tipDetails = UILabel( frame: CGRect( x: 20, y: 160, width: self.frame.width, height: 160 ) )
+        let tipDetails = UILabel( frame: CGRect( x: 20, y: 150, width: self.frame.width, height: 160 ) )
         tipDetails.text = data[ "tip" ]
-        tipDetails.numberOfLines = 6
+        tipDetails.numberOfLines = 7
         tipDetails.font = UIFont( name: "Bellota-Regular", size: 15.0 )
         tipDetails.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1 )
         self.addSubview( tipDetails )
