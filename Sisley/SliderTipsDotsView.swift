@@ -14,6 +14,8 @@ class SliderTipsDotsView: UIView {
         
         self.backgroundColor = UIColor( red: 0.5, green: 0.54, blue: 0.68, alpha: 1.0 )
         self.layer.cornerRadius = self.frame.width / 2
+        self.layer.borderColor = UIColor.whiteColor().CGColor
+        self.layer.borderWidth = 2.0
     }
     
     func toggleDot( state: Bool ) {

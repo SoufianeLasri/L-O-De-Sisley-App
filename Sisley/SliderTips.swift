@@ -1,49 +1,27 @@
 //
-//  CustomSlider.swift
+//  SliderTips.swift
 //  Sisley
 //
-//  Created by Soufiane Lasri on 04/11/2015.
-//  Copyright © 2015 Soufiane Lasri. All rights reserved.
+//  Created by Soufiane Lasri on 06/01/2016.
+//  Copyright © 2016 Soufiane Lasri. All rights reserved.
 //
 
 import UIKit
 
-struct Config {
-    static let slideSize: CGFloat = UIScreen.mainScreen().bounds.size.width
-    static let sliderPadding: CGFloat = 22.0
-    static let sliderLineWidth: CGFloat = 2.0
-    static let sliderFontSize: CGFloat = 40.0
-}
-
-// MARK: Math Helpers
-func DegreesToRadians( value: Double ) -> Double {
-    return value * M_PI / 180.0
-}
-
-func RadiansToDegrees( value: Double ) -> Double {
-    return value * 180.0 / M_PI
-}
-
-func Square( value: CGFloat ) -> CGFloat {
-    return value * value
-}
-
 // MARK: Circular Slider
-class CustomSlider: UIControl {
-
+class SliderTips: UIControl {
+    
     var radius: CGFloat = 0
     var angle: Int = 0
     var border: UIView!
     var dragging: Bool = false
     var handleLayer: UIView!
-    var validateFeedback: CAShapeLayer!
-    var fillColorAnimation: CAKeyframeAnimation!
-    var radiusAnimation: CAKeyframeAnimation!
+    var dots: [ SliderTipsDotsView ] = []
     
     // Default initializer
     override init( frame: CGRect ) {
         super.init( frame: frame )
-
+        
         self.opaque = true
         self.center = CGPointMake( super.frame.width / 2, super.frame.height / 2 )
         
@@ -63,41 +41,30 @@ class CustomSlider: UIControl {
         goldenCircle.strokeColor = UIColor( red: 0.89, green: 0.81, blue: 0.47, alpha: 1.0 ).CGColor
         goldenCircle.fillColor = UIColor( red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0 ).CGColor
         
-        self.handleLayer = UIView( frame: CGRect( x: 0, y: 0, width: self.frame.width - Config.sliderPadding, height: self.frame.height - Config.sliderPadding ) )
+        self.handleLayer = UIView( frame: CGRectMake( 0, 0, self.frame.width - Config.sliderPadding, self.frame.height - Config.sliderPadding ) )
         goldenCircle.frame = CGRectMake( self.handleLayer.frame.width - 34, self.handleLayer.frame.height / 2 - 22, 44.0, 44.0 )
         self.handleLayer.layer.addSublayer( goldenCircle )
         self.handleLayer.center = self.center
         self.addSubview( self.handleLayer )
         
-        // The validate button
-        let validateButton = UIButton( frame: CGRectMake( 0, 0, self.frame.width / 2, self.frame.height / 2 ) )
-        validateButton.center = self.center
-        validateButton.layer.cornerRadius = validateButton.frame.width / 2
-        validateButton.addTarget( self, action: Selector( "validateValue:" ), forControlEvents: .TouchUpInside )
-        self.addSubview( validateButton )
+        let firstDot = SliderTipsDotsView( frame: CGRect( x: 0, y: 0, width: 20, height: 20 ) )
+        firstDot.center = self.pointFromAngle( 0 )
+        firstDot.toggleDot( true )
+        self.dots.append( firstDot )
         
-        // Build animations
-        self.fillColorAnimation          = CAKeyframeAnimation( keyPath: "fillColor" )
-        self.fillColorAnimation.duration = 0.5
-        self.fillColorAnimation.keyTimes = [ 0.0, 0.5, 1.0 ]
-        self.fillColorAnimation.values   = [
-            UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 0.0 ).CGColor,
-            UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 1.0 ).CGColor,
-            UIColor( red: 1.0, green: 0.96, blue: 0.91, alpha: 0.0 ).CGColor
-        ]
+        let secondDot = SliderTipsDotsView( frame: CGRect( x: 0, y: 0, width: 20, height: 20 ) )
+        secondDot.center = self.pointFromAngle( 120 )
+        self.dots.append( secondDot )
         
-        self.radiusAnimation          = CAKeyframeAnimation( keyPath: "transform.scale" )
-        self.radiusAnimation.duration = 0.5
-        self.radiusAnimation.keyTimes = [ 0.0, 1.0 ]
-        self.radiusAnimation.values   = [ 1.0, 1.4 ]
-    }
-    
-    func validateValue( sender: UIButton! ) {
-        if !self.dragging {
-            self.sendActionsForControlEvents( UIControlEvents.TouchUpInside )
+        let thirdDot = SliderTipsDotsView( frame: CGRect( x: 0, y: 0, width: 20, height: 20 ) )
+        thirdDot.center = self.pointFromAngle( 240 )
+        self.dots.append( thirdDot )
+        
+        for item in self.dots {
+            self.addSubview( item )
         }
     }
-
+    
     override func touchesBegan( touches: Set<UITouch>, withEvent event: UIEvent? ) {
         if let touch: UITouch? = touches.first {
             let lastPoint = touch!.locationInView( self.handleLayer )
@@ -117,6 +84,8 @@ class CustomSlider: UIControl {
     
     override func touchesEnded( touches: Set<UITouch>, withEvent event: UIEvent? ) {
         self.dragging = false
+        
+        self.slideToNearestDot( self.angle )
     }
     
     // Move the Handle
@@ -151,12 +120,42 @@ class CustomSlider: UIControl {
         return result
     }
     
-    func resetSlider() {
+    func slideToNearestDot( angle: Int ) {
+        var nearestDot = 0
+        var dotIndex = 0
+        
+        switch angle {
+            case 0...60:
+                nearestDot = 0
+                dotIndex = 0
+            case 61...180:
+                nearestDot = 120
+                dotIndex = 1
+            case 181...300:
+                nearestDot = 240
+                dotIndex = 2
+            case 301...360:
+                nearestDot = 0
+                dotIndex = 0
+            default:
+                nearestDot = 0
+                dotIndex = 0
+        }
+        
         UIView.animateWithDuration( 0.5, animations: {
-            self.handleLayer.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( 0 ) ) )
-            self.border.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( -9 ) ) )
-        }, completion: { finished in
-            self.angle = 0
+            self.handleLayer.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( Double( -nearestDot ) ) ) )
+            self.border.transform = CGAffineTransformMakeRotation( CGFloat( DegreesToRadians( Double( -nearestDot - 9 ) ) ) )
+            
+            for (index, item ) in self.dots.enumerate() {
+                if index == dotIndex {
+                    item.toggleDot( true )
+                } else {
+                    item.toggleDot( false )
+                }
+            }
+            }, completion: { finished in
+                self.angle = nearestDot
+                self.sendActionsForControlEvents( UIControlEvents.ValueChanged )
         } )
     }
     

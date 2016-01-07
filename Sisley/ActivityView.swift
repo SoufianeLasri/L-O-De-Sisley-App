@@ -52,7 +52,17 @@ class ActivityView: UIView, CustomCarouselDelegate {
         self.addSubview( self.sharingMenuButton )
         self.addSubview( sharingView )
         
-        self.toggleEtiquette( self.openingState )
+        self.closeButton.toggleButton( self.openingState )
+        self.carousel.alpha = 0.0
+        self.sharingMenuButton.alpha = 0.0
+        self.validateActivityButton.alpha = 0.0
+        
+        for item in self.carousel.dots {
+            item.alpha = 0.0
+        }
+        
+        self.carousel.hidden = true
+        self.frame.size.height = 260
     }
     
     func toggleButtons( index: Int ) {

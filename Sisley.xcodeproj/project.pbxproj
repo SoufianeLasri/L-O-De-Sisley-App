@@ -63,6 +63,7 @@
 		94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */; };
 		94CD5C401C3DC79300BE9751 /* SliderTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C3F1C3DC79300BE9751 /* SliderTipsView.swift */; };
 		94CD5C421C3DCCFC00BE9751 /* SliderTipsDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C411C3DCCFC00BE9751 /* SliderTipsDotsView.swift */; };
+		94CD5C441C3DD0A800BE9751 /* SliderTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C431C3DD0A800BE9751 /* SliderTips.swift */; };
 		94D29C351C2DBAC200484EAB /* SharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D29C341C2DBAC200484EAB /* SharingView.swift */; };
 		94D29C371C2DC6B300484EAB /* SharingMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D29C361C2DC6B300484EAB /* SharingMenuButton.swift */; };
 		94D29C3D1C2DCB7400484EAB /* sharingButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D29C381C2DCB7400484EAB /* sharingButton.png */; };
@@ -170,6 +171,7 @@
 		94AD12F71BF0D10600B6B1A0 /* CustomWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebViewController.swift; sourceTree = "<group>"; };
 		94CD5C3F1C3DC79300BE9751 /* SliderTipsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderTipsView.swift; sourceTree = "<group>"; };
 		94CD5C411C3DCCFC00BE9751 /* SliderTipsDotsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderTipsDotsView.swift; sourceTree = "<group>"; };
+		94CD5C431C3DD0A800BE9751 /* SliderTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderTips.swift; sourceTree = "<group>"; };
 		94D29C341C2DBAC200484EAB /* SharingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingView.swift; sourceTree = "<group>"; };
 		94D29C361C2DC6B300484EAB /* SharingMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingMenuButton.swift; sourceTree = "<group>"; };
 		94D29C381C2DCB7400484EAB /* sharingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharingButton.png; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 			children = (
 				94CD5C3F1C3DC79300BE9751 /* SliderTipsView.swift */,
 				94CD5C411C3DCCFC00BE9751 /* SliderTipsDotsView.swift */,
+				94CD5C431C3DD0A800BE9751 /* SliderTips.swift */,
 			);
 			name = SliderTIps;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				AD95C1671BECC0540015441E /* FlowerController.swift in Sources */,
 				9480978F1C281AA5006DAC56 /* NavigationButton.swift in Sources */,
 				94D29C351C2DBAC200484EAB /* SharingView.swift in Sources */,
+				94CD5C441C3DD0A800BE9751 /* SliderTips.swift in Sources */,
 				94ABE0C11C328BAD00224E16 /* CommentView.swift in Sources */,
 				9467B6261C320514000A7C08 /* PackShotView.swift in Sources */,
 				948097701C219F6A006DAC56 /* AngleGradientBorderLayer.swift in Sources */,

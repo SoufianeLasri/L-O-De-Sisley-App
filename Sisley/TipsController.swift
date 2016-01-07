@@ -12,8 +12,11 @@ protocol TipsDelegate : class {
 
 }
 
-class TipsController: UIViewController {
+class TipsController: UIViewController, SliderTipsViewDelegate {
     
+    var firstActivityView: ActivityView!
+    var secondActivityView: ActivityView!
+    var thirdActivityView: ActivityView!
     var customSlider: SliderTipsView!
     var delegate: TipsDelegate?
     
@@ -90,9 +93,29 @@ class TipsController: UIViewController {
         self.customSlider.center.x = self.view.center.x
         self.customSlider.center.y = self.view.center.y + 120
         self.view.addSubview( self.customSlider )
-//        self.customSlider.delegate = self
+        self.customSlider.delegate = self
 
-        let activityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: data )
-        self.view.addSubview( activityView )
+        self.firstActivityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: data )
+        self.view.addSubview( self.firstActivityView )
+        
+        self.secondActivityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: data )
+        self.view.addSubview( self.secondActivityView )
+        
+        self.thirdActivityView = ActivityView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ), data: data )
+        self.view.addSubview( self.thirdActivityView )
+    }
+    
+    func getValue( value: Double ) {
+        var firstValue = value * 3 + 0.5
+        let secondValue = value * 3 - 0.5
+        let thirdValue = value * 3 - 1.5
+        
+        if firstValue > 2.0 {
+            firstValue -= 3.0
+        }
+
+        self.firstActivityView.frame.origin.x = CGFloat(firstValue) * self.view.frame.width - self.view.frame.width / 2
+        self.secondActivityView.frame.origin.x = CGFloat(secondValue) * self.view.frame.width - self.view.frame.width / 2
+        self.thirdActivityView.frame.origin.x = CGFloat(thirdValue) * self.view.frame.width - self.view.frame.width / 2
     }
 }
