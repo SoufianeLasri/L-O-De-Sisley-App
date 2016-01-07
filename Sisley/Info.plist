@@ -32,7 +32,7 @@
 		<string>Bellota-Regular.otf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>Flower</string>
+	<string>History</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
