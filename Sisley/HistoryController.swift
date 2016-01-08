@@ -22,6 +22,7 @@ class HistoryController: UIViewController, CustomWebViewDelegate, SliderHistoryV
     var direction: Bool = true
     var previousValue: Int = 0
     var data: [ [ String : String ] ] = [ [ : ] ]
+    var formatter: NSNumberFormatter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +85,9 @@ class HistoryController: UIViewController, CustomWebViewDelegate, SliderHistoryV
         self.view.addSubview( self.navigationMenuButton )
         self.view.addSubview( sharingView )
         
+        self.formatter = NSNumberFormatter()
+        self.formatter.locale = NSLocale(localeIdentifier: "en-US")
+        
         self.titleLabel.alpha = 0.0
         self.webView.alpha = 0.0
         self.customSlider.alpha = 0.0
@@ -120,7 +124,7 @@ class HistoryController: UIViewController, CustomWebViewDelegate, SliderHistoryV
                 }
             }
             
-            self.webView.buildFlowerWithParams( CGFloat( NSNumberFormatter().numberFromString( self.data[ self.index ][ "stress" ]! )! ), tiredness: CGFloat( NSNumberFormatter().numberFromString( self.data[ self.index ][ "tiredness" ]! )! ), mood: CGFloat( NSNumberFormatter().numberFromString( self.data[ self.index ][ "mood" ]! )! ) )
+            self.webView.buildFlowerWithParams( CGFloat( self.formatter.numberFromString( self.data[ self.index ][ "stress" ]! )! ), tiredness: CGFloat( self.formatter.numberFromString( self.data[ self.index ][ "tiredness" ]! )! ), mood: CGFloat( self.formatter.numberFromString( self.data[ self.index ][ "mood" ]! )! ) )
             
             self.activityView.header.title.text = self.data[ self.index ][ "header" ]
             self.activityView.etiquette.title.text = self.data[ self.index ][ "mainText" ]
