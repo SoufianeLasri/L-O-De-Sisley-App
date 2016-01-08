@@ -168,7 +168,10 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
     
     func navigationButtonTapped( type: String ) {
         if type == "cures" {
-            print( "yo" )
+            let storyboard: UIStoryboard = UIStoryboard( name: "Cures", bundle: nil )
+            let vc = storyboard.instantiateViewControllerWithIdentifier( "CuresPage" ) as! CuresController
+            self.navigationController?.pushViewController(vc, animated: false)
+//            self.presentViewController( vc, animated: false, completion: nil )
         }
         
         if type == "history" {
