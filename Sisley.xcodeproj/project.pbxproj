@@ -74,6 +74,10 @@
 		94CD5C581C3F15F900BE9751 /* HistoryActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C571C3F15F900BE9751 /* HistoryActivityView.swift */; };
 		94CD5C5A1C3F18DB00BE9751 /* HistoryEtiquetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C591C3F18DB00BE9751 /* HistoryEtiquetteView.swift */; };
 		94CD5C5C1C3F1B5100BE9751 /* HistoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C5B1C3F1B5100BE9751 /* HistoryHeaderView.swift */; };
+		94CD5C5F1C3F3BE400BE9751 /* CuresController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C5E1C3F3BE400BE9751 /* CuresController.swift */; };
+		94CD5C611C3F3C4700BE9751 /* Cures.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CD5C601C3F3C4700BE9751 /* Cures.storyboard */; };
+		94CD5C641C3F3F0700BE9751 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C631C3F3F0700BE9751 /* CustomScrollView.swift */; };
+		94CD5C661C3F4B3900BE9751 /* CuresActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CD5C651C3F4B3900BE9751 /* CuresActivityView.swift */; };
 		94D29C351C2DBAC200484EAB /* SharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D29C341C2DBAC200484EAB /* SharingView.swift */; };
 		94D29C371C2DC6B300484EAB /* SharingMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D29C361C2DC6B300484EAB /* SharingMenuButton.swift */; };
 		94D29C3D1C2DCB7400484EAB /* sharingButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D29C381C2DCB7400484EAB /* sharingButton.png */; };
@@ -192,6 +196,10 @@
 		94CD5C571C3F15F900BE9751 /* HistoryActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryActivityView.swift; sourceTree = "<group>"; };
 		94CD5C591C3F18DB00BE9751 /* HistoryEtiquetteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryEtiquetteView.swift; sourceTree = "<group>"; };
 		94CD5C5B1C3F1B5100BE9751 /* HistoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryHeaderView.swift; sourceTree = "<group>"; };
+		94CD5C5E1C3F3BE400BE9751 /* CuresController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuresController.swift; sourceTree = "<group>"; };
+		94CD5C601C3F3C4700BE9751 /* Cures.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Cures.storyboard; sourceTree = "<group>"; };
+		94CD5C631C3F3F0700BE9751 /* CustomScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
+		94CD5C651C3F4B3900BE9751 /* CuresActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuresActivityView.swift; sourceTree = "<group>"; };
 		94D29C341C2DBAC200484EAB /* SharingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingView.swift; sourceTree = "<group>"; };
 		94D29C361C2DC6B300484EAB /* SharingMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingMenuButton.swift; sourceTree = "<group>"; };
 		94D29C381C2DCB7400484EAB /* sharingButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharingButton.png; sourceTree = "<group>"; };
@@ -441,6 +449,7 @@
 		94AD12F21BF0D0B300B6B1A0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				94CD5C621C3F3E6400BE9751 /* Cures */,
 				94CD5C501C3F0B9200BE9751 /* History */,
 				94CD5C3E1C3D515900BE9751 /* SliderTIps */,
 				94FFF4741C3C839800FBF2EB /* Quiz */,
@@ -484,6 +493,24 @@
 				94CD5C5B1C3F1B5100BE9751 /* HistoryHeaderView.swift */,
 			);
 			name = History;
+			sourceTree = "<group>";
+		};
+		94CD5C5D1C3F3BDA00BE9751 /* Cures */ = {
+			isa = PBXGroup;
+			children = (
+				94CD5C5E1C3F3BE400BE9751 /* CuresController.swift */,
+				94CD5C601C3F3C4700BE9751 /* Cures.storyboard */,
+			);
+			name = Cures;
+			sourceTree = "<group>";
+		};
+		94CD5C621C3F3E6400BE9751 /* Cures */ = {
+			isa = PBXGroup;
+			children = (
+				94CD5C631C3F3F0700BE9751 /* CustomScrollView.swift */,
+				94CD5C651C3F4B3900BE9751 /* CuresActivityView.swift */,
+			);
+			name = Cures;
 			sourceTree = "<group>";
 		};
 		94D29C461C2DE4CE00484EAB /* Sharing */ = {
@@ -550,6 +577,7 @@
 		ADD9C6931BE8E6260026B529 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				94CD5C5D1C3F3BDA00BE9751 /* Cures */,
 				94CD5C4B1C3ED6F300BE9751 /* History */,
 				ADD9C69A1BE8E8170026B529 /* Quiz */,
 				9467B5FF1C2EDCE0000A7C08 /* Tips */,
@@ -679,6 +707,7 @@
 				94D29C3F1C2DCB7400484EAB /* twitter.png in Resources */,
 				94D29C401C2DCB7400484EAB /* facebook.png in Resources */,
 				94ABE0D21C32C21A00224E16 /* comment2.png in Resources */,
+				94CD5C611C3F3C4700BE9751 /* Cures.storyboard in Resources */,
 				9467B6131C2F0D5B000A7C08 /* purchase.png in Resources */,
 				9467B6121C2F0D5B000A7C08 /* heartEmpty.png in Resources */,
 				9480982E1C28BC4B006DAC56 /* evolution.png in Resources */,
@@ -746,6 +775,7 @@
 				94F196D71C0C689C00EB5283 /* AngleGradientLayer.m in Sources */,
 				9445C0FB1C387F9F004156A8 /* ActivityView.swift in Sources */,
 				94ABE0D81C333A2000224E16 /* DotView.swift in Sources */,
+				94CD5C661C3F4B3900BE9751 /* CuresActivityView.swift in Sources */,
 				94AD12F41BF0D0D600B6B1A0 /* CustomSlider.swift in Sources */,
 				948097721C21A055006DAC56 /* AngleGradientBorderView.swift in Sources */,
 				9467B6011C2EDD08000A7C08 /* TipsController.swift in Sources */,
@@ -758,6 +788,7 @@
 				94FFF47D1C3C872C00FBF2EB /* RecapEtiquetteBodyView.swift in Sources */,
 				94E26BE31C3A888100F096C5 /* NextButton.swift in Sources */,
 				94FFF4771C3C842F00FBF2EB /* RecapEtiquetteView.swift in Sources */,
+				94CD5C5F1C3F3BE400BE9751 /* CuresController.swift in Sources */,
 				94ABE0CD1C32BFE900224E16 /* ReactionsView.swift in Sources */,
 				9480978D1C27F370006DAC56 /* NavigationMenuButton.swift in Sources */,
 				94AD12F81BF0D10600B6B1A0 /* CustomWebViewController.swift in Sources */,
@@ -766,6 +797,7 @@
 				94D29C351C2DBAC200484EAB /* SharingView.swift in Sources */,
 				94CD5C5A1C3F18DB00BE9751 /* HistoryEtiquetteView.swift in Sources */,
 				94CD5C441C3DD0A800BE9751 /* SliderTips.swift in Sources */,
+				94CD5C641C3F3F0700BE9751 /* CustomScrollView.swift in Sources */,
 				94ABE0C11C328BAD00224E16 /* CommentView.swift in Sources */,
 				9467B6261C320514000A7C08 /* PackShotView.swift in Sources */,
 				94CD5C581C3F15F900BE9751 /* HistoryActivityView.swift in Sources */,

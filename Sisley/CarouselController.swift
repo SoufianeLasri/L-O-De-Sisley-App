@@ -12,7 +12,7 @@ protocol CustomCarouselDelegate: class {
     func toggleButtons( index: Int )
 }
 
-class CustomCarouselController: UIScrollView, UIScrollViewDelegate {
+class CustomCarouselView: UIScrollView, UIScrollViewDelegate {
     
     var views: [ UIView ]!
     var dots: [ DotView ] = []
@@ -61,23 +61,6 @@ class CustomCarouselController: UIScrollView, UIScrollViewDelegate {
             }
         }
     }
-    
-//    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-//        let indexOfPage: Int = Int( ( self.contentOffset.x + self.frame.width / 2 ) / self.frame.width )
-//        let commentView = self.views[ 2 ] as! CommentView
-//        
-//        if indexOfPage == 2 {
-//            UIView.animateWithDuration( 0.3, animations: {
-//                commentView.validateButton.alpha = 1.0
-//                }, completion: nil )
-//        } else {
-//            UIView.animateWithDuration( 0.3, animations: {
-//                commentView.validateButton.alpha = 0.0
-//                }, completion: nil )
-//        }
-//        
-//        self.customDelegate?.toggleButtons( indexOfPage )
-//    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
