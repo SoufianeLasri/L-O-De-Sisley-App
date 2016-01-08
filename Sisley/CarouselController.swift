@@ -18,7 +18,7 @@ class CustomCarouselView: UIScrollView, UIScrollViewDelegate {
     var dots: [ DotView ] = []
     var customDelegate: CustomCarouselDelegate?
     
-    init( frame: CGRect, data: [ String : AnyObject ] ) {
+    init( frame: CGRect, data: [ String : AnyObject ], comments: Bool ) {
         super.init( frame: frame )
         self.backgroundColor = UIColor.whiteColor()
         self.bounces = false
@@ -27,12 +27,21 @@ class CustomCarouselView: UIScrollView, UIScrollViewDelegate {
         self.showsVerticalScrollIndicator = false
         self.delegate = self
         
-        self.views = [
-            PackShotView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ), data: data[ "packShotView" ] as! [ String : String ] ),
-            DetailsView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ), data: data[ "detailsView" ] as! [ String : String ] ),
-//            CommentView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ) ),
-            ReactionsView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ), data: data[ "reactionsView" ] as! [ [ String : String ] ] )
-        ]
+        if comments == true {
+            self.views = [
+                PackShotView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ), data: data[ "packShotView" ] as! [ String : String ] ),
+                DetailsView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ), data: data[ "detailsView" ] as! [ String : String ] ),
+                CommentView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ) ),
+                ReactionsView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ), data: data[ "reactionsView" ] as! [ [ String : String ] ] )
+            ]
+        } else {
+            self.views = [
+                PackShotView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ), data: data[ "packShotView" ] as! [ String : String ] ),
+                DetailsView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ), data: data[ "detailsView" ] as! [ String : String ] ),
+                ReactionsView( frame: CGRect( x: 0, y: 0, width: self.frame.width, height: self.frame.height ), data: data[ "reactionsView" ] as! [ [ String : String ] ] )
+            ]
+        }
+        
         
         for ( index, item ) in self.views.enumerate() {
             item.frame.origin.x = self.frame.width * CGFloat( index )

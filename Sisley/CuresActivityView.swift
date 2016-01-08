@@ -31,7 +31,7 @@ class CuresActivityView: UIView {
         etiquette.center.x = self.center.x
         self.addSubview( etiquette )
         
-        self.carousel = CustomCarouselView( frame: CGRect( x: 0, y: etiquette.frame.maxY + 3, width: self.frame.width - 60, height: self.frame.height - etiquette.frame.maxY - 25 ), data: data[ "carousel" ]! )
+        self.carousel = CustomCarouselView( frame: CGRect( x: 0, y: etiquette.frame.maxY + 3, width: self.frame.width - 60, height: self.frame.height - etiquette.frame.maxY - 25 ), data: data[ "carousel" ]!, comments: true )
         self.carousel.center.x = self.center.x
         self.addSubview( self.carousel )
         

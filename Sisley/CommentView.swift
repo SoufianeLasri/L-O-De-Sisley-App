@@ -21,7 +21,7 @@ class CommentView: UIView, UITextViewDelegate {
         cureTitle.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1.0 )
         self.addSubview( cureTitle )
         
-        let textView = UITextView( frame: CGRect( x: 20, y: 50, width: self.frame.width - 40, height: 290 ) )
+        let textView = UITextView( frame: CGRect( x: 20, y: 50, width: self.frame.width - 40, height: 260 ) )
         textView.text = "Écrivez votre commentaire"
         textView.font = UIFont( name: "Bellota-Regular", size: 16.0 )
         textView.textContainerInset = UIEdgeInsetsMake( 10, 10, 10, 10 )
@@ -32,7 +32,7 @@ class CommentView: UIView, UITextViewDelegate {
         textView.layer.cornerRadius = 4.0
         self.addSubview( textView )
         
-        self.validateButton = ValidateButton( frame: CGRect( x: self.frame.width - 70, y: self.frame.height - 70, width: 55, height: 55 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ) )
+        self.validateButton = ValidateButton( frame: CGRect( x: self.frame.width - 65, y: self.frame.height - 65, width: 50, height: 50 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ) )
         self.addSubview( self.validateButton )
     }
     

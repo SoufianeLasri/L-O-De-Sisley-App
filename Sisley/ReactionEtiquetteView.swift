@@ -14,7 +14,7 @@ class ReactionEtiquetteView: UIView {
         
         self.backgroundColor = UIColor.whiteColor()
         
-        let nameLabel = UILabel( frame: CGRect( x: 100, y: 15, width: self.frame.width, height: 20 ) )
+        let nameLabel = UILabel( frame: CGRect( x: 100, y: 10, width: self.frame.width, height: 25 ) )
         nameLabel.text = name
         nameLabel.font = UIFont( name: "Bellota-Bold", size: 17.0 )
         nameLabel.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1.0 )
