@@ -48,7 +48,7 @@ class ConnexionController: UIViewController {
         self.view.addSubview( self.appName )
 
         self.mailLabel = UILabel( frame: CGRect( x: 60, y: 330, width: self.view.frame.width, height: 30 ) )
-        self.mailLabel.text = "soufiane.lasri@gmail.com"
+        self.mailLabel.text = "olga.dufour@gmail.com"
         self.mailLabel.font = UIFont( name: "Bellota-Regular", size: 16.0 )
         self.mailLabel.textColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 )
         self.view.addSubview( self.mailLabel )
@@ -135,7 +135,7 @@ class ConnexionController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         
-        let chrono = 0.3 * Double( NSEC_PER_SEC )
+        let chrono = 0.5 * Double( NSEC_PER_SEC )
         let time = dispatch_time( DISPATCH_TIME_NOW, Int64( chrono ) )
         dispatch_after( time, dispatch_get_main_queue() ) {
             self.firstLine.addAnimation( self.opacityLineAnimation, forKey: "strokeColor" )

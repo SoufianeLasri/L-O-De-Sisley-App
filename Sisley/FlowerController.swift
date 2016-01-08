@@ -17,6 +17,7 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
     var sharingMenuButton: SharingMenuButton!
     var webView: CustomWebView!
     var launchQuizButton: UIButton!
+    var updateFlowerLabel: UILabel!
     var testFinished: Bool = false
     
     override func viewDidLoad() {
@@ -50,6 +51,15 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
         self.view.addSubview( self.webView )
         self.view.addSubview( self.titleLabel )
         
+        self.updateFlowerLabel = UILabel( frame: CGRect( x: 0, y: 155, width: self.view.frame.width, height: 80 ) )
+        self.updateFlowerLabel.text = "Actualiser\nma fleur"
+        self.updateFlowerLabel.font = UIFont( name: "Santana-Bold", size: 26.0 )
+        self.updateFlowerLabel.numberOfLines = 2
+        self.updateFlowerLabel.textAlignment = .Center
+        self.updateFlowerLabel.textColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 )
+        self.updateFlowerLabel.alpha = 0.0
+        self.view.addSubview( self.updateFlowerLabel )
+        
         self.launchQuizButton = UIButton( frame: CGRect( x: 0, y: 0, width: 300, height: 300 ) )
         self.launchQuizButton.center.x = self.view.center.x
         self.launchQuizButton.frame.origin.y = self.view.frame.height - 370
@@ -65,10 +75,12 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
         self.view.addSubview( sharingView )
         
         self.titleLabel.alpha = 0.0
+        self.updateFlowerLabel.alpha = 0.0
     }
     
     override func viewDidAppear(animated: Bool) {
         UIView.animateWithDuration( 0.5, animations: {
+            self.webView.alpha = 1.0
             self.hideUserInterface( false )
         } )
     }
@@ -81,6 +93,8 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
             
             UIView.animateWithDuration( 0.5, animations: {
                 self.hideUserInterface( true )
+                self.updateFlowerLabel.alpha = 0.0
+                self.updateFlowerLabel.frame.origin.y += 5
             }, completion: { finished in
                 let storyboard: UIStoryboard = UIStoryboard( name: "Quiz", bundle: nil )
                 let vc = storyboard.instantiateViewControllerWithIdentifier( "QuizPage" ) as! QuizController
@@ -122,32 +136,30 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
             self.titleLabel.alpha = 0.0
             self.navigationMenuButton.frame.origin.y = self.view.frame.height + 70
             self.sharingMenuButton.frame.origin.y = self.view.frame.height + 70
-            self.webView.alpha = 0.0
         } else {
             self.titleLabel.alpha = 1.0
             self.navigationMenuButton.frame.origin.y = self.view.frame.height - 70
             self.sharingMenuButton.frame.origin.y = self.view.frame.height - 70
-            self.webView.alpha = 1.0
         }
     }
     
     func launchRegeneration() {
-        let goToShopLabel = UILabel( frame: CGRect( x: 0, y: 155, width: self.view.frame.width, height: 80 ) )
-        goToShopLabel.text = "Régénération\nen cours"
-        goToShopLabel.font = UIFont( name: "Santana-Bold", size: 26.0 )
-        goToShopLabel.numberOfLines = 2
-        goToShopLabel.textAlignment = .Center
-        goToShopLabel.textColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 )
-        goToShopLabel.alpha = 0.0
-        self.view.addSubview( goToShopLabel )
+        let regenerationLabel = UILabel( frame: CGRect( x: 0, y: 155, width: self.view.frame.width, height: 80 ) )
+        regenerationLabel.text = "Régénération\nen cours"
+        regenerationLabel.font = UIFont( name: "Santana-Bold", size: 26.0 )
+        regenerationLabel.numberOfLines = 2
+        regenerationLabel.textAlignment = .Center
+        regenerationLabel.textColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 )
+        regenerationLabel.alpha = 0.0
+        self.view.addSubview( regenerationLabel )
         
         let blurEffectView = BluryView( frame: CGRect( x: 40, y: self.view.frame.height / 2 - 27, width: self.view.frame.width - 80, height: self.view.frame.width - 80 ) )
         blurEffectView.alpha = 0.0
         self.view.insertSubview( blurEffectView, aboveSubview: self.webView )
         
         UIView.animateWithDuration( 0.5, delay: 0.7, options: .TransitionNone, animations: {
-            goToShopLabel.alpha = 1.0
-            goToShopLabel.frame.origin.y -= 5
+            regenerationLabel.alpha = 1.0
+            regenerationLabel.frame.origin.y -= 5
             blurEffectView.alpha = 1.0
         }, completion: nil )
     }
@@ -174,6 +186,11 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
                 self.callToAction.addAnimation( fillColorAnimation, forKey: "fillColor" )
             
                 self.launchQuizButton.enabled = true
+                
+                UIView.animateWithDuration( 0.5, animations: {
+                    self.updateFlowerLabel.alpha = 1.0
+                    self.updateFlowerLabel.frame.origin.y -= 5
+                } )
             }
         }
     }
@@ -181,6 +198,7 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
     func navigationButtonTapped( type: String ) {
         if type == "cures" {
             UIView.animateWithDuration( 0.5, animations: {
+                self.webView.alpha = 0.0
                 self.navigationView.alpha = 0.0
                 self.hideUserInterface( true )
             }, completion: { finished in
@@ -193,6 +211,7 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
         
         if type == "history" {
             UIView.animateWithDuration( 0.5, animations: {
+                self.webView.alpha = 0.0
                 self.navigationView.alpha = 0.0
                 self.hideUserInterface( true )
             }, completion: { finished in

@@ -91,7 +91,7 @@ class TipsController: UIViewController, SliderTipsViewDelegate, ActivityViewDele
         
         let secondData = [
             "header": [
-                "title": "Notre sélection cocooning"
+                "title": "Notre sélection découverte"
             ],
             "etiquette": [
                 "mainText": "Crème hydratante",
