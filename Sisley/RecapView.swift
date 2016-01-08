@@ -55,22 +55,22 @@ class RecapView: UIView {
         for item in items {
             item.alpha = 0.0
             
-            UIView.animateWithDuration( 3.0, delay: delay, options: .CurveLinear, animations: {
+            UIView.animateWithDuration( 4.0, delay: delay, options: .CurveLinear, animations: {
                 item.frame.origin.y -= 160
             }, completion: nil )
             
-            UIView.animateWithDuration( 0.5, delay: delay + 0.5, options: .TransitionNone, animations: {
+            UIView.animateWithDuration( 1.5, delay: delay + 0.5, options: .TransitionNone, animations: {
                 item.alpha = 1.0
             }, completion: { finished in
-                UIView.animateWithDuration( 0.5, delay: 1.5, options: .TransitionNone, animations: {
+                UIView.animateWithDuration( 1.5, delay: 0.0, options: .TransitionNone, animations: {
                     item.alpha = 0.0
                 }, completion: nil )
             } )
             
-            delay += 2.0
+            delay += 2.5
         }
         
-        let chrono = 9.0 * Double( NSEC_PER_SEC )
+        let chrono = 9.5 * Double( NSEC_PER_SEC )
         let time = dispatch_time( DISPATCH_TIME_NOW, Int64( chrono ) )
         dispatch_after( time, dispatch_get_main_queue() ) {
             self.delegate?.hideRecapView()

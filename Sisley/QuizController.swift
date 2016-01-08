@@ -107,9 +107,12 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
         validateButton.center = CGPoint( x: self.view.center.x, y: self.view.frame.height - 50 )
         let validateTap = UITapGestureRecognizer( target: self, action: "hideView:" )
         validateButton.addGestureRecognizer( validateTap )
+        
         self.tutorialView = TutorialView( frame: CGRect( x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height ) )
         self.tutorialView.addSubview( validateButton )
         self.view.addSubview( self.tutorialView )
+        
+        self.view.alpha = 0.0
     }
     
     func hideView( recognizer: UITapGestureRecognizer ) {
@@ -118,12 +121,15 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
                 self.tutorialView.alpha = 0.0
             }, completion: { finished in
                 self.tutorialView.hidden = true
+                self.nextQuestion()
             } )
         }
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.nextQuestion()
+        UIView.animateWithDuration( 0.5, animations: {
+            self.view.alpha = 1.0
+        } )
     }
     
     func nextQuestion() {
@@ -159,7 +165,12 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
             self.index++
             if self.index > self.questions.count - 1 {
                 self.delegate?.buildFlowerWithParams( self.answers, text: self.selectedAnswersText )
-                self.dismissViewControllerAnimated( false, completion: {} )
+                
+                UIView.animateWithDuration( 0.5, animations: {
+                    self.view.alpha = 0.0
+                }, completion: { finished in
+                    self.dismissViewControllerAnimated( false, completion: {} )
+                } )
             } else {
                 self.nextQuestion()
             }

@@ -187,11 +187,23 @@ class TipsController: UIViewController, SliderTipsViewDelegate, ActivityViewDele
         self.view.addSubview( self.thirdActivityView )
         self.view.addSubview( self.secondActivityView )
         self.view.addSubview( self.firstActivityView )
+        
+        self.view.alpha = 0.0
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration( 0.5, animations: {
+            self.view.alpha = 1.0
+        } )
     }
     
     func validateActivity() {
         self.delegate?.launchRegeneration()
-        self.dismissViewControllerAnimated( false, completion: {} )
+        UIView.animateWithDuration( 0.5, animations: {
+            self.view.alpha = 0.0
+        }, completion: { finished in
+            self.dismissViewControllerAnimated( false, completion: {} )
+        } )
     }
     
     func getValue( value: Double ) {

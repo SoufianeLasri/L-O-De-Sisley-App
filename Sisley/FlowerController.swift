@@ -128,16 +128,24 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
     }
     
     func launchRegeneration() {
-        let goToShopLabel = UILabel( frame: CGRect( x: 0, y: 150, width: self.view.frame.width, height: 80 ) )
+        let goToShopLabel = UILabel( frame: CGRect( x: 0, y: 155, width: self.view.frame.width, height: 80 ) )
         goToShopLabel.text = "Régénération\nen cours"
         goToShopLabel.font = UIFont( name: "Santana-Bold", size: 26.0 )
         goToShopLabel.numberOfLines = 2
         goToShopLabel.textAlignment = .Center
         goToShopLabel.textColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 )
+        goToShopLabel.alpha = 0.0
         self.view.addSubview( goToShopLabel )
         
         let blurEffectView = BluryView( frame: CGRect( x: 40, y: self.view.frame.height / 2 - 27, width: self.view.frame.width - 80, height: self.view.frame.width - 80 ) )
+        blurEffectView.alpha = 0.0
         self.view.insertSubview( blurEffectView, aboveSubview: self.webView )
+        
+        UIView.animateWithDuration( 0.5, delay: 0.7, options: .TransitionNone, animations: {
+            goToShopLabel.alpha = 1.0
+            goToShopLabel.frame.origin.y -= 5
+            blurEffectView.alpha = 1.0
+        }, completion: nil )
     }
     
     func listenTransitionState( params: [ String: String ] ) {
