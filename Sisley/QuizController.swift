@@ -69,14 +69,13 @@ class QuizController: UIViewController, CustomSliderViewDelegate {
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "Béat", "Enthousiaste", "Optimiste", "Joyeuse", "Ravie", "Inquiète", "Triste", "Tourmentée", "Perplexe", "Déprimée", "Déprimée" ]
-            ],
+                "Answers": [ "Hyper-active", "Excitée", "Dynamique", "Vive", "Éveillée", "Endormie", "Absente", "Abattue", "Épuisée", "Éteint", "Éteint" ]            ],
             [
-                "Question": "Comment vous\nsentez vous ?",
+                "Question": "Comment vous\nsentez-vous ?",
                 "Type": "String",
                 "Min": 0.0,
                 "Max": 10.0,
-                "Answers": [ "Hyper-active", "Excitée", "Dynamique", "Vive", "Éveillée", "Endormie", "Absente", "Abattue", "Épuisée", "Éteint", "Éteint" ]
+                "Answers": [ "Béat", "Enthousiaste", "Optimiste", "Joyeuse", "Ravie", "Inquiète", "Triste", "Tourmentée", "Perplexe", "Déprimée", "Déprimée" ]
             ]
         ]
     
