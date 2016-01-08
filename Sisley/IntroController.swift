@@ -119,6 +119,7 @@ class IntroController: UIViewController {
                 self.subtitleText.alpha = 0.0
                 self.line.opacity = 0.0
                 self.tipDetails.alpha = 0.0
+                self.nextButton.alpha = 0.0
             }, completion: { finished in
                 self.performSegueWithIdentifier( "goToConnexion", sender: nil )
             } )

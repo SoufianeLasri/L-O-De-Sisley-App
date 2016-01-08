@@ -10,9 +10,10 @@ import UIKit
 
 class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebViewDelegate, RecapViewDelegate, NavigationViewDelegate {
     
-    var titleLabel: UILabel!
+    var titleLabel: CustomTitle!
     var callToAction: CAShapeLayer!
     var navigationMenuButton: NavigationMenuButton!
+    var navigationView: NavigationView!
     var sharingMenuButton: SharingMenuButton!
     var webView: CustomWebView!
     var launchQuizButton: UIButton!
@@ -29,9 +30,9 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
         self.titleLabel.textAlignment = .Center
         self.titleLabel.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1.0 )
         
-        let navigationView = NavigationView( frame: self.view.frame )
-        navigationView.delegate = self
-        self.navigationMenuButton = NavigationMenuButton( frame: CGRect( x: 25, y: self.view.frame.height + 75, width: 50, height: 50 ), menuView: navigationView )
+        self.navigationView = NavigationView( frame: self.view.frame )
+        self.navigationView.delegate = self
+        self.navigationMenuButton = NavigationMenuButton( frame: CGRect( x: 25, y: self.view.frame.height + 75, width: 50, height: 50 ), menuView: self.navigationView )
         
         let sharingView = SharingView( frame: self.view.frame )
         self.sharingMenuButton = SharingMenuButton( frame: CGRect( x: self.view.frame.width - 75, y: self.view.frame.height + 75, width: 50, height: 50 ), menuView: sharingView )
@@ -59,15 +60,16 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
         self.view.addSubview( self.launchQuizButton )
         
         self.view.addSubview( self.sharingMenuButton )
-        self.view.addSubview( navigationView )
+        self.view.addSubview( self.navigationView )
         self.view.addSubview( self.navigationMenuButton )
         self.view.addSubview( sharingView )
+        
+        self.titleLabel.alpha = 0.0
     }
     
     override func viewDidAppear(animated: Bool) {
         UIView.animateWithDuration( 0.5, animations: {
-            self.navigationMenuButton.frame.origin.y = self.view.frame.height - 70
-            self.sharingMenuButton.frame.origin.y = self.view.frame.height - 70
+            self.hideUserInterface( false )
         } )
     }
     
@@ -120,10 +122,12 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
             self.titleLabel.alpha = 0.0
             self.navigationMenuButton.frame.origin.y = self.view.frame.height + 70
             self.sharingMenuButton.frame.origin.y = self.view.frame.height + 70
+            self.webView.alpha = 0.0
         } else {
             self.titleLabel.alpha = 1.0
             self.navigationMenuButton.frame.origin.y = self.view.frame.height - 70
             self.sharingMenuButton.frame.origin.y = self.view.frame.height - 70
+            self.webView.alpha = 1.0
         }
     }
     
@@ -176,17 +180,27 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
     
     func navigationButtonTapped( type: String ) {
         if type == "cures" {
-            let storyboard: UIStoryboard = UIStoryboard( name: "Cures", bundle: nil )
-            let vc = storyboard.instantiateViewControllerWithIdentifier( "CuresPage" ) as! CuresController
-            self.navigationController?.pushViewController(vc, animated: false)
-//            self.presentViewController( vc, animated: false, completion: nil )
+            UIView.animateWithDuration( 0.5, animations: {
+                self.navigationView.alpha = 0.0
+                self.hideUserInterface( true )
+            }, completion: { finished in
+                let storyboard: UIStoryboard = UIStoryboard( name: "Cures", bundle: nil )
+                let vc = storyboard.instantiateViewControllerWithIdentifier( "CuresPage" ) as! CuresController
+                self.navigationController?.pushViewController(vc, animated: false)
+//              self.presentViewController( vc, animated: false, completion: nil )
+            } )
         }
         
         if type == "history" {
-            let storyboard: UIStoryboard = UIStoryboard( name: "History", bundle: nil )
-            let vc = storyboard.instantiateViewControllerWithIdentifier( "HistoryPage" ) as! HistoryController
-            self.navigationController?.pushViewController(vc, animated: false)
-//            self.presentViewController( vc, animated: false, completion: nil )
+            UIView.animateWithDuration( 0.5, animations: {
+                self.navigationView.alpha = 0.0
+                self.hideUserInterface( true )
+            }, completion: { finished in
+                let storyboard: UIStoryboard = UIStoryboard( name: "History", bundle: nil )
+                let vc = storyboard.instantiateViewControllerWithIdentifier( "HistoryPage" ) as! HistoryController
+                self.navigationController?.pushViewController(vc, animated: false)
+//              self.presentViewController( vc, animated: false, completion: nil )
+            } )
         }
     }
     

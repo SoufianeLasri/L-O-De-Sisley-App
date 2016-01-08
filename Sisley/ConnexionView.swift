@@ -21,6 +21,7 @@ class ConnexionController: UIViewController {
     var validateButton: ValidateButton!
     var passwordForgottenLabel: UILabel!
     var createAccountLabel: UILabel!
+    var opacityLineAnimation: CABasicAnimation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,7 @@ class ConnexionController: UIViewController {
         self.firstLine.path = firstLinePath.CGPath
         self.firstLine.lineWidth = 1.0
         self.firstLine.lineCap = kCALineJoinRound
-        self.firstLine.strokeColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ).CGColor
+        self.firstLine.strokeColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 0.0 ).CGColor
         self.view.layer.addSublayer( self.firstLine )
         
         self.passwordLabel = UILabel( frame: CGRect( x: 60, y: 385, width: self.view.frame.width, height: 30 ) )
@@ -77,7 +78,7 @@ class ConnexionController: UIViewController {
         self.secondLine.path = secondLinePath.CGPath
         self.secondLine.lineWidth = 1.0
         self.secondLine.lineCap = kCALineJoinRound
-        self.secondLine.strokeColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ).CGColor
+        self.secondLine.strokeColor = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 0.0 ).CGColor
         self.view.layer.addSublayer( self.secondLine )
         
         self.facebookConnectButton = SharingButton( frame: CGRect( x: 0, y: 0, width: 50, height: 50 ), imageName: "facebook.png"  )
@@ -115,13 +116,17 @@ class ConnexionController: UIViewController {
         self.createAccountLabel.alpha = 0.6
         self.view.addSubview( self.createAccountLabel )
         
+        self.opacityLineAnimation                     = CABasicAnimation( keyPath: "strokeColor" )
+        self.opacityLineAnimation.fromValue           = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 0.0 ).CGColor
+        self.opacityLineAnimation.toValue             = UIColor( red: 0.36, green: 0.37, blue: 0.54, alpha: 1.0 ).CGColor
+        self.opacityLineAnimation.duration            = 0.5
+        self.opacityLineAnimation.repeatCount         = 0
+        self.opacityLineAnimation.removedOnCompletion = false
+        self.opacityLineAnimation.fillMode            = kCAFillModeBoth
+        
         self.customTitle.alpha = 0.0
-//        self.imageView.alpha = 0.0
-//        self.appName.alpha = 0.0
         self.mailLabel.alpha = 0.0
-        self.firstLine.opacity = 0.0
         self.passwordLabel.alpha = 0.0
-        self.secondLine.opacity = 0.0
         self.facebookConnectButton.alpha = 0.0
         self.validateButton.alpha = 0.0
         self.passwordForgottenLabel.alpha = 0.0
@@ -129,14 +134,20 @@ class ConnexionController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        let chrono = 0.3 * Double( NSEC_PER_SEC )
+        let time = dispatch_time( DISPATCH_TIME_NOW, Int64( chrono ) )
+        dispatch_after( time, dispatch_get_main_queue() ) {
+            self.firstLine.addAnimation( self.opacityLineAnimation, forKey: "strokeColor" )
+            self.secondLine.addAnimation( self.opacityLineAnimation, forKey: "strokeColor" )
+        }
+        
         UIView.animateWithDuration( 0.5, delay: 0.5, options: .TransitionNone, animations: {
             self.customTitle.alpha = 1.0
             self.imageView.alpha = 1.0
             self.appName.alpha = 1.0
             self.mailLabel.alpha = 1.0
-            self.firstLine.opacity = 1.0
             self.passwordLabel.alpha = 1.0
-            self.secondLine.opacity = 1.0
             self.facebookConnectButton.alpha = 1.0
             self.facebookConnectButton.frame.origin.y -= 5.0
             self.validateButton.alpha = 1.0
@@ -164,7 +175,7 @@ class ConnexionController: UIViewController {
                 let storyboard: UIStoryboard = UIStoryboard( name: "Flower", bundle: nil )
                 let vc = storyboard.instantiateViewControllerWithIdentifier( "FlowerPage" ) as! FlowerController
                 self.navigationController?.pushViewController(vc, animated: false)
-                //            self.presentViewController( vc, animated: false, completion: nil )
+//                self.presentViewController( vc, animated: false, completion: nil )
             } )
         }
     }

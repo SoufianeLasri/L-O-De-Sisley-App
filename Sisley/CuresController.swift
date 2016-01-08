@@ -10,7 +10,9 @@ import UIKit
 
 class CuresController: UIViewController, NavigationViewDelegate, CuresActivityDelegate {
     
+    var titleLabel: CustomTitle!
     var navigationMenuButton: NavigationMenuButton!
+    var navigationView: NavigationView!
     var scrollView: CustomScrollView!
     var activityView: CuresActivityView!
     
@@ -19,12 +21,12 @@ class CuresController: UIViewController, NavigationViewDelegate, CuresActivityDe
         
         self.view.backgroundColor = UIColor( red: 1.0, green: 0.98, blue: 0.96, alpha: 1.0 )
         
-        let title = CustomTitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1.0 ) )
-        title.text = "Mes soins Sisley"
-        title.font = UIFont( name: "Santana", size: 20.0 )
-        title.textAlignment = .Center
-        title.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1.0 )
-        self.view.addSubview( title )
+        self.titleLabel = CustomTitle( frame: CGRect( x: 0, y: 30, width: self.view.frame.width, height: 30 ), color: UIColor( red: 0.36, green: 0.37, blue: 0.53, alpha: 1.0 ) )
+        self.titleLabel.text = "Mes soins Sisley"
+        self.titleLabel.font = UIFont( name: "Santana", size: 20.0 )
+        self.titleLabel.textAlignment = .Center
+        self.titleLabel.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1.0 )
+        self.view.addSubview( self.titleLabel )
         
         self.scrollView = CustomScrollView( frame: CGRect( x: 0, y: 90, width: self.view.frame.width, height: self.view.frame.height - 180 ) )
         self.view.addSubview( self.scrollView )
@@ -77,11 +79,34 @@ class CuresController: UIViewController, NavigationViewDelegate, CuresActivityDe
         let firstActivityTap = UITapGestureRecognizer( target: self, action: "firstActivityTap:" )
         scrollView.creme.addGestureRecognizer( firstActivityTap )
         
-        let navigationView = NavigationView( frame: self.view.frame )
-        navigationView.delegate = self
-        self.navigationMenuButton = NavigationMenuButton( frame: CGRect( x: 25, y: self.view.frame.height - 70, width: 50, height: 50 ), menuView: navigationView )
-        self.view.addSubview( navigationView )
+        self.navigationView = NavigationView( frame: self.view.frame )
+        self.navigationView.delegate = self
+        self.navigationMenuButton = NavigationMenuButton( frame: CGRect( x: 25, y: self.view.frame.height + 70, width: 50, height: 50 ), menuView: self.navigationView )
+        self.view.addSubview( self.navigationView )
         self.view.addSubview( self.navigationMenuButton )
+        
+        self.titleLabel.alpha = 0.0
+        self.scrollView.alpha = 0.0
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration( 0.5, animations: {
+            self.hideUserInterface( false )
+        } )
+    }
+    
+    func hideUserInterface( state: Bool ) {
+        if state == true {
+            self.titleLabel.alpha = 0.0
+            self.scrollView.alpha = 0.0
+            self.activityView.alpha = 0.0
+            self.navigationMenuButton.frame.origin.y = self.view.frame.height + 70
+        } else {
+            self.titleLabel.alpha = 1.0
+            self.scrollView.alpha = 1.0
+            self.activityView.alpha = 1.0
+            self.navigationMenuButton.frame.origin.y = self.view.frame.height - 70
+        }
     }
     
     func firstActivityTap( sender: UITapGestureRecognizer ) {
@@ -102,17 +127,32 @@ class CuresController: UIViewController, NavigationViewDelegate, CuresActivityDe
     
     func navigationButtonTapped( type: String ) {
         if type == "flower" {
-            let storyboard: UIStoryboard = UIStoryboard( name: "Flower", bundle: nil )
-            let vc = storyboard.instantiateViewControllerWithIdentifier( "FlowerPage" ) as! FlowerController
-            self.navigationController?.pushViewController(vc, animated: false)
-//            self.presentViewController( vc, animated: false, completion: nil )
+            UIView.animateWithDuration( 0.5, animations: {
+                self.navigationView.alpha = 0.0
+                self.hideUserInterface( true )
+            }, completion: { finished in
+                let storyboard: UIStoryboard = UIStoryboard( name: "Flower", bundle: nil )
+                let vc = storyboard.instantiateViewControllerWithIdentifier( "FlowerPage" ) as! FlowerController
+                self.navigationController?.pushViewController(vc, animated: false)
+//              self.presentViewController( vc, animated: false, completion: nil )
+            } )
         }
         
         if type == "history" {
-            let storyboard: UIStoryboard = UIStoryboard( name: "History", bundle: nil )
-            let vc = storyboard.instantiateViewControllerWithIdentifier( "HistoryPage" ) as! HistoryController
-            self.navigationController?.pushViewController(vc, animated: false)
-//            self.presentViewController( vc, animated: false, completion: nil )
+            UIView.animateWithDuration( 0.5, animations: {
+                self.navigationView.alpha = 0.0
+                self.hideUserInterface( true )
+            }, completion: { finished in
+                let storyboard: UIStoryboard = UIStoryboard( name: "History", bundle: nil )
+                let vc = storyboard.instantiateViewControllerWithIdentifier( "HistoryPage" ) as! HistoryController
+                self.navigationController?.pushViewController(vc, animated: false)
+//              self.presentViewController( vc, animated: false, completion: nil )
+            } )
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
