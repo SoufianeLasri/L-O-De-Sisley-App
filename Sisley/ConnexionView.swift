@@ -107,7 +107,8 @@ class ConnexionController: UIViewController {
         if recognizer.state == .Ended {
             let storyboard: UIStoryboard = UIStoryboard( name: "Flower", bundle: nil )
             let vc = storyboard.instantiateViewControllerWithIdentifier( "FlowerPage" ) as! FlowerController
-            self.presentViewController( vc, animated: false, completion: nil )
+            self.navigationController?.pushViewController(vc, animated: false)
+//            self.presentViewController( vc, animated: false, completion: nil )
         }
     }
 }

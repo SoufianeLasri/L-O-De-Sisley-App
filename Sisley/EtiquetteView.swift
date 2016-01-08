@@ -33,7 +33,7 @@ class EtiquetteView: UIView {
         
         self.likeButton = LikeButton( frame: CGRect( x: self.frame.width - 35, y: 15, width: 22, height: 22 ) )
         let tapRecognizer = UITapGestureRecognizer( target: self, action: "toggleLike:" )
-        self.likeButton.gestureRecognizers = [ tapRecognizer ]
+        self.likeButton.addGestureRecognizer( tapRecognizer )
         self.addSubview( self.likeButton )
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HistoryController: UIViewController, CustomWebViewDelegate, SliderHistoryViewDelegate {
+class HistoryController: UIViewController, CustomWebViewDelegate, SliderHistoryViewDelegate, NavigationViewDelegate {
     
     var webView: CustomWebView!
     var navigationMenuButton: NavigationMenuButton!
@@ -24,7 +24,8 @@ class HistoryController: UIViewController, CustomWebViewDelegate, SliderHistoryV
         super.viewDidLoad()
         
         self.data = [
-            [ "header": "Le 7 Janvier", "mainText": "Crème hydratante", "secondText": "+ un thé gourmand", "heart" : "false", "stress": "1.0", "tiredness": "1.0", "mood": "10.0" ],
+            [ "header": "Le 8 Janvier", "mainText": "Crème hydratante", "secondText": "+ un thé gourmand", "heart" : "false", "stress": "1.0", "tiredness": "1.0", "mood": "1.0" ],
+            [ "header": "Le 7 Janvier", "mainText": "Crème hydratante", "secondText": "+ un thé gourmand", "heart" : "true", "stress": "1.0", "tiredness": "4.0", "mood": "10.0" ],
             [ "header": "Le 6 Janvier", "mainText": "Eau florale", "secondText": "+ yoga", "heart" : "true", "stress": "10.0", "tiredness": "7.0", "mood": "5.0" ],
             [ "header": "Le 5 Janvier", "mainText": "Lotion pamplemouse", "secondText": "+ un cocktail aux légumes", "heart" : "false", "stress": "5.0", "tiredness": "10.0", "mood": "6.0" ],
             [ "header": "Le 4 Janvier", "mainText": "Masque givre au tilleul", "secondText": "+ une recette de grand-mère", "heart" : "true", "stress": "2.0", "tiredness": "2.0", "mood": "7.0" ],
@@ -76,6 +77,7 @@ class HistoryController: UIViewController, CustomWebViewDelegate, SliderHistoryV
         customSlider.delegate = self
         
         let navigationView = NavigationView( frame: self.view.frame )
+        navigationView.delegate = self
         self.navigationMenuButton = NavigationMenuButton( frame: CGRect( x: 25, y: self.view.frame.height - 70, width: 50, height: 50 ), menuView: navigationView )
         
         let sharingView = SharingView( frame: self.view.frame )
@@ -116,6 +118,19 @@ class HistoryController: UIViewController, CustomWebViewDelegate, SliderHistoryV
         }
         
         self.previousValue = value
+    }
+    
+    func navigationButtonTapped( type: String ) {
+        if type == "cures" {
+            print( "yo" )
+        }
+        
+        if type == "flower" {
+            let storyboard: UIStoryboard = UIStoryboard( name: "Flower", bundle: nil )
+            let vc = storyboard.instantiateViewControllerWithIdentifier( "FlowerPage" ) as! FlowerController
+            self.navigationController?.pushViewController(vc, animated: false)
+//            self.presentViewController( vc, animated: false, completion: nil )
+        }
     }
     
     func listenTransitionState( params: [ String : String ] ) {

@@ -7,7 +7,7 @@
         <!--History Controller-->
         <scene sceneID="d0H-aS-rHQ">
             <objects>
-                <viewController id="5bc-sI-fJr" customClass="HistoryController" customModule="Sisley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5bc-sI-fJr" customClass="HistoryController" customModule="Sisley" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QOt-S6-mia"/>
                         <viewControllerLayoutGuide type="bottom" id="ZZt-kv-MVN"/>

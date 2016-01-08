@@ -53,7 +53,7 @@ class NavigationMenuButton: UIButton {
         self.strokeColorAnimation.fillMode  = kCAFillModeBoth
         
         let tapRecognizer = UITapGestureRecognizer( target: self, action: "openNavigationMenu:" )
-        self.gestureRecognizers = [ tapRecognizer ]
+        self.addGestureRecognizer( tapRecognizer )
     }
     
     func openNavigationMenu( recognizer: UITapGestureRecognizer ) {

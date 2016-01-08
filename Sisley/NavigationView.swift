@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol NavigationViewDelegate: class {
+    func navigationButtonTapped( type: String )
+}
+
 class NavigationView: UIView {
     
-//    var navigationMenuButton: NavigationMenuButton = NavigationMenuButton()
     var openingState: Bool = false
     var buttons: [ NavigationButton ] = []
     var items: [ [ String: String ] ] = []
+    var delegate: NavigationViewDelegate?
     
     override init( frame: CGRect ) {
         super.init( frame: frame )
@@ -41,13 +45,28 @@ class NavigationView: UIView {
             self.addSubview( button )
         }
         
+        let openCures = UITapGestureRecognizer( target: self, action: "openCures:" )
+        self.buttons[ 0 ].addGestureRecognizer( openCures )
+        
+        let openEvolution = UITapGestureRecognizer( target: self, action: "openEvolution:" )
+        self.buttons[ 1 ].addGestureRecognizer( openEvolution )
+        
+        let openFlower = UITapGestureRecognizer( target: self, action: "openFlower:" )
+        self.buttons[ 2 ].addGestureRecognizer( openFlower )
+        
         self.hidden = true
     }
-
-    func detectTap( recognizer: UITapGestureRecognizer ) {
-        if recognizer.state == .Ended {
-            toggleNavigationMenu()
-        }
+    
+    func openCures( sender: UITapGestureRecognizer ) {
+        self.delegate?.navigationButtonTapped( "cures" )
+    }
+    
+    func openEvolution( sender: UITapGestureRecognizer ) {
+        self.delegate?.navigationButtonTapped( "history" )
+    }
+    
+    func openFlower( sender: UITapGestureRecognizer ) {
+        self.delegate?.navigationButtonTapped( "flower" )
     }
     
     func toggleNavigationMenu() {

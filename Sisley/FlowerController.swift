@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebViewDelegate, RecapViewDelegate {
+class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebViewDelegate, RecapViewDelegate, NavigationViewDelegate {
     
     var titleLabel: UILabel!
     var callToAction: CAShapeLayer!
@@ -30,6 +30,7 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
         self.titleLabel.textColor = UIColor( red: 0.46, green: 0.51, blue: 0.66, alpha: 1.0 )
         
         let navigationView = NavigationView( frame: self.view.frame )
+        navigationView.delegate = self
         self.navigationMenuButton = NavigationMenuButton( frame: CGRect( x: 25, y: self.view.frame.height + 75, width: 50, height: 50 ), menuView: navigationView )
         
         let sharingView = SharingView( frame: self.view.frame )
@@ -162,6 +163,19 @@ class FlowerController: UIViewController, QuizDelegate, TipsDelegate, CustomWebV
             
                 self.launchQuizButton.enabled = true
             }
+        }
+    }
+    
+    func navigationButtonTapped( type: String ) {
+        if type == "cures" {
+            print( "yo" )
+        }
+        
+        if type == "history" {
+            let storyboard: UIStoryboard = UIStoryboard( name: "History", bundle: nil )
+            let vc = storyboard.instantiateViewControllerWithIdentifier( "HistoryPage" ) as! HistoryController
+            self.navigationController?.pushViewController(vc, animated: false)
+//            self.presentViewController( vc, animated: false, completion: nil )
         }
     }
     
