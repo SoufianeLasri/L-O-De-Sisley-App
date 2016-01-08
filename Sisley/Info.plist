@@ -46,7 +46,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>connectedUser</key>
-	<string>jerem</string>
+	<key>CFBundleDisplayName</key>
+	<string>L&apos;O de Sisley</string>
 </dict>
 </plist>
