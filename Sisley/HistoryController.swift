@@ -29,7 +29,7 @@ class HistoryController: UIViewController, CustomWebViewDelegate, SliderHistoryV
         
         self.data = [
             [ "header": "Le 8 Janvier", "mainText": "Crème hydratante", "secondText": "+ un thé gourmand", "heart" : "false", "stress": "1.0", "tiredness": "1.0", "mood": "1.0" ],
-            [ "header": "Le 7 Janvier", "mainText": "Masque givre au tilleul", "secondText": "+ une recette de grand-mère", "heart" : "true", "stress": "0.0", "tiredness": "5.0", "mood": "9.0" ],
+            [ "header": "Le 7 Janvier", "mainText": "Masque givre au tilleul", "secondText": "+ une recette de grand-mère", "heart" : "true", "stress": "0.0", "tiredness": "4.0", "mood": "9.0" ],
             [ "header": "Le 6 Janvier", "mainText": "Eau florale", "secondText": "+ yoga", "heart" : "true", "stress": "10.0", "tiredness": "7.0", "mood": "5.0" ],
             [ "header": "Le 5 Janvier", "mainText": "Lotion pamplemouse", "secondText": "+ un cocktail aux légumes", "heart" : "false", "stress": "5.0", "tiredness": "10.0", "mood": "6.0" ],
             [ "header": "Le 4 Janvier", "mainText": "Crème hydratante", "secondText": "+ un thé gourmand", "heart" : "true", "stress": "10.0", "tiredness": "2.0", "mood": "7.0" ]
@@ -105,34 +105,36 @@ class HistoryController: UIViewController, CustomWebViewDelegate, SliderHistoryV
     }
     
     func getValue( value: Int ) {
-        if value > self.previousValue || value == self.previousValue {
+        if value > self.previousValue {
             self.direction = true
         } else {
             self.direction = false
         }
         
-        if self.idle == true {
-            self.idle = false
+        if value != self.previousValue {
+            if self.idle == true {
+                self.idle = false
             
-            if self.direction == true {
-                if self.index != self.data.count - 1 {
-                    self.index++
+                if self.direction == true {
+                    if self.index != self.data.count - 1 {
+                        self.index++
+                    }
+                } else {
+                    if self.index != 0 {
+                        self.index--
+                    }
                 }
-            } else {
-                if self.index != 0 {
-                    self.index--
-                }
+            
+                self.webView.buildFlowerWithParams( CGFloat( self.formatter.numberFromString( self.data[ self.index ][ "stress" ]! )! ), tiredness: CGFloat( self.formatter.numberFromString( self.data[ self.index ][ "tiredness" ]! )! ), mood: CGFloat( self.formatter.numberFromString( self.data[ self.index ][ "mood" ]! )! ) )
+            
+                self.activityView.header.title.text = self.data[ self.index ][ "header" ]
+                self.activityView.etiquette.title.text = self.data[ self.index ][ "mainText" ]
+                self.activityView.etiquette.subtitle.text = self.data[ self.index ][ "secondText" ]
+                self.activityView.etiquette.toggleHeart( self.data[ self.index ][ "heart" ]! )
             }
-            
-            self.webView.buildFlowerWithParams( CGFloat( self.formatter.numberFromString( self.data[ self.index ][ "stress" ]! )! ), tiredness: CGFloat( self.formatter.numberFromString( self.data[ self.index ][ "tiredness" ]! )! ), mood: CGFloat( self.formatter.numberFromString( self.data[ self.index ][ "mood" ]! )! ) )
-            
-            self.activityView.header.title.text = self.data[ self.index ][ "header" ]
-            self.activityView.etiquette.title.text = self.data[ self.index ][ "mainText" ]
-            self.activityView.etiquette.subtitle.text = self.data[ self.index ][ "secondText" ]
-            self.activityView.etiquette.toggleHeart( self.data[ self.index ][ "heart" ]! )
-        }
         
-        self.previousValue = value
+            self.previousValue = value
+        }
     }
     
     func hideUserInterface( state: Bool ) {
